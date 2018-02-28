@@ -1,7 +1,6 @@
 cm_back_homepage:
     path:     /back
-    controller:
-        App\Controller\Default::index
+    controller: App\Controller\Default::index
 
 cm_back_learn_list:
     path:     /back/learn
@@ -10,5 +9,39 @@ cm_back_learn_list:
 cm_back_learn_single:
     path:    /back/learn/{id}
     controller:   App\Controller\LearnController::singleAction
+    requirements:
+       id: \d+
+
+cm_back_bio:
+    path:    /back/bio
+    controller:   App\Controller\BioController::defaultAction
+
+cm_back_irl_list:
+    path:    /back/irl
+    controller:   App\Controller\IrlController::listAction
+
+cm_back_irl_single:
+    path:    /back/irl/{id}
+    controller:   App\Controller\IrlController::singleAction
+    requirements:
+       id: \d+
+
+cm_back_message_list:
+    path:    /back/message
+    controller:   App\Controller\MessageController::listAction
+
+cm_back_message_single:
+    path:    /back/message/{id}
+    controller:   App\Controller\MessageController::singleAction
+    requirements:
+       id: \d+
+
+cm_back_technology_list:
+    path:    /back/technology
+    controller:   App\Controller\TechnologyController::listAction
+
+cm_back_technology_single:
+    path:    /back/technology/{id}
+    controller:   App\Controller\MessageController::singleAction
     requirements:
        id: \d+
