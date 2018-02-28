@@ -1,3 +1,14 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+cm_back_homepage:
+    path:     /back
+    controller:
+        App\Controller\Default::index
+
+cm_back_learn_list:
+    path:     /back/learn
+    controller: App\Controller\LearnController::listAction
+
+cm_back_learn_single:
+    path:    /back/learn/{id}
+    controller:   App\Controller\LearnController::singleAction
+    requirements:
+       id: \d+
