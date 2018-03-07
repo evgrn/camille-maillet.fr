@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use App\Repository\TechnologyRepository;
 
 class ProductionType extends AbstractType
 {
@@ -36,7 +37,10 @@ class ProductionType extends AbstractType
             ->add('technologies', EntityType::class, array(
                 'class'         => 'App:Technology',
                 'choice_label'  => 'name',
-                'multiple'      => true
+                'multiple'      => true,
+                'query_builder' => function(TechnologyRepository $repository){
+                    return $repository->getAllMasteredAndPublished();
+                }
             ))
             ->add('submit', SubmitType::class)
         ;

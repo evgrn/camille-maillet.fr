@@ -16,7 +16,7 @@ class BioType extends AbstractType
     {
         $builder
             ->add('content', TextareaType::class)
-            ->add('image', FileType::class)
+            ->add('image', FileType::class, array('required' => false))
 
             ->add('submit', SubmitType::class)
         ;

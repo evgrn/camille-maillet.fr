@@ -20,14 +20,11 @@ class TechnologyRepository extends ServiceEntityRepository
     }
 
 
-    public function findWithCategory($id)
+    public function getAllMasteredAndPublished()
     {
         return $this->createQueryBuilder('t')
-            ->where('t.id = :id')->setParameter('id', $id)
-            ->orderBy('t.id', 'DESC')
-            ->innerJoin('a.category', 'c')
-            ->getQuery()
-            ->getResult()
+            ->where('t.mastered = :mastered')->setParameter('mastered', true)
+            ->andWhere('t.published = :published')->setParameter('published', true)
         ;
     }
 

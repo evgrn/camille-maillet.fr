@@ -1,0 +1,120 @@
+{% extends 'Back/layout.html.twig' %}
+
+{% block title %}Liste des technologies - {{ parent() }} {% endblock %}
+
+{% block main %}
+    <div class="row">
+        <a href="{{ path('cm_back_technology_add') }}" class="btn btn-success btn-lg">Ajouter une technologie</a>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <section id="mastered-technologies" class="row">
+                <table class="table">
+                    <caption>Technologies maîtrisées</caption>
+                    <thead>
+                    <tr>
+                        <td>Image</td>
+                        <td>Nom</td>
+                        <td>Catégorie</td>
+                        <td>Stack</td>
+                        <td>Description</td>
+                        <td>Statut</td>
+                        <td>Actions</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for technology in masteredTechnologies %}
+                        {{ include('Back/Technology/list-array.html.twig') }}
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </section>
+
+            <section id="learned-technologies" class="row">
+                <table class="table">
+                    <caption>Technologies à apprendre</caption>
+                    <thead>
+                    <tr>
+                        <td>Image</td>
+                        <td>Nom</td>
+                        <td>Catégorie</td>
+                        <td>Stack</td>
+                        <td>Description</td>
+                        <td>Statut</td>
+                        <td>Actions</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for technology in learnedTechnologies %}
+                        {{ include('Back/Technology/list-array.html.twig') }}
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </section>
+        </div>
+        <div class="col-md-offset-1 col-md-3">
+            <aside id="technology-category-form" class="row form-aside">
+
+                <h3>{% if category.name %}Édition de la catégorie <strong>"{{ category.name }}"</strong>{% else %}Ajout d'une catégorie{% endif %}</h3>
+                <div class="section-content row">
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal col-sm-offset-1 col-sm-10'}}) }}
+                    {{ form_errors(form, {'attr': {'class': 'alert alert-warning'}}) }}
+
+                    <div class="form-group">
+                        {{ form_label(form.name, "Nom", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                        {{ form_errors(form.name) }}
+                        <div class="col-sm-8 input">
+                            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+
+                    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary pull-right'}}) }}
+
+                    {{ form_rest(form) }}
+                    {{ form_end(form) }}
+                </div>
+
+            </aside>
+
+            <aside id="technology-category-list" class="row">
+                <table class="table">
+                    <caption>Catégories de technologie</caption>
+                    <thead>
+                    <tr>
+                        <td>Nom</td>
+                        <td>Technologies liées</td>
+                        <td>Actions</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for category in technologyCategories %}
+                        <tr>
+                            <td class="title-cell">
+                                {{ category.name }}
+                            </td>
+                            <td class="stack-cell">
+                                <ul>
+                                    {% for technology in category.technologies %}<li>{{ technology.name }}</li>{% else %}<span class="not">Aucune</span>{% endfor %}
+                                </ul>
+
+                            </td>
+                            <td class="actions-cell">
+                                <a href="{{ path('cm_back_technology_list', {'id': category.id}) }}" class="btn btn-default">Edt</a>
+                                <a href="{{ path('cm_back_technology_category_delete', {'id': category.id}) }}" class="btn btn-danger">Del</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </aside>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}

@@ -29,20 +29,21 @@ class Production
     /**
      * @var string
      * @ORM\Column(type="string")
+     * @Assert\Url
      */
     private $url;
 
     /**
      * @ORM\Column(type="string")
      *
-     * @Assert\File
+     * @Assert\Image
      */
     private $thumbnail;
 
     /**
      * @ORM\Column(type="string")
      *
-     * @Assert\File
+     * @Assert\Image
      */
     private $image;
 
@@ -136,7 +137,7 @@ class Production
     /**
      * @param string $thumbnail
      */
-    public function setThumbnail($thumbnail): void
+    public function setThumbnail($thumbnail)
     {
         $this->thumbnail = $thumbnail;
     }
@@ -152,7 +153,7 @@ class Production
     /**
      * @param string $image
      */
-    public function setImage($image): void
+    public function setImage($image)
     {
         $this->image = $image;
     }

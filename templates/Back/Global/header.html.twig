@@ -1,0 +1,23 @@
+<div class="head-block">
+    <header>
+        <h1>Ici le header</h1>
+    </header>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <nav class="navbar navbar-default row">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ path('cm_front_home') }}">Camille-Maillet.fr</a>
+            </div>
+            <ul class="nav navbar-nav pull-right">
+                <li class="active"><a href="{{ path('cm_back_dashboard') }}">Dashboard</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="{{ path('cm_back_production_list') }}">Réalisations</a></li>
+                <li><a href="{{ path('cm_back_technology_list') }}">Technologies</a></li>
+                <li><a href="{{ path('cm_back_irl_list') }}">IRL</a></li>
+                <li><a href="{{ path('cm_back_bio') }}">Bio</a></li>
+                <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+            </ul>
+        </nav>
+    {% endif %}
+
+</div>

@@ -1,0 +1,15 @@
+{% extends 'Back/layout.html.twig' %}
+
+{% block title %}Ajouter une réalisation - {{ parent() }}{% endblock %}
+
+{% block main %}
+    <div class="row single-content">
+        <section id="form" class="single-section">
+            <h3 class="single-section-title">Ajouter une réalisation</h3>
+            {{ include('Back/Form/production.html.twig') }}
+        </section>
+
+
+
+    </div>
+{% endblock %}

@@ -268,9 +268,25 @@ form .checkbox{
 
 div#categories{
     background-color: rgba(255, 255, 255, .5);
-    padding-bottom: 50px;
     padding: 30px;
+    /*padding-bottom: 50px;*/
     margin-bottom: 50px;
+}
+
+/*## LOGIN ##*/
+
+section#login{
+    padding: 15px 0;
+    padding-top: 0;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+section#login form{
+    margin-top: 30px;
+}
+section#login .form-group{
+    margin-left: 0;
+    margin-right: 0;
 }
 
 

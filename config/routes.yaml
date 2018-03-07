@@ -1,60 +1,81 @@
+########################### BACK-OFFICE ##############################
+
+cm_front_home:
+   path: /
+   controller: App\Controller\Front\HomeController::indexAction
+
+############################## USERS #################################
+
+login:
+    path: /login
+    defaults:
+        _controller: App\Controller\SecurityController:loginAction
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout
+
+########################### BACK-OFFICE ##############################
+
+# Dashboard #
+
 cm_back_dashboard:
     path:     /back
-    controller: App\Controller\GlobalController::indexAction
+    controller: App\Controller\Back\GlobalController::indexAction
 
-cm_back_learn_list:
-    path:     /back/learn
-    controller: App\Controller\LearnController::listAction
-
-cm_back_learn_single:
-    path:    /back/learn/{id}
-    controller:   App\Controller\LearnController::singleAction
-    requirements:
-       id: \d+
+# Bio #
 
 cm_back_bio:
     path:    /back/bio
-    controller:   App\Controller\BioController::defaultAction
+    controller:   App\Controller\Back\BioController::defaultAction
+
+# Irl #
 
 cm_back_irl_list:
     path:    /back/irl
-    controller:   App\Controller\IrlController::listAction
+    controller:   App\Controller\Back\IrlController::listAction
 
 cm_back_irl_single:
     path:    /back/irl/{id}
-    controller:   App\Controller\IrlController::singleAction
+    controller:   App\Controller\Back\IrlController::singleAction
     requirements:
        id: \d+
 
 cm_back_irl_add:
     path:    /back/irl/add
-    controller:   App\Controller\IrlController::addAction
+    controller:   App\Controller\Back\IrlController::addAction
 
 cm_back_irl_delete:
     path:    /back/irl/delete/{id}
-    controller:   App\Controller\IrlController::deleteAction
+    controller:   App\Controller\Back\IrlController::deleteAction
     requirements:
        id: \d+
 
 cm_back_irl_toggle_published:
     path:    /back/irl/togglepublished/{id}
-    controller:   App\Controller\IrlController::togglePublishedAction
+    controller:   App\Controller\Back\IrlController::togglePublishedAction
     requirements:
        id: \d+
+
+# Messages #
 
 cm_back_message_list:
     path:    /back/message
-    controller:   App\Controller\MessageController::listAction
+    controller:   App\Controller\Back\MessageController::listAction
 
 cm_back_message_single:
     path:    /back/message/{id}
-    controller:   App\Controller\MessageController::singleAction
+    controller:   App\Controller\Back\MessageController::singleAction
     requirements:
        id: \d+
 
+# Technologies #
+
 cm_back_technology_list:
     path:    /back/technologies/{id}
-    controller:   App\Controller\TechnologyController::listAction
+    controller:   App\Controller\Back\TechnologyController::listAction
     requirements:
        id: \d+
     defaults:
@@ -62,43 +83,44 @@ cm_back_technology_list:
 
 cm_back_technology_category_delete:
     path:    /back/technologies/delete-category/{id}
-    controller:   App\Controller\TechnologyController::categoryDeleteAction
+    controller:   App\Controller\Back\TechnologyController::categoryDeleteAction
     requirements:
        id: \d+
 
-
 cm_back_technology_single:
     path:    /back/technology/{id}
-    controller:   App\Controller\TechnologyController::singleAction
+    controller:   App\Controller\Back\TechnologyController::singleAction
     requirements:
        id: \d+
 
 cm_back_technology_add:
     path:    /back/technology/add
-    controller:   App\Controller\TechnologyController::addAction
+    controller:   App\Controller\Back\TechnologyController::addAction
 
 
 cm_back_technology_delete:
     path:    /back/technology/delete/{id}
-    controller:   App\Controller\TechnologyController::deleteAction
+    controller:   App\Controller\Back\TechnologyController::deleteAction
     requirements:
        id: \d+
 
 cm_back_technology_toggle_mastered:
     path:    /back/technology/toggle-mastered/{id}
-    controller:   App\Controller\TechnologyController::toggleMasteredAction
+    controller:   App\Controller\Back\TechnologyController::toggleMasteredAction
     requirements:
        id: \d+
 
 cm_back_technology_toggle_published:
     path:    /back/technology/toggle-published/{id}
-    controller:   App\Controller\TechnologyController::togglePublishedAction
+    controller:   App\Controller\Back\TechnologyController::togglePublishedAction
     requirements:
        id: \d+
 
+# Productions #
+
 cm_back_production_list:
     path:    /back/productions/{id}
-    controller:   App\Controller\ProductionController::listAction
+    controller:   App\Controller\Back\ProductionController::listAction
     requirements:
        id: \d+
     defaults:
@@ -106,30 +128,30 @@ cm_back_production_list:
 
 cm_back_production_single:
     path:    /back/production/{id}
-    controller:   App\Controller\ProductionController::singleAction
+    controller:   App\Controller\Back\ProductionController::singleAction
     requirements:
        id: \d+
 
 cm_back_production_add:
     path:    /back/production/add
-    controller:   App\Controller\ProductionController::addAction
+    controller:   App\Controller\Back\ProductionController::addAction
 
 
 cm_back_production_delete:
     path:    /back/production/delete/{id}
-    controller:   App\Controller\ProductionController::deleteAction
+    controller:   App\Controller\Back\ProductionController::deleteAction
     requirements:
        id: \d+
 
 cm_back_production_toggle_published:
     path:    /back/production/toggle-published/{id}
-    controller:   App\Controller\ProductionController::togglePublishedAction
+    controller:   App\Controller\Back\ProductionController::togglePublishedAction
     requirements:
        id: \d+
 
 cm_back_production_category_delete:
     path:    /back/production-categories/delete/{id}
-    controller:   App\Controller\ProductionController::categoryDeleteAction
+    controller:   App\Controller\Back\ProductionController::categoryDeleteAction
     requirements:
        id: \d+
 

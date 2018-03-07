@@ -33,7 +33,7 @@ class Technology
     /**
      * @ORM\Column(type="string")
      *
-     * @Assert\File
+     * @Assert\Image
      */
     private $image;
 
@@ -135,7 +135,9 @@ class Technology
 
     public function setImage($image)
     {
+
         $this->image = $image;
+
 
         return $this;
     }

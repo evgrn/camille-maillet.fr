@@ -20,3 +20,4 @@ $builder
         return TechnologyType::class;
     }
 }
+

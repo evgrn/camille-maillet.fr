@@ -32,7 +32,7 @@ class Irl
     /**
      * @ORM\Column(type="string")
      *
-     * @Assert\File
+     * @Assert\Image
      */
     private $image;
 

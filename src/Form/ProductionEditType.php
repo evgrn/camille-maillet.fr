@@ -8,9 +8,9 @@ class ProductionEditType extends ProductionType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-    $builder
+    $builder->get('image')->setRequired(false);
+    $builder->get('thumbnail')->setRequired(false);
 
-        ->get('thumbnail')->setRequired(false)
 
     ;
     }

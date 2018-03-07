@@ -1,0 +1,16 @@
+{% extends('Back/layout.html.twig') %}
+{% block title %}Dashboard - {{ parent() }}{% endblock %}
+
+{% block main %}
+    <div class="row full-width">
+        <div class="col-sm-8">
+            <section id="projets" class="col-sm-12 dashboard-module">{{ render(controller("App\\Controller\\Back\\ProductionController::shortListAction")) }}</section>
+            <section id="technologies" class="col-sm-12 dashboard-module">{{ render(controller("App\\Controller\\Back\\TechnologyController::shortListAction")) }}</section>
+        </div>
+        <div class="col-sm-4">
+            <section id="bio" class="col-sm-12 dashboard-module">{{ render(controller("App\\Controller\\Back\\BioController::smallAction")) }}</section>
+            <section id="production-categories" class="col-sm-12 dashboard-module">{{ render(controller("App\\Controller\\Back\\ProductionController::shortCategoriesAction")) }}</section>
+            <section id="irl" class="col-sm-12 dashboard-module">{{ render(controller("App\\Controller\\Back\\IrlController::shortListAction")) }}</section>
+        </div>
+    </div>
+{% endblock %}
