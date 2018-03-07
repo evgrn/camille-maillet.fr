@@ -1,0 +1,278 @@
+/*### GENERAL ###*/
+
+body{
+    background-color: #434449;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 50px;
+    padding-top: 0;
+    color: white;
+}
+
+section, aside{
+    margin-top: 50px;
+    background-color: rgba(0, 0, 0, .4);
+}
+aside h3{
+    margin-top: 0;
+}
+.not{
+    color: dimgray;
+}
+
+.full-width{
+    margin-left: -30px;
+    margin-right: -30px;
+}
+
+/*### HEADER ###*/
+
+header{
+    background-color: rgba(28, 29, 31, .7);
+    color: lightgray;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+/*### MENU ###*/
+
+.navbar-default{
+
+    border-radius: 0;
+}
+
+
+/*### LIST ###*/
+.form-aside{
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+.form-aside h3{
+    color: black;
+    background-color: rgba(255, 255, 255, .7);
+    margin-top: 0;
+    padding: 5px;
+    font-size: 1.43em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+table{
+    color: lightgray;
+    margin-bottom: 0 !important;
+}
+table caption{
+    background-color: rgba(0, 0, 0, .55);
+    font-size: 1.2em;
+    padding: 5px 0;
+}
+
+table thead{
+    background-color: #f9ecec;
+    color: black;
+    border-color: dimgray;
+}
+
+table div.cell-container{
+    height: 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+table tbody .content-cell .cell-container{
+    padding-bottom: 10px;
+    padding-right: 30px;
+}
+
+table .content-cell{
+    max-width: 400px;
+}
+
+table thead, table tbody .id-cell, table tbody .title-cell, table tbody .status-cell{
+    font-weight: bold;
+}
+
+table .img-cell .cell-container{
+    width: 100px;
+}
+
+table .url-cell .cell-container{
+    max-width: 200px;
+}
+table .img-cell img{
+    height: 100px;
+    width: auto;
+}
+
+table ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+
+
+table tbody{
+    background-color: rgba(53, 56, 65, .4);
+}
+table tbody tr:nth-child(odd){
+    background-color: rgba(53, 56, 65, .9);
+}
+
+table tbody tr:hover{
+    background-color: rgba(28, 29, 31, .7);
+    color: white;
+}
+
+
+/*### SINGLE ###*/
+
+h2.single-title, h2.module-title{
+    width: 100%;
+    text-align: center;
+    background-color: rgba(28, 29, 31, .7);
+    padding: 30px 0;
+    margin-bottom: 0;
+}
+
+h2.module-title{
+    padding: 30px 0;
+    margin: 0;
+}
+
+.single-image{
+    padding-bottom: 13px;
+    padding-left: 28px;
+    padding-top: 3px;
+}
+
+div.content{
+    background-color: rgba(28, 29, 31, .6);
+    padding-top: 0;
+}
+
+.single-content form{
+    margin-top: 40px;
+    padding-bottom: 10px;
+}
+
+h3.section-title{
+    text-transform: uppercase;
+    width: 100%;
+    padding: .2em 0;
+    margin-top: 0;
+    text-align: center;
+    color: rgba(28, 29, 31, .7);
+    background-color: lightgray;
+}
+div.single-content h4{
+    background-color: #868686;
+    width: auto !important;
+    padding: 5px;
+}
+div.single-image img{
+    width: 100%;
+    height: auto;
+    border: 1px solid dimgray;
+}
+
+/*### FORM ###*/
+
+.form-horizontal .form-group{
+    background-color: rgba(28, 29, 31, .7);
+}
+
+.form-horizontal textarea, .form-horizontal input{
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 0;
+    transition: all .5s ease;
+}
+
+.form-horizontal textarea:focus, .form-horizontal input:focus{
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+    border: 1px solid black;
+    box-shadow: 0px 0px 1.5px white !important;
+}
+
+.form-horizontal .input{
+    padding: 0;
+}
+
+form option, form select{
+    color: dimgray;
+    width: 100%;
+}
+#production_date select{
+    width: auto;
+    padding: 5px;
+}
+
+
+form select{
+    height: 34px;
+}
+.form-horizontal .control-label{
+    text-align: left;
+    background-color: rgba(28, 29, 31, .7);
+    color: rgba(255, 255, 255, .5);
+    padding: 7px 10px;
+}
+form input.image-picker{
+    width: 100%;
+    min-height: 33px;
+    color: #555
+}
+
+form div.checkbox-container{
+    margin-left: 0;
+    margin-bottom: 10px;
+}
+
+.form-horizontal div.form-group.mastered .control-label, .form-horizontal div.form-group.published .control-label{
+    background-color: rgba(28, 29, 31, .9);
+}
+div.form-group.mastered, div.form-group.published{
+    background-color: transparent;
+}
+
+div.form-group.mastered div.input, div.form-group.published div.input {
+    background-color: rgba(255, 255, 255, .5);
+    color: rgba(28, 29, 31, .7);
+}
+
+form .checkbox{
+    margin-top: -.001em
+}
+
+/*### DASHBOARD ###*/
+
+.dashboard-module{
+    background-color: rgba(0, 0, 0, .4);
+    padding-bottom: 0;
+}
+
+
+.dashboard-module .module-content{
+    margin: 10px;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+.dashboard-module .module-content .single-image{
+    padding: 10px;
+}
+
+/*### PRODUCTIONS ###*/
+
+div#categories{
+    background-color: rgba(255, 255, 255, .5);
+    padding-bottom: 50px;
+    padding: 30px;
+    margin-bottom: 50px;
+}
+
+
+
+

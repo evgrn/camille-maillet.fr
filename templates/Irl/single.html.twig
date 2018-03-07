@@ -1,0 +1,42 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ irl.name }} (Technologies) - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h2 class="single-title">{{ irl.name }}</h2>
+    </div>
+    <div class="row single-content">
+        <section id="preview" class="single-section">
+            <h3 class="section-title">Aperçu</h3>
+            <div class="section-content row">
+                <div class="col-sm-2 single-image">
+                    <img src="{{ images_directory }}/{{ irl.image }}" alt="{{ irl.name }}"/>
+                </div>
+                <div class=" col-sm-offset-1 col-sm-9 text-content">
+                    <div class="row">
+                        <p class="col-md-2 c col-sm-3"><strong>Nom : </strong></p>
+                        <p class="col-md-10 col-sm-9">{{ irl.name }}</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-2 c col-sm-3"><strong>Statut : </strong></p>
+                        <p class="col-md-10 col-sm-9">{% if irl.published %}Publié{% else %}<span class="not">Non publié</span>{% endif %}</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-2 c col-sm-3"><strong>Description : </strong></p>
+                        <p class="col-md-10 col-sm-9">{{ irl.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="form" class="single-section">
+            <h3 class="section-title">Édition</h3>
+            {{ include('Form/irl.html.twig') }}
+        </section>
+
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ technology.name }} (Technologies) - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h2 class="single-title">{{ technology.name }}</h2>
+    </div>
+    <div class="row single-content">
+        <section id="preview">
+            <h3 class="section-title">Aperçu</h3>
+            <div class="section-content row">
+                <div class="col-sm-2 single-image">
+                    <img src="{{ images_directory }}/{{ technology.image }}" alt="{{ technology.name }}"/>
+                </div>
+                <div class="col-sm-offset-1 col-sm-9 text-content">
+                    <div class="row">
+                        <p class="col-md-2 c col-sm-3"><strong>Nom : </strong></p>
+                        <p class="col-md-10 col-sm-9">{{ technology.name }}</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-2 c col-sm-3"><strong>Classification : </strong></p>
+                        <p class="col-md-10 col-sm-9">
+                            {{ technology.category.name }} {{ technology.stack }}
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-2 c col-sm-3"><strong>Statut : </strong></p>
+                        <p class="col-md-10 col-sm-9">
+                            {% if technology.published %}Publié{% else %}<span class="not">Non publié</span>{% endif %} <br/>
+                            {% if technology.mastered %}Maîtrisé{% else %}<span class="not">Non maîtrisé</span>{% endif %}
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-2 c col-sm-3"><strong>Description : </strong></p>
+                        <p class="col-md-10 col-sm-9">{{ technology.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="edit-technology">
+            <h3 class="section-title">Édition</h3>
+            {{ include('Form/technology.html.twig') }}
+        </section>
+
+
+
+    </div>
+{% endblock %}

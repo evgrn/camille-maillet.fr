@@ -1,6 +1,6 @@
-cm_back_homepage:
+cm_back_dashboard:
     path:     /back
-    controller: App\Controller\Default::index
+    controller: App\Controller\GlobalController::indexAction
 
 cm_back_learn_list:
     path:     /back/learn
@@ -26,6 +26,22 @@ cm_back_irl_single:
     requirements:
        id: \d+
 
+cm_back_irl_add:
+    path:    /back/irl/add
+    controller:   App\Controller\IrlController::addAction
+
+cm_back_irl_delete:
+    path:    /back/irl/delete/{id}
+    controller:   App\Controller\IrlController::deleteAction
+    requirements:
+       id: \d+
+
+cm_back_irl_toggle_published:
+    path:    /back/irl/togglepublished/{id}
+    controller:   App\Controller\IrlController::togglePublishedAction
+    requirements:
+       id: \d+
+
 cm_back_message_list:
     path:    /back/message
     controller:   App\Controller\MessageController::listAction
@@ -37,11 +53,83 @@ cm_back_message_single:
        id: \d+
 
 cm_back_technology_list:
-    path:    /back/technology
+    path:    /back/technologies/{id}
     controller:   App\Controller\TechnologyController::listAction
+    requirements:
+       id: \d+
+    defaults:
+       id: null
+
+cm_back_technology_category_delete:
+    path:    /back/technologies/delete-category/{id}
+    controller:   App\Controller\TechnologyController::categoryDeleteAction
+    requirements:
+       id: \d+
+
 
 cm_back_technology_single:
     path:    /back/technology/{id}
-    controller:   App\Controller\MessageController::singleAction
+    controller:   App\Controller\TechnologyController::singleAction
     requirements:
        id: \d+
+
+cm_back_technology_add:
+    path:    /back/technology/add
+    controller:   App\Controller\TechnologyController::addAction
+
+
+cm_back_technology_delete:
+    path:    /back/technology/delete/{id}
+    controller:   App\Controller\TechnologyController::deleteAction
+    requirements:
+       id: \d+
+
+cm_back_technology_toggle_mastered:
+    path:    /back/technology/toggle-mastered/{id}
+    controller:   App\Controller\TechnologyController::toggleMasteredAction
+    requirements:
+       id: \d+
+
+cm_back_technology_toggle_published:
+    path:    /back/technology/toggle-published/{id}
+    controller:   App\Controller\TechnologyController::togglePublishedAction
+    requirements:
+       id: \d+
+
+cm_back_production_list:
+    path:    /back/productions/{id}
+    controller:   App\Controller\ProductionController::listAction
+    requirements:
+       id: \d+
+    defaults:
+       id: null
+
+cm_back_production_single:
+    path:    /back/production/{id}
+    controller:   App\Controller\ProductionController::singleAction
+    requirements:
+       id: \d+
+
+cm_back_production_add:
+    path:    /back/production/add
+    controller:   App\Controller\ProductionController::addAction
+
+
+cm_back_production_delete:
+    path:    /back/production/delete/{id}
+    controller:   App\Controller\ProductionController::deleteAction
+    requirements:
+       id: \d+
+
+cm_back_production_toggle_published:
+    path:    /back/production/toggle-published/{id}
+    controller:   App\Controller\ProductionController::togglePublishedAction
+    requirements:
+       id: \d+
+
+cm_back_production_category_delete:
+    path:    /back/production-categories/delete/{id}
+    controller:   App\Controller\ProductionController::categoryDeleteAction
+    requirements:
+       id: \d+
+

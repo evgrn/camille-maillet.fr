@@ -1,0 +1,51 @@
+<div class="row">
+    <h2 class="module-title">Technologies</h2>
+</div>
+<div class="module-content">
+    <div class="row">
+        <div class="col-sm-6">
+            <table class="table">
+                <caption>Technologies maîtrisées</caption>
+                <thead>
+                <tr>
+                    <td>Image</td>
+                    <td>Nom</td>
+                    <td>Statut</td>
+                    <td>Actions</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for technology in masteredTechnologies %}
+                    {{ include('Technology/short-list-array.html.twig') }}
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+        <div class="col-sm-6">
+            <table class="table">
+                <caption>Technologies à apprendre</caption>
+                <thead>
+                <tr>
+                    <td>Image</td>
+                    <td>Nom</td>
+                    <td>Statut</td>
+                    <td>Actions</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for technology in learnedTechnologies %}
+                    {{ include('Technology/short-list-array.html.twig') }}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <a href="{{ path('cm_back_technology_list') }}" class="btn btn-default col-xs-12">Accéder à la section</a>
+</div>
+
+
+

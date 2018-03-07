@@ -1,0 +1,62 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Biographie - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h2 class="single-title">Biographie</h2>
+    </div>
+    <div class="row single-content">
+        <section id="preview" class="single-section">
+            <h3 class="section-title">Aperçu</h3>
+            <div class="section-content row">
+                <div class="col-sm-2 single-image">
+                    <img src="{{ images_directory }}/{{ bio.image }}" alt="Biographie"/>
+                </div>
+
+                <div class="col-sm-offset-1 col-sm-9 text-content">
+                    <div class="row">
+                        <p class="col-md-2 col-sm-3"><strong>Contenu : </strong></p>
+                        <p class="col-md-10 col-sm-9">{{ bio.content }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="form" class="single-section">
+            <h3 class="section-title">Édition</h3>
+            <div class="section-content row">
+                {{ form_start(form, {'attr': {'class': 'form-horizontal col-sm-offset-1 col-sm-10'}}) }}
+                {{ form_errors(form, {'attr': {'class': 'alert alert-warning'}}) }}
+
+                <div class="form-group">
+                    {{ form_label(form.content, "Contenu", {'label_attr': {'class': ' col-md-4  control-label'}}) }}
+                    {{ form_errors(form.content) }}
+                    <div class="col-sm-8 input">
+                        {{ form_widget(form.content, {'attr': {'class': 'form-control', 'rows': '10'}}) }}
+                    </div>
+                </div>
+                <div class="form-group image">
+                    {{ form_label(form.image, "Image", {'label_attr': {'class': ' col-sm-4 control-label'}}) }}
+                    {{ form_errors(form.image) }}
+                    <div class="col-sm-8 input">
+                        {{ form_widget(form.image, {'attr': {'class' : 'image-picker'}}) }}
+                    </div>
+                </div>
+
+
+                {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary pull-right'}}) }}
+
+
+                {{ form_rest(form) }}
+
+
+                {{ form_end(form) }}
+            </div>
+        </section>
+
+
+
+    </div>
+{% endblock %}
