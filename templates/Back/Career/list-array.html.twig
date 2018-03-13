@@ -1,0 +1,36 @@
+<tr>
+    <td class="title-cell">
+        <div class="cell-container">
+            {{ career.name }}
+        </div>
+    </td>
+    <td class="structure-cell">
+        <div class="cell-container">
+            {{career.structure }}
+        </div>
+    </td>
+    <td class="date-cell">
+        <div class="cell-container">
+            {{ career.date|date('Y') }}
+        </div>
+    </td>
+    <td class="content-cell">
+        <div class="cell-container">
+            {{ career.description }}
+        </div>
+    </td>
+    <td class="status-cell">
+        <div class="cell-container">
+            {% if career.published %} Publié {% endif %}
+            {% if not career.published %} <span class="not">Non publié </span>{% endif %}
+        </div>
+    </td>
+    <td class="actions-cell">
+        <div class="cell-container">
+            <a href="{{ path('cm_back_career_list', {'id': career.id}) }}" class="btn btn-default">Edt</a>
+            <a href="{{ path('cm_back_career_toggle_published', {'id': career.id}) }}" class="btn btn-warning">{% if career.published %}Dpb{% else %}Pbl{% endif %}</a>
+            <a href="{{ path('cm_back_career_delete', {'id': career.id}) }}" class="btn btn-danger">Del</a>
+        </div>
+
+    </td>
+</tr>

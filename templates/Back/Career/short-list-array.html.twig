@@ -1,0 +1,18 @@
+<tr>
+    <td class="name-cell">
+            {{ career.name }}
+    </td>
+    <td class="title-cell">
+            {{ career.structure }}
+    </td>
+    <td class="status-cell">
+        <div class="cell-container">
+            {% if career.published %} Publié {% endif %}
+            {% if not career.published %} <span class="not">Non publié </span>{% endif %}
+        </div>
+    </td>
+    <td class="actions-cell">
+            <a href="{{ path('cm_back_career_list', {'id': career.id}) }}" class="btn btn-default">Edt</a>
+            <a href="{{ path('cm_back_career_delete', {'id': career.id}) }}" class="btn btn-danger">Del</a>
+    </td>
+</tr>

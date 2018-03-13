@@ -1,0 +1,41 @@
+<div class="row">
+    <h2 class="module-title">Messages</h2>
+</div>
+<div class="module-content">
+    <table class="table message-table">
+        <caption>Non traités</caption>
+        <thead>
+        <tr>
+            <td>Expéditeur</td>
+            <td>Objet</td>
+            <td>Date</td>
+            <td>Actions</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+            <tr id="message-{{ message.id }}">
+                <td class="author-cell">
+                        <p class="message-author">
+                            {{ message.author }}
+                        </p>
+                </td>
+                <td class="object-cell">
+                        {{message.object }}
+                </td>
+                <td class="date-cell">
+                        {{ message.date|date('d/m/Y') }}
+                </td>
+
+                <td class="actions-cell">
+                        <a href="{{ path('cm_back_message_list', {'id': message.id}) }}#message-{{ message.id }}" class="btn btn-primary">Rd</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+<div class="row">
+    <a href="{{ path('cm_back_message_list') }}" class="btn btn-default col-xs-12">Accéder à la section</a>
+</div>

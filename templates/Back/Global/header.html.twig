@@ -10,11 +10,13 @@
             </div>
             <ul class="nav navbar-nav pull-right">
                 <li class="active"><a href="{{ path('cm_back_dashboard') }}">Dashboard</a></li>
-                <li><a href="#">Messages</a></li>
+                <li><a href="{{ path('cm_back_message_list') }}">Messages</a></li>
                 <li><a href="{{ path('cm_back_production_list') }}">Réalisations</a></li>
                 <li><a href="{{ path('cm_back_technology_list') }}">Technologies</a></li>
                 <li><a href="{{ path('cm_back_irl_list') }}">IRL</a></li>
                 <li><a href="{{ path('cm_back_bio') }}">Bio</a></li>
+                <li><a href="{{ path('cm_back_career_list') }}">Parcours</a></li>
+                <li><a href="{{ path('cm_back_admin_user_edit') }}">{{ app.user.username }}</a></li>
                 <li><a href="{{ path('logout') }}">Déconnexion</a></li>
             </ul>
         </nav>

@@ -31,6 +31,8 @@ class TechnologyController extends Controller
                 $em->persist($category);
             }
             $em->flush();
+            $notice= $id ? "La catégorie a été moifiée" : "La catégorie a été ajoutée";
+            $this->get('session')->getFlashbag()->add('notice', $notice );
             return $this->redirectToRoute('cm_back_technology_list');
         }
 
@@ -67,8 +69,9 @@ class TechnologyController extends Controller
 
             $em->persist($technology);
             $em->flush();
+            $this->get('session')->getFlashbag()->add('notice', "La technologie a été ajoutée" );
 
-            return $this->redirectToRoute('cm_back_technology_single', array('id' => $technology->getId()));
+            return $this->redirectToRoute('cm_back_technology_list');
         }
 
         return $this->render('Back/Technology/add.html.twig', array(
@@ -94,8 +97,9 @@ class TechnologyController extends Controller
             );
 
             $em->flush();
+            $this->get('session')->getFlashbag()->add('notice', "La technologie a été modifiée" );
 
-            return $this->redirectToRoute('cm_back_technology_single', array('id' => $technology->getId()));
+            return $this->redirectToRoute('cm_back_technology_list');
         }
 
         return $this->render('Back/Technology/single.html.twig', array('technology' => $technologyPreview, 'form' => $form->createView()));
@@ -110,6 +114,7 @@ class TechnologyController extends Controller
         $imageManager->delete($technology->getImage());
         $em->remove($technology);
         $em->flush();
+        $this->get('session')->getFlashbag()->add('notice', "La technologie a été supprimée" );
 
 
         return $this->redirectToRoute('cm_back_technology_list');
@@ -122,6 +127,9 @@ class TechnologyController extends Controller
         $technology->setPublished($newStatus);
         $em->flush();
 
+        $notice= $technology->getPublished() ? "La technologiea été publiée" : "La technologie a été dépubliée";
+        $this->get('session')->getFlashbag()->add('notice', $notice );
+
         return $this->redirectToRoute('cm_back_technology_list');
 
     }
@@ -133,6 +141,9 @@ class TechnologyController extends Controller
         $technology->setMastered($newStatus);
         $em->flush();
 
+        $notice= $technology->getMAstered() ? "La technologie a été marquée comme maîtrisée" : "La technologie a été marquée comme non-maîtrisée";
+        $this->get('session')->getFlashbag()->add('notice', $notice );
+
         return $this->redirectToRoute('cm_back_technology_list');
 
     }
@@ -142,6 +153,8 @@ class TechnologyController extends Controller
         $category = $em->getRepository('App:TechnologyCategory')->find($id);
         $em->remove($category);
         $em->flush();
+
+        $this->get('session')->getFlashbag()->add('notice', "La technologie a été supprimée" );
 
         return $this->redirectToRoute('cm_back_technology_list');
     }

@@ -1,0 +1,90 @@
+{% extends 'Back/layout.html.twig' %}
+
+{% block title %}Messages - {{ parent() }} {% endblock %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="col-md-7">
+            <section id="not-processed" class="row">
+                <table class="table message-table">
+                    <caption>Non traités</caption>
+                    <thead>
+                    <tr>
+                        <td>Expéditeur</td>
+                        <td>Objet</td>
+                        <td>Date</td>
+                        <td>Actions</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for message in notProcessed %}
+                        {{ include('Back/Message/list-array.html.twig') }}
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </section>
+
+            <section id="processed" class="row">
+                <table class="table">
+                    <caption>Traités</caption>
+                    <thead>
+                    <tr>
+                        <td>Expéditeur</td>
+                        <td>Objet</td>
+                        <td>Date</td>
+                        <td>Actions</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for message in processed %}
+                        {{ include('Back/Message/list-array.html.twig') }}
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </section>
+        </div>
+
+        <div class="col-md-offset-1 col-md-4">
+            <aside id="message-single" class="row single-aside">
+
+                <h3>{% if message %}<strong>"{{ message.object }}"</strong>{% else %}Aucun message{% endif %}</h3>
+
+                    {% if message %}
+                        <div class="message-info col-sm-12">
+                            <div class="message-contact-info">
+                                <p class="contact-name"><strong>Nom :</strong> {{ message.author }}</p>
+                                <p class="contact-email">
+                                    <strong>Email</strong> : <em>{{ message.email }}</em>
+                                </p>
+                                {% if message.tel %}
+                                    <p class="contact-tel">
+                                        <strong>Tel :</strong> {{ message.tel }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                            <div class="message-date">
+                                Le {{ message.date|date('d/m/Y à h:i') }}
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 message-content">
+                            {{ message.message }}
+                        </div>
+                    {% else %}
+                        <p class="col-sm-12 not">Aucun message actuellement</p>
+                    {% endif %}
+
+
+            </aside>
+        </div>
+
+    </div>
+
+
+
+
+
+{% endblock %}

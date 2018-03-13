@@ -42,8 +42,8 @@ class IrlController extends Controller
             );
             $em->persist($irl);
             $em->flush();
-
-            return $this->redirectToRoute('cm_back_irl_single', array('id' => $irl->getId()));
+            $this->get('session')->getFlashbag()->add('notice', "L'élément IRL a été ajouté" );
+            return $this->redirectToRoute('cm_back_irl_list');
         }
 
         return $this->render('Back/Irl/add.html.twig', array(
@@ -66,7 +66,8 @@ class IrlController extends Controller
                 $imageManager->manageImageUpdate($irl->getImage(), $originalImage)
             );
             $em->flush();
-            return $this->redirectToRoute('cm_back_irl_single', array('id' => $irl->getId()));
+            $this->get('session')->getFlashbag()->add('notice', "L'élément IRL a été modifié" );
+            return $this->redirectToRoute('cm_back_irl_list');
         }
 
         return $this->render('Back/Irl/single.html.twig', array('irl' => $irlPreview, 'form' => $form->createView()));
@@ -80,6 +81,7 @@ class IrlController extends Controller
         $imageManager->delete($irl->getImage());
         $em->remove($irl);
         $em->flush();
+        $this->get('session')->getFlashbag()->add('notice', "L'élément IRL a été supprimé" );
 
         return $this->redirectToRoute('cm_back_irl_list');
     }
@@ -89,6 +91,8 @@ class IrlController extends Controller
         $newStatus = $irl->getPublished() ? false : true;
         $irl->setPublished($newStatus);
         $em->flush();
+        $notice= $career->getPublished() ? "L'élément IRL a été publié" : "L'élément IRL a été dépublié";
+        $this->get('session')->getFlashbag()->add('notice', $notice );
 
         return $this->redirectToRoute('cm_back_irl_list');
 

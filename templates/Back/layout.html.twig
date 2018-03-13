@@ -11,6 +11,12 @@
 
     {{ render(controller("App\\Controller\\Back\\GlobalController::HeadAction")) }}
     <div class="main-content">
+        {% for notice in app.session.flashbag.get('notice') %}
+            <div class="notice">
+                {{ notice }}
+            </div>
+
+        {% endfor %}
         {% block main %}
         {% endblock %}
     </div>

@@ -1,10 +1,13 @@
-########################### BACK-OFFICE ##############################
+########################### FRONT-OFFICE #############################
 
 cm_front_home:
    path: /
    controller: App\Controller\Front\HomeController::indexAction
 
 ############################## USERS #################################
+cm_back_admin_user_edit:
+    path: /back/admin-user-edit
+    controller: App\Controller\Back\UserController::adminUserEditAction
 
 login:
     path: /login
@@ -59,17 +62,6 @@ cm_back_irl_toggle_published:
     requirements:
        id: \d+
 
-# Messages #
-
-cm_back_message_list:
-    path:    /back/message
-    controller:   App\Controller\Back\MessageController::listAction
-
-cm_back_message_single:
-    path:    /back/message/{id}
-    controller:   App\Controller\Back\MessageController::singleAction
-    requirements:
-       id: \d+
 
 # Technologies #
 
@@ -155,3 +147,47 @@ cm_back_production_category_delete:
     requirements:
        id: \d+
 
+
+# Career #
+
+cm_back_career_list:
+   path: /back/career/{id}
+   controller: App\Controller\Back\CareerController::listAction
+   requirements:
+      id: \d+
+   defaults:
+      id: null
+
+cm_back_career_delete:
+    path:    /back/career/delete/{id}
+    controller:   App\Controller\Back\CareerController::deleteAction
+    requirements:
+       id: \d+
+
+cm_back_career_toggle_published:
+    path:    /back/career/toggle-published/{id}
+    controller:   App\Controller\Back\CareerController::togglePublishedAction
+    requirements:
+       id: \d+
+
+# Messages #
+
+cm_back_message_list:
+   path: /back/messages/{id}
+   controller: App\Controller\MessageController::listAction
+   requirements:
+      id: \d+
+   defaults:
+      id: null
+
+cm_back_message_delete:
+    path:    /back/message/delete/{id}
+    controller:   App\Controller\MessageController::deleteAction
+    requirements:
+      id: \d+
+
+cm_back_message_toggle_processed:
+    path:    /back/message/toggle-processed/{id}
+    controller:   App\Controller\MessageController::toggleProcessedAction
+    requirements:
+      id: \d+

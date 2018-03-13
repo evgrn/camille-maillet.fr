@@ -1,0 +1,71 @@
+{% extends 'Back/layout.html.twig' %}
+
+{% block title %}Parcours - {{ parent() }} {% endblock %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="col-md-7">
+            <section id="corporate" class="row">
+                <table class="table">
+                    <caption>Entreprise</caption>
+                    <thead>
+                    <tr>
+                        <td>Poste</td>
+                        <td>Structure</td>
+                        <td>Date</td>
+                        <td>Description</td>
+                        <td>Statut</td>
+                        <td>Actions</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for career in corporate %}
+                        {{ include('Back/Career/list-array.html.twig') }}
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </section>
+
+            <section id="formation" class="row">
+                <table class="table">
+                    <caption>Formation</caption>
+                    <thead>
+                    <tr>
+                        <td>Intitulé</td>
+                        <td>Structure</td>
+                        <td>Date</td>
+                        <td>Description</td>
+                        <td>Statut</td>
+                        <td>Actions</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for career in formations %}
+                        {{ include('Back/Career/list-array.html.twig') }}
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </section>
+        </div>
+
+        <div class="col-md-offset-1 col-md-4">
+            <aside id="career-form" class="row form-aside">
+
+                <h3>{% if career.name %}Édition de l'élément du parcours <strong>"{{ career.name }}"</strong>{% else %}Ajout d'une élément au parcours{% endif %}</h3>
+                <div class="section-content row">
+                    {{ include('Back/Form/career.html.twig') }}
+                </div>
+
+            </aside>
+        </div>
+
+    </div>
+
+
+
+
+
+{% endblock %}

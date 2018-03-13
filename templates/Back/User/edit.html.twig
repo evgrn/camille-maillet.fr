@@ -1,0 +1,78 @@
+{% extends 'Back/layout.html.twig' %}
+
+{% block title %}Édition de l'utilisateur - {{ parent() }}{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <h2> Édition de l'utilisateur </h2>
+    </div>
+    <div class="row single-content">
+        <section id="preview">
+            <h3 class="section-title">Aperçu</h3>
+            <div class="section-content row">
+                <div class="col-sm-offset-1 col-sm-9 text-content">
+                    <div class="row">
+                        <p class="col-md-2 c col-sm-3"><strong>Login : </strong></p>
+                        <p class="col-md-10 col-sm-9">{{ user.username }}</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-2 c col-sm-3"><strong>Mail: </strong></p>
+                        <p class="col-md-10 col-sm-9">
+                            {{ user.email }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="edit-user">
+            <h3 class="section-title">Édition</h3>
+            <div class="section-content row">
+                {{ form_start(form, {'attr': {'class': 'form-horizontal col-sm-offset-1 col-sm-10'}}) }}
+                {{ form_errors(form, {'attr': {'class': 'alert alert-warning'}}) }}
+
+                <div class="form-group">
+                    {{ form_label(form.username, "Login", {'label_attr': {'class': ' col-md-4  control-label'}}) }}
+                    {{ form_errors(form.username) }}
+                    <div class="col-sm-8 input">
+                        {{ form_widget(form.username, {'attr': {'class': 'form-control', 'rows': '10'}}) }}
+                    </div>
+                </div>
+                <div class="form-group ">
+                    {{ form_label(form.email, "Email", {'label_attr': {'class': ' col-sm-4 control-label'}}) }}
+                    {{ form_errors(form.email) }}
+                    <div class="col-sm-8 input">
+                        {{ form_widget(form.email, {'attr': {'class' : 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group ">
+                    {{ form_label(form.password.first, "Mot de passe", {'label_attr': {'class': ' col-sm-4 control-label'}}) }}
+                    {{ form_errors(form.password.first) }}
+                    <div class="col-sm-8 input">
+                        {{ form_widget(form.password.first, {'attr': {'class' : 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group ">
+                    {{ form_label(form.password.second, "Confirmation mot de passe", {'label_attr': {'class': ' col-sm-4 control-label'}}) }}
+                    {{ form_errors(form.password.second) }}
+                    <div class="col-sm-8 input">
+                        {{ form_widget(form.password.second, {'attr': {'class' : 'form-control'}}) }}
+                    </div>
+                </div>
+
+
+                {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary pull-right'}}) }}
+
+
+                {{ form_rest(form) }}
+
+
+                {{ form_end(form) }}
+            </div>
+        </section>
+
+
+
+    </div>
+{% endblock %}

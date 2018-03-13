@@ -44,6 +44,9 @@ class ProductionController extends Controller
             }
 
             $em->flush();
+            $notice = $id ? "La catégorie a été mise à jour" : "La catégorie a été ajoutée";
+            $this->get('session')->getFlashbag()->add('notice', $notice );
+
 
             return $this->redirectToRoute('cm_back_production_list', array('_fragment' => 'categories'));
         }
@@ -74,6 +77,7 @@ class ProductionController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->remove($category);
         $em->flush();
+        $this->get('session')->getFlashbag()->add('notice', "La catégorie a été supprimée" );
 
         return $this->redirectToRoute('cm_back_production_categories');
     }
@@ -97,6 +101,7 @@ class ProductionController extends Controller
 
             $em->persist($production);
             $em->flush();
+            $this->get('session')->getFlashbag()->add('notice', "Le projet a été modifié" );
 
             return $this->redirectToRoute('cm_back_production_single', array('id' => $production->getId()));
         }
@@ -131,6 +136,7 @@ class ProductionController extends Controller
                 );
 
             $em->flush();
+                $this->get('session')->getFlashbag()->add('notice', "Le projet à été ajouté" );
 
             return $this->redirectToRoute('cm_back_production_single', array('id' => $production->getId()));
         }
@@ -147,6 +153,7 @@ class ProductionController extends Controller
         $imageManager->delete($production->getThumbnail());
         $em->remove($production);
         $em->flush();
+        $this->get('session')->getFlashbag()->add('notice', "Le projet à été supprimé" );
 
 
         return $this->redirectToRoute('cm_back_production_list');
@@ -158,6 +165,8 @@ class ProductionController extends Controller
         $newStatus = $production->getPublished() ? false : true;
         $production->setPublished($newStatus);
         $em->flush();
+        $notice= $production->getPublished() ? "Le projet a été publié" : "Le projet a été dépublié";
+        $this->get('session')->getFlashbag()->add('notice', $notice );
 
         return $this->redirectToRoute('cm_back_production_list');
 

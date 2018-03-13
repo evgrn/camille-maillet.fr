@@ -30,6 +30,7 @@ class BioController extends Controller
                 $imageManager->manageImageUpdate($bio->getImage(), $originalImage)
             );
             $em->flush();
+            $this->get('session')->getFlashbag()->add('notice', 'La bio a été mise à jour');
             return $this->redirectToRoute('cm_back_bio');
         }
 

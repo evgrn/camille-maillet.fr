@@ -1,0 +1,41 @@
+<tr id="message-{{ message.id }}">
+    <td class="author-cell">
+        <div class="cell-container">
+            <p class="message-author">
+                {{ message.author }}
+            </p>
+
+            <div class="contact-info">
+                <p class="contact-email">
+                    <em>{{ message.email }}</em>
+                </p>
+                {% if message.tel %}
+                    <p class="contact-tel">
+                        {{ message.tel }}
+                    </p>
+                {% endif %}
+
+            </div>
+
+        </div>
+    </td>
+    <td class="object-cell">
+        <div class="cell-container">
+            {{message.object }}
+        </div>
+    </td>
+    <td class="date-cell">
+        <div class="cell-container">
+            le {{ message.date|date('d/m/Y à h:m:i') }}
+        </div>
+    </td>
+
+    <td class="actions-cell">
+        <div class="cell-container">
+            <a href="{{ path('cm_back_message_toggle_processed', {'id': message.id}) }}" class="btn btn-warning">{% if message.processed %}Dt{% else %}Tt{% endif %}</a>
+            <a href="{{ path('cm_back_message_delete', {'id': message.id}) }}" class="btn btn-danger">Del</a>
+            <a href="{{ path('cm_back_message_list', {'id': message.id}) }}#message-{{ message.id }}" class="btn btn-primary">Rd</a>
+        </div>
+
+    </td>
+</tr>

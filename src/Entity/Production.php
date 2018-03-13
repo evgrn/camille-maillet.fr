@@ -70,6 +70,7 @@ class Production
      * @ORM\Column(type="datetime")
      */
     private $date;
+
     /**
      * @ORM\Column(type="boolean")
      */
