@@ -1,0 +1,30 @@
+<nav id="global-nav" class="col-sm-2">
+    <div class="row" id="menu-header">
+        <div id="menu-logo" class="col-xs-offset-1 col-xs-10">
+            <img src="img/logo.png"/>
+        </div>
+        <p id="menu-subtitle" class="changing-text"></p>
+    </div>
+
+    <ul id="main-nav">
+        <li id="back">RETOUR</li>
+        <li><a href="#intro">ACCUEIL</a></li>
+        <li class="submenu">
+            <a href="#productions" id="productions-nav-title" class="submenu-title">RÉALISATIONS</a>
+            <ul id="productions-nav" class="submenu-nav">
+                {% for category in productionCategories %}
+                    <li>{{ category.name }}</li>
+                {% endfor %}
+                {% for technology in technologies  %}
+                <li>{{ technology.name }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li><a href="#technologies">TECHNOLOGIES</a></li>
+        <li><a href="#bio">BIO</a></li>
+        <li><a href="#parcours">PARCOURS</a></li>
+        <li><a href="#irl">IRL</a></li>
+        <li id="show-left-page">CONTACT</li>
+
+    </ul>
+</nav>

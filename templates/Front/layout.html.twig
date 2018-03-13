@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
     <link rel="stylesheet" href="/css/front-main.css">
 {% endblock %}
 
@@ -14,4 +15,9 @@
         {% endblock %}
     </div>
 
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="/js/front-scripts.js"></script>
 {% endblock %}

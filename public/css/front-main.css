@@ -1,0 +1,633 @@
+/*### POLICES ###*/
+
+@font-face {
+    font-family: "Raleway";
+    src: url(../font/Raleway-Black.ttf);
+}
+
+/*### ANIMATIONS ###*/
+
+@keyframes shake{
+    0%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    80%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    90%{
+        transform: translateY(20px);
+        opacity: .7;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes apparition-right{
+    0%{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+@keyframes apparition-top{
+    0%{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes apparition{
+    0%{
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes blink{
+    0%{
+        filter: invert(0%);
+    }
+    45%{
+        filter: invert(0%)
+    }
+    55%{
+        filter: invert(10%);
+    }
+    100%{
+        filter: invert(0%);
+    }
+}
+
+/*### CONTAINERS JAVASCRIPT ###*/
+
+.var-text{
+    font-weight: 900;
+    font-size: 1.1em;
+}
+
+/*### GENERAL ###*/
+
+
+body{
+    background-attachment: fixed;
+    font-weight: bolder;
+    color: white;
+    background-size: cover;
+    min-height: 500vh;
+    overflow-x: hidden;
+}
+
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+
+
+/*### FLEX ##*/
+
+.flex-horizontal{
+    display: flex;
+    flex-direction: row;
+}
+.flex-horizontal-center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.flex-horizontal-space-around{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.flex-vertical-space-around{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-around;
+}
+}
+.flex-both-center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/*### STATES ###*/
+
+.fixed-top{
+    position: fixed !important;
+    margin-top: 0 !important;
+
+}
+
+.still{
+    animation: none;
+}
+
+
+/*### NAV ###*/
+
+#main-nav .active, #main-nav .submenu.active #main-nav .submenu-title{
+    color: white;
+    background-color: #333333;
+}
+
+#menu-subtitle{
+    text-align: center;
+    width: 100%;
+    letter-spacing: .25em;
+}
+
+ul{
+    transition: all .5s ease;
+}
+
+#back{
+    display: none;
+}
+
+#menu-header{
+    color: dimgray;
+    padding: 30px 0;
+    font-weight: normal;
+    background-image: url("../img/menu-header-bg.jpg");
+    background-position: center;
+}
+
+#menu-header h3{
+    width: 100%;
+    text-align: center;
+}
+
+#global-nav{
+    background-color: white;
+    padding: 0;
+    box-shadow: 3px 3px 10px black;
+    z-index: 10;
+    top: 0;
+    left:0;
+    min-height: 100vh;
+    margin-top: 100vh;
+    position: absolute;
+}
+
+#main-nav{
+    padding: 0;
+    border-top: 1px solid lightgray;
+    overflow-y: scroll;
+}
+
+.submenu .submenu-nav{
+    display: none;
+    transition: all 1s ease;
+}
+
+.submenu.active .submenu-nav{
+    display: block;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding-right: 0;
+}
+
+#main-nav  li{
+    padding: 10px;
+    padding-right: 0;
+    color: black;
+    border-bottom: 1px solid lightgray;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+#main-nav li.submenu{
+    padding: 0;
+}
+
+#main-nav li.submenu li{
+    background-color: lightgray;
+    color: dimgray;
+    border-bottom: 1px solid whitesmoke;
+}
+
+#main-nav  li a{
+    color: black;
+}
+#main-nav  li.active a{
+    color: white;
+}
+#main-nav  li a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+#main-nav li.submenu li:last-child{
+    border-bottom: none;
+}
+
+.submenu-title{
+    color: black;
+    display: block;
+    padding: 10px;
+    transition: all .5s ease;
+}
+
+#productions-nav{
+    background-color: dimgray;
+}
+
+#productions-nav li{
+    text-align: center;
+    border-left: 1px-solid
+}
+
+.production-preview{
+    position: relative;
+    cursor: pointer;
+    transition: all .2s ease;
+    padding: 0;
+}
+
+#main-nav li{
+    transition: all .5s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+#main-nav li:hover{
+    background-color: rgba(0, 0, 0, .3);
+    color: white;
+}
+
+#show-left-page{
+    animation: blink 4s infinite ease;
+}
+
+
+/*### CONTAINERS ###*/
+
+#main{
+    position: relative;
+}
+
+#main-content{
+    padding : 0;
+    margin-bottom: 70px;
+}
+
+/* SECTION */
+
+section:not(#intro){
+    border-bottom: 1px solid whitesmoke;
+    margin: 0;
+}
+
+section:not(#productions):not(#parcours):not(#intro){
+    padding-top: 50px;
+}
+
+section:not(#intro):not(#productions):not(#technologies):not(#parcours){
+    padding: 50px;
+}
+
+.section-intro{
+    text-align: center;
+    color: rgba(0,0,0, .75);
+    font-size: 1.2em;
+    margin-top: 20px;
+    font-style: italic;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+section .subsection{
+    padding: 50px;
+    padding-bottom: 40px;
+
+}
+.subsection-title{
+    text-align: center;
+    margin: 50px;
+    color: rgba(0,0, 0, .8);
+    font-weight: bolder;
+    letter-spacing: .2em;
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+.section-title{
+    text-align: center;
+    margin: 50px;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: .2em;
+    font-size: 2.8em;
+    text-transform: uppercase;
+}
+
+
+
+
+/*### INTRO ###*/
+
+#intro{
+    height: 100vh;
+    background-image: url("../img/wallpaper.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    font-size: 3em;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.intro-logo img{
+    width: 100%;
+    height: auto;
+}
+
+#title-var{
+    display: inline-block;
+    width: 300px;
+}
+
+#intro-scrolldown{
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    color: whitesmoke;
+    text-transform: none;
+    background-color: rgba(0, 0, 0, .7);
+    padding: 0 20px;
+    color: rgba(255, 255, 255, .8);
+    border-radius: 10px;
+    font-size: .6em;
+    box-shadow: 1px 1px 3px black;
+    font-weight: normal;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 10;
+}
+
+section#intro h1{
+    color: dimgray;
+    letter-spacing: .2em;
+    font-size: 1.1em;
+    line-height: 1.3em;
+    font-weight: bold;
+}
+
+section#intro h1 strong{
+    color: black;
+    font-weight: bolder;
+    letter-spacing: .3em;
+}
+
+.intro-logo{
+    opacity: 0;
+    animation-name: apparition-top;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    animation-duration: 1.5s;
+}
+
+#intro-text{
+    opacity: 0;
+    animation-name: apparition-right;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    animation-duration: 1s;
+}
+
+#intro-text strong{
+    opacity: 0;
+    animation-name: apparition;
+    animation-fill-mode: forwards;
+    animation-delay: 1.8s;
+    animation-duration: .5s;
+    display: inline-block;
+}
+
+
+/*### PRODUCTIONS ###*/
+
+section#productions{
+    border-bottom: 1px solid whitesmioke;
+    margin: 0;
+}
+
+#mosaic{
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.production-preview:hover{
+    filter: brightness(1.1);
+    box-shadow: 2px 2px 4px black;
+    transform: scale(1.01);
+    z-index: 2;
+}
+
+.production-info-overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, .5);
+}
+
+/*### TECHNOLOGIES  ###*/
+
+#technologies {
+    min-height: 100vh;
+    background-color: white;
+    color: black;
+}
+.technology-title{
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+    background-color: rgba(0,0, 0, .8);
+    padding: 5px;
+    text-transform: uppercase;
+
+}
+
+.technology-content{
+    color: dimgray;
+    font-weight: bold;
+    font-style: italic;
+    text-align: justify;
+
+}
+
+#mastered{
+    background-color: white;
+}
+
+#learned{
+    background-color: whitesmoke;
+}
+
+.technology{
+    margin-bottom: 30px;
+}
+
+
+/*### BIO ###*/
+
+#bio{
+    background-image: url("../img/bio-wallpaper.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: white;
+}
+
+#bio h2{
+    margin-top: 0;
+    text-align: left;
+}
+
+#bio *:not(.blue-overlay){
+    z-index: 1;
+}
+
+.blue-overlay{
+    background-color: rgba(0, 73, 116, .9);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+}
+
+/*### PARCOURS ###*/
+
+section#parcours{
+    color: black;
+    padding-bottom: 30px;
+    background-color: whitesmoke;
+}
+
+ul.parcours-list li{
+    border: none;
+    background: transparent;
+    list-style: initial;
+    color: rgba(0, 0, 0, .7);
+    font-size: 1.1em;
+}
+
+.parcours-list-description{
+    font-weight: lighter;
+    font-style: italic;
+    font-size: .9em;
+    color: dimgray;
+}
+
+#parcours .subsection-title{
+    margin-top: 0;
+}
+
+/*### IRL ###*/
+
+#irl {
+    background-image: url("../img/wallpaper.jpg");
+    min-height: calc(100vh - 70px);
+    color: white;
+}
+
+.irl{
+    margin-top: 30px;
+    color: black;
+    background-size: cover;
+
+}
+
+#irl .section-title{
+    color: rgba(0,0, 0, .8);
+}
+
+/*### PRODUCTION-SINGLE ###*/
+
+section#production-single{
+    background-color: transparent;
+    border: none;
+}
+
+/*### FOOTER ###*/
+
+footer{
+    background-color: #28323B;
+    font-weight: normal;
+    min-height: 70px;
+    align-items: center;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer p{
+    margin: 0;
+}
+
+footer #credits{
+    color: lightgray;
+}
+
+/*### SIDE-PAGES ###*/
+
+#left-page{
+    position: fixed;
+    right: 100%;
+    top: 0;
+    bottom: 0;
+    background: whitesmoke;
+}
+#right-page{
+    position: fixed;
+    left: 100%;
+    top: 0;
+    bottom: 0;
+    background: black;
+    z-index: 9;
+}
+
+/*### CONTACT ###*/
+
+#contact{
+    background-color: transparent;
+}
+
+#contact{
+    min-height: 50vh;
+    color: black;
+}

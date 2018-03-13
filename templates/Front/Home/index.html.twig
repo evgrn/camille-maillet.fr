@@ -1,4 +1,22 @@
 {% extends 'Front/layout.html.twig' %}
-{% block body %}
+{% block main %}
+
+    {{ include('Front/Home/intro.html.twig') }}
+    <div id="main" class="row">
+        {{ include('Front/Home/menu.html.twig') }}
+        <div id="main-content" class="col-sm-10 col-sm-offset-2">
+            {{ include('Front/Home/productions.html.twig') }}
+            {{ include('Front/Home/technologies.html.twig') }}
+            {{ include('Front/Home/bio.html.twig') }}
+            {{ include('Front/Home/career.html.twig') }}
+            {{ include('Front/Home/irl.html.twig') }}
+
+
+        </div>
+            {{ include('Front/Home/footer.html.twig') }}
+        <div id="left-page" class="col-sm-10">
+            {{ include('Front/Home/contact.html.twig') }}
+        </div>
+    </div>
 
 {% endblock %}

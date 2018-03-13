@@ -1,0 +1,18 @@
+<section id="irl" class="row">
+    <h2 class="section-title col-sm-12">Et IRL ?</h2>
+    {% for irl in irl %}
+        <div class="col-sm-6 irl">
+            <div class="row">
+                <div class="irl-image col-sm-3">
+                    <img src="{{ images_directory }}/{{ irl.image }}" alt="{{ irl.name }}" />
+                </div>
+                <div class="irl-content col-sm-9">
+                    <h4 class="irl-title">{{ irl.name }}</h4>
+                    <p>
+                        {{ irl.description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</section>

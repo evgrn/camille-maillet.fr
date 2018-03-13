@@ -1,0 +1,28 @@
+<section id="parcours" class="row">
+    <div id="formation" class="col-sm-6 subsection">
+        <h3 class="subsection-title">Formation</h3>
+        <ul class="parcours-list">
+            {% for career in formationCareer %}
+            <li>
+                {% if career.structure %}<span class="structure">A-Zerty : </span> {% endif %}{{ career.name }} <span class="date">({{ career.date|date('Y') }})</span>
+                    <p class="parcours-list-description">
+                {{ career.description }}
+            </p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="entreprise" class="col-sm-6 subsection">
+        <h3 class="subsection-title">Entreprise</h3>
+        <ul class="parcours-list">
+            {% for career in corporateCareer %}
+                <li>
+                    {% if career.structure %}<span class="structure">A-Zerty : </span> {% endif %}{{ career.name }} <span class="date">({{ career.date|date('Y') }})</span>
+                    <p class="parcours-list-description">
+                        {{ career.description }}
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

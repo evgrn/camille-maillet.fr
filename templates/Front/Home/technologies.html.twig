@@ -1,0 +1,56 @@
+<section id="technologies" >
+    <div class="section-intro">
+        <p>
+            Blablabla lorem ipsum tadadadda liyazd lizzaoi diyakhpoudk; oziyd, aoiyd. dhoiyezu. Lian dyi, d'aouepou et poua fulminent... Jepoua diyaoi, disons que oui.
+            Ihuho alue ziy, zuyd'e, zioy et aoiyd lo l'aoyufdh. Au djoau eudo, elu l'ouad po.
+
+        </p>
+    </div>
+
+    <div id="mastered" class="subsection row flex-vertical-space-around">
+        <h3 class="col-sm-12 subsection-title">Je développe avec</h3>
+        <div class="row ">
+            {% for technology in masteredTechnologies %}
+                <div class="col-sm-3 technology">
+                    <div class="row">
+                        <div class="technology-image col-sm-offset-2 col-sm-8">
+                            <img src="{{ images_directory }}/{{ technology.image }}" alt="{{ technology.name }}" />
+                        </div>
+                    </div>
+                    <h4 class="technology-title">{{ technology.name }}</h4>
+                    <div class="technology-content">
+                        <p>
+                            {{ technology.description }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+    <div id="learned" class="subsection row flex-vertical-space-around">
+        <h3 class="col-sm-12 subsection-title">Il me tarde de savoir développer avec</h3>
+        <div class="row flex-horizontal-space-around">
+            {% for technology in learnedTechnologies %}
+                <div class="col-sm-3 technology">
+                    <div class="row">
+                        <div class="technology-image col-sm-offset-2 col-sm-8">
+                            <img src="{{ images_directory }}/{{ technology.image }}" alt="{{ technology.name }}" />
+                        </div>
+                    </div>
+                    <h4 class="technology-title">{{ technology.name }}</h4>
+                    <div class="technology-content">
+                        <p>
+                            {{ technology.description }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+</section>

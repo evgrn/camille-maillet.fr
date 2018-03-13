@@ -6,12 +6,18 @@
     {% block stylesheets %}
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     {% endblock %}
+      <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
     <title>{% block title %}Camille Maillet{% endblock %}</title>
   </head>
   <body>
       {% block body %}
 
+
+      {% endblock %}
+      {% block scripts %}
+          <script src="/js/jquery-3.3.1.js"></script>
+          <script src="/js/jquery-ui.min.js"></script>
       {% endblock %}
   </body>
 </html>

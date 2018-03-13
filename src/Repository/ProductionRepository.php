@@ -29,4 +29,15 @@ class ProductionRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findAllPublishedOrderedByDate()
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.published = :published')
+            ->setParameter('published', true)
+            ->orderBy('p.date', 'DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 }

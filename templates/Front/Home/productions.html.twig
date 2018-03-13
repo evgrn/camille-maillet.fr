@@ -1,0 +1,10 @@
+<section id="productions">
+    <div id="mosaic" class="row">
+        {% for production in productions %}
+            <div class="col-sm-4 production-preview">
+                <img src="{{ images_directory }}/{{ production.image }}" alt="{{ production.name }}" />
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
