@@ -34,7 +34,7 @@
                     </td>
                     <td class="content-cell">
                         <div class="cell-container">
-                            {{ irl.description }}
+                            {{ irl.description  | raws}}
                         </div>
                     </td>
                     <td class="status-cell">
@@ -45,9 +45,9 @@
                     </td>
                     <td class="actions-cell">
                         <div class="cell-container">
-                            <a href="{{ path('cm_back_irl_single', {'id': irl.id}) }}" class="btn btn-default">Edt</a>
-                            <a href="{{ path('cm_back_irl_toggle_published', {'id': irl.id}) }}" class="btn btn-warning">{% if irl.published %}Dpb{% else %}Pbl{% endif %}</a>
-                            <a href="{{ path('cm_back_irl_delete', {'id': irl.id}) }}" class="btn btn-danger">Del</a>
+                            <a href="{{ path('cm_back_irl_single', {'id': irl.id}) }}" class=""><i class="fas fa-edit"></i></a>
+                            <a href="{{ path('cm_back_irl_toggle_published', {'id': irl.id}) }}" class="">{% if irl.published %}<i class="fas fa-eye-slash"></i>{% else %}<i class="fas fa-eye"></i>{% endif %}</a>
+                            <a href="{{ path('cm_back_irl_delete', {'id': irl.id}) }}" class=""><i class="fas fa-trash-alt"></i></a>
                         </div>
 
                     </td>

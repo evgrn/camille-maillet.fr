@@ -13,7 +13,7 @@
             <caption>Réalisations</caption>
             <thead>
             <tr>
-                <td>Aperçu</td>
+                <td>Vignette</td>
                 <td>Image</td>
                 <td>Nom</td>
                 <td>Url</td>
@@ -50,7 +50,7 @@
                     </td>
                     <td class="content-cell">
                         <div class="cell-container">
-                            {{ production.description }}
+                            {{ production.description  | raw }}
                         </div>
                     </td>
                     <td class="category-cell">
@@ -78,9 +78,9 @@
                     </td>
                     <td class="actions-cell">
                         <div class="cell-container">
-                            <a href="{{ path('cm_back_production_single', {'id': production.id}) }}" class="btn btn-default">Edt</a>
-                            <a href="{{ path('cm_back_production_toggle_published', {'id': production.id}) }}" class="btn btn-warning">{% if production.published %}Dpb{% else %}Pbl{% endif %}</a>
-                            <a href="{{ path('cm_back_production_delete', {'id': production.id}) }}" class="btn btn-danger">Del</a>
+                            <a href="{{ path('cm_back_production_single', {'id': production.id}) }}" class=""><i class="fas fa-edit"></i></a>
+                            <a href="{{ path('cm_back_production_toggle_published', {'id': production.id}) }}" class="">{% if production.published %}<i class="fas fa-eye-slash"></i>{% else %}<i class="fas fa-eye"></i>{% endif %}</a>
+                            <a href="{{ path('cm_back_production_delete', {'id': production.id}) }}" class=""><i class="fas fa-trash-alt"></i></a>
                         </div>
                     </td>
                 </tr>

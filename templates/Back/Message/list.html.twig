@@ -47,39 +47,41 @@
             </section>
         </div>
 
-        <div class="col-md-offset-1 col-md-4">
-            <aside id="message-single" class="row single-aside">
+        {% if message %}
+            <div class="col-md-offset-1 col-md-4">
+                <aside id="message-single" class="row single-aside">
 
-                <h3>{% if message %}<strong>"{{ message.object }}"</strong>{% else %}Aucun message{% endif %}</h3>
+                    <h3>{{ message.object }}</h3>
 
-                    {% if message %}
-                        <div class="message-info col-sm-12">
-                            <div class="message-contact-info">
-                                <p class="contact-name"><strong>Nom :</strong> {{ message.author }}</p>
-                                <p class="contact-email">
-                                    <strong>Email</strong> : <em>{{ message.email }}</em>
-                                </p>
-                                {% if message.tel %}
-                                    <p class="contact-tel">
-                                        <strong>Tel :</strong> {{ message.tel }}
+                        {% if message %}
+                            <div class="message-info col-sm-12">
+                                <div class="message-contact-info">
+                                    <p class="contact-name"><strong>Nom :</strong> {{ message.author }}</p>
+                                    <p class="contact-email">
+                                        <strong>Email</strong> : <em>{{ message.email }}</em>
                                     </p>
-                                {% endif %}
+                                    {% if message.tel %}
+                                        <p class="contact-tel">
+                                            <strong>Tel :</strong> {{ message.tel }}
+                                        </p>
+                                    {% endif %}
+                                </div>
+                                <div class="message-date">
+                                    Le {{ message.date|date('d/m/Y à h:i') }}
+                                </div>
                             </div>
-                            <div class="message-date">
-                                Le {{ message.date|date('d/m/Y à h:i') }}
+
+                            <div class="col-sm-12 message-content">
+                                {{ message.message | raw}}
                             </div>
-                        </div>
-
-                        <div class="col-sm-12 message-content">
-                            {{ message.message }}
-                        </div>
-                    {% else %}
-                        <p class="col-sm-12 not">Aucun message actuellement</p>
-                    {% endif %}
+                        {% else %}
+                            <p class="col-sm-12 not">Aucun message actuellement</p>
+                        {% endif %}
 
 
-            </aside>
-        </div>
+                </aside>
+         </div>
+        {% endif %}
 
     </div>
 

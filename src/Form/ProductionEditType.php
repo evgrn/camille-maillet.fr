@@ -10,8 +10,7 @@ class ProductionEditType extends ProductionType
     {
     $builder->get('image')->setRequired(false);
     $builder->get('thumbnail')->setRequired(false);
-
-
+    $builder->get('preview')->setRequired(false);
     ;
     }
 

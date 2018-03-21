@@ -1,10 +1,22 @@
 <section id="productions">
     <div id="mosaic" class="row">
+        {#
         {% for production in productions %}
-            <div class="col-sm-4 production-preview">
-                <img src="{{ images_directory }}/{{ production.image }}" alt="{{ production.name }}" />
+            <div
+                    class="col-sm-4 production-preview"
+                    name="{{ production.name }}"
+                    url="{{ production.url }}"
+                    github="{% if production.github %}{{ production.github }}{% else %}Non disponible{% endif %}"
+                    image="{{ images_directory }}/{{ production.image }}"
+                    description="{{ production.description }}"
+                    category="{{ production.productionCategory.name }}"
+                    technologies="{% for technology in production.technologies %}{{ technology.name }}{% if not loop.last %}, {% endif %}{% endfor %}"
+                    preview="{{ images_directory }}/{{ production.preview }}"
+            >
+                <img src="{{ images_directory }}/{{ production.thumbnail }}" alt="{{ production.name }}" />
             </div>
         {% endfor %}
+        #}
     </div>
 
 </section>

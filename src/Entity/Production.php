@@ -45,6 +45,13 @@ class Production
      *
      * @Assert\Image
      */
+    private $preview;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\Image
+     */
     private $image;
 
     /**
@@ -72,9 +79,50 @@ class Production
     private $date;
 
     /**
+     * @var string
+     * @ORM\Column(type="text", nullable=true)
+     * @Assert\Url
+     */
+    private $github;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $published;
+
+
+    public function getPropertyArray(){
+        return array(
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'url' => $this->getUrl(),
+            'thumbnail' => $this->getThumbnail(),
+            'preview' => $this->getPreview(),
+            'image' => $this->getImage(),
+            'description' => $this->getDescription(),
+            'technologies' => $this->getTechnologyList(),
+            'category' => $this->getProductionCategoryName(),
+            'date' => $this->getDate(),
+            'gthub' => $this->getGithub()
+        );
+    }
+
+    public function  getTechnologyList(){
+        $technologies = '';
+        $i = 0;
+        foreach($this->getTechnologies() as $technology){
+            if($i != 0){
+                $technologies .= ', ';
+            }
+            $technologies .= $technology->getName();
+            $i++;
+        }
+        return $technologies;
+    }
+
+    public function getProductionCategoryName(){
+        return $this->getProductionCategory()->getName();
+    }
 
     /**
      * @return mixed
@@ -245,6 +293,38 @@ class Production
         $this->technologies->removeElement($technology);
         $technology->removeElement($this);
 
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPreview()
+    {
+        return $this->preview;
+    }
+
+    /**
+     * @param mixed $preview
+     */
+    public function setPreview($preview)
+    {
+        $this->preview = $preview;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGithub()
+    {
+        return $this->github;
+    }
+
+    /**
+     * @param string $github
+     */
+    public function setGithub(string $github): void
+    {
+        $this->github = $github;
     }
 
 

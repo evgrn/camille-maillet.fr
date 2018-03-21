@@ -1,0 +1,9 @@
+<h3>Nouveau message de {{ message.author }}</h3>
+
+<p class="well">
+    <strong>Mail :</strong> {{ message.email }} <br>
+    <strong>Tel :</strong> {% if message.tel %}{{ message.tel }}{% endif %}
+</p>
+
+<strong>Message :</strong>
+{{ message.message | raw }}

@@ -6,7 +6,7 @@
             <li>
                 {% if career.structure %}<span class="structure">A-Zerty : </span> {% endif %}{{ career.name }} <span class="date">({{ career.date|date('Y') }})</span>
                     <p class="parcours-list-description">
-                {{ career.description }}
+                {{ career.description | raw }}
             </p>
             </li>
             {% endfor %}
@@ -19,7 +19,7 @@
                 <li>
                     {% if career.structure %}<span class="structure">A-Zerty : </span> {% endif %}{{ career.name }} <span class="date">({{ career.date|date('Y') }})</span>
                     <p class="parcours-list-description">
-                        {{ career.description }}
+                        {{ career.description | raw }}
                     </p>
                 </li>
             {% endfor %}

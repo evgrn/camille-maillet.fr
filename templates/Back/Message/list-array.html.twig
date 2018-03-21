@@ -32,9 +32,9 @@
 
     <td class="actions-cell">
         <div class="cell-container">
-            <a href="{{ path('cm_back_message_toggle_processed', {'id': message.id}) }}" class="btn btn-warning">{% if message.processed %}Dt{% else %}Tt{% endif %}</a>
-            <a href="{{ path('cm_back_message_delete', {'id': message.id}) }}" class="btn btn-danger">Del</a>
-            <a href="{{ path('cm_back_message_list', {'id': message.id}) }}#message-{{ message.id }}" class="btn btn-primary">Rd</a>
+            <a href="{{ path('cm_back_message_toggle_processed', {'id': message.id}) }}" class="">{% if message.processed %}<i class="fas fa-dot-circle"></i>{% else %}<i class="fas fa-check"></i>{% endif %}</a>
+            <a href="{{ path('cm_back_message_delete', {'id': message.id}) }}" class=""><i class="fas fa-trash-alt"></i></a>
+            <a href="{{ path('cm_back_message_list', {'id': message.id}) }}#message-{{ message.id }}" class=""><i class="fas fa-book"></i></a>
         </div>
 
     </td>

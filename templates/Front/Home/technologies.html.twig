@@ -11,7 +11,7 @@
         <h3 class="col-sm-12 subsection-title">Je développe avec</h3>
         <div class="row ">
             {% for technology in masteredTechnologies %}
-                <div class="col-sm-3 technology">
+                <div class="col-sm-3 col-xs-6 technology">
                     <div class="row">
                         <div class="technology-image col-sm-offset-2 col-sm-8">
                             <img src="{{ images_directory }}/{{ technology.image }}" alt="{{ technology.name }}" />
@@ -20,7 +20,7 @@
                     <h4 class="technology-title">{{ technology.name }}</h4>
                     <div class="technology-content">
                         <p>
-                            {{ technology.description }}
+                            {{ technology.description | raw }}
                         </p>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
         <h3 class="col-sm-12 subsection-title">Il me tarde de savoir développer avec</h3>
         <div class="row flex-horizontal-space-around">
             {% for technology in learnedTechnologies %}
-                <div class="col-sm-3 technology">
+                <div class="col-sm-3 col-xs-6 technology">
                     <div class="row">
                         <div class="technology-image col-sm-offset-2 col-sm-8">
                             <img src="{{ images_directory }}/{{ technology.image }}" alt="{{ technology.name }}" />

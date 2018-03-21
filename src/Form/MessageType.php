@@ -20,7 +20,9 @@ class MessageType extends AbstractType
             ->add('author', TextType::class)
             ->add('email', EmailType::class)
             ->add('tel', TelType::class)
-            ->add('message', TextareaType::class)
+            ->add('object', TextType::class)
+            ->add('message', TextareaType::class, array('required' => false))
+            ->add('submit', SubmitType::class)
         ;
     }
 

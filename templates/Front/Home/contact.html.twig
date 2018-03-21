@@ -1,40 +1,53 @@
+<section id="contact">
 
-    <section id="contact">
-        <form class="form">
-            <div class="form-group">
-                <label class="col-form-label">
-                    Nom
-                </label>
-                <input class="form-input" type="text"/>
-            </div>
-            <div class="form-group">
-                <label class="col-form-label">
-                    Prénom
-                </label>
-                <input class="form-input" type="text"/>
-            </div>
-            <div class="form-group">
-                <label class="col-form-label">
-                    Tel
-                </label>
-                <input class="form-input" type="text"/>
-            </div>
-            <div class="form-group">
-                <label class="col-form-label">
-                    Mail
-                </label>
-                <input class="form-input" type="text"/>
-            </div>
-            <div class="form-group">
-                <label class="col-form-label">
-                    Message
-                </label>
-                <textarea  type="text"></textarea>
-            </div>
-            <div class="form-group">
+    <div class="row" id="contact-container">
+        <h2 class="section-title">Contact</h2>
 
-                <button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
+        {{ form_errors(form, {'attr': {'class': 'alert alert-warning'}}) }}
+        {{ form_start(form, {'attr': {'class': 'form-horizontal col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10', 'id': 'contact-form'}}) }}
+        <div class="form-group">
+            {{ form_label(form.author, "Nom", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_errors(form.author) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
             </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_errors(form.email) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.tel, "Téléphone", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_errors(form.tel) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.tel, {'attr': {'class': 'form-control', 'rows': '10'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.object, "Objet", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_errors(form.object) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.object, {'attr': {'class': 'form-control', 'rows': '10'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.message, "Message", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_errors(form.message) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.message, {'attr': {'class': 'form-control', 'rows': '10'}}) }}
+            </div>
+        </div>
 
-        </form>
-    </section>
+
+        {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary pull-right'}}) }}
+
+
+        {{ form_rest(form) }}
+
+
+        {{ form_end(form) }}
+    </div>
+</section>

@@ -3,7 +3,7 @@
 </div>
 <div class="module-content">
     <table class="table message-table">
-        <caption>Non traités</caption>
+        <caption>Derniers messages non traités</caption>
         <thead>
         <tr>
             <td>Expéditeur</td>
@@ -28,7 +28,7 @@
                 </td>
 
                 <td class="actions-cell">
-                        <a href="{{ path('cm_back_message_list', {'id': message.id}) }}#message-{{ message.id }}" class="btn btn-primary">Rd</a>
+                        <a href="{{ path('cm_back_message_list', {'id': message.id}) }}#message-{{ message.id }}" class=""><i class="fas fa-book"></i></a>
                 </td>
             </tr>
         {% endfor %}

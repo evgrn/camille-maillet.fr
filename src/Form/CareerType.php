@@ -29,9 +29,8 @@ class CareerType extends AbstractType
             ->add('description', TextareaType::class )
             ->add('date', DateType::class,
                 array(
-                    'required' => false,
                     'widget' => 'single_text',
-                    'format' => 'dd/mm/YY'
+                    'format' => 'dd/MM/yyyy'
                 ) )
             ->add('published', CheckboxType::class, array('required' => false) )
             ->add('submit', SubmitType::class )

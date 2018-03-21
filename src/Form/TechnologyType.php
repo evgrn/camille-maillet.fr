@@ -21,7 +21,7 @@ public function buildForm(FormBuilderInterface $builder, array $options)
 $builder
 
     ->add('name', TextType::class)
-    ->add('description', TextareaType::class)
+    ->add('description', TextareaType::class, array('required' => false))
     ->add('image', FileType::class)
     ->add('category', EntityType::class, array(
         'class'         => 'App:TechnologyCategory',

@@ -21,15 +21,7 @@ class MessageRepository extends ServiceEntityRepository
     }
 
 
-    public function findLast()
-    {
-        return $this->createQueryBuilder('m')
-            ->orderBy('m.id', 'DESC')
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getSingleResult()
-        ;
-    }
+
 
     public function findAllByProcessed($processed)
     {
@@ -37,6 +29,20 @@ class MessageRepository extends ServiceEntityRepository
             ->orderBy('m.date', 'DESC')
             ->where('m.processed = :processed')
             ->setParameter('processed', $processed)
+            ->getQuery()
+            ->getResult()
+            ;
+
+    }
+
+
+    public function findLastUnprocessed($limit)
+    {
+        return $this->createQueryBuilder('m')
+            ->orderBy('m.date', 'DESC')
+            ->where('m.processed = :processed')
+            ->setParameter('processed', false)
+            ->setMaxResults($limit)
             ->getQuery()
             ->getResult()
             ;

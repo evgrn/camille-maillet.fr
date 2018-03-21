@@ -24,10 +24,16 @@ class ProductionType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('url', TextType::class)
-            ->add('description', TextareaType::class)
-            ->add('date', DateType::class)
+            ->add('github', TextType::class, array('required' => false))
+            ->add('description', TextareaType::class, array('required' => false))
+            ->add('date', DateType::class,
+                array(
+                    'widget' => 'single_text',
+                    'format' => 'dd/MM/yyyy'
+                ) )
             ->add('thumbnail', FileType::class)
             ->add('image', FileType::class)
+            ->add('preview', FileType::class)
             ->add('published', CheckboxType::class, array('required' =>false))
             ->add('productionCategory', EntityType::class, array(
                 'class'         => 'App:ProductionCategory',

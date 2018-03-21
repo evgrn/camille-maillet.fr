@@ -6,7 +6,7 @@
         <img src="{{ images_directory }}/{{ bio.image }}" alt="Biographie"/>
     </div>
     <div class="text-content">
-        <p>{{ bio.content }}</p>
+        <p>{{ bio.content | raw}}</p>
     </div>
 </div>
 <div class="row">

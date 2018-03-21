@@ -14,6 +14,11 @@ use Symfony\Component\HttpFoundation\File\File;
 class IrlController extends Controller
 {
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * Affiche la liste des éléments IRL.
+     */
     public function listAction(){
         $em = $this->getDoctrine()->getManager();
         $irl = $em->getRepository('App:Irl')->findAll();
@@ -21,6 +26,11 @@ class IrlController extends Controller
         return $this->render('Back/Irl/list.html.twig', array('irl' => $irl));
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * Affiche la version dashboard de la liste des éléments IRL.
+     */
     public function shortListAction(){
         $em = $this->getDoctrine()->getManager();
         $irl = $em->getRepository('App:Irl')->findAll();
@@ -28,9 +38,17 @@ class IrlController extends Controller
         return $this->render('Back/Irl/short-list.html.twig', array('irl' => $irl));
     }
 
+    /**
+     * @param Request $request
+     * @param ImageManager $imageManager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
+     * Affiche un formulaire d'ajout d'élément IRL.
+     */
     public function addAction(Request $request, ImageManager $imageManager)
     {
         $em = $this->getDoctrine()->getManager();
+
         $irl = new Irl();
         $form = $this->createForm(IrlType::class, $irl);
         $form->handleRequest($request);
@@ -51,17 +69,33 @@ class IrlController extends Controller
         ));
     }
 
+    /**
+     * @param Request $request
+     * @param ImageManager $imageManager
+     * @param Irl $irl
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
+     * Affiche l'aperçu de l'entité IRL entrée en paramètre et un formulaire permettant de l'éditer.
+     */
     public function singleAction(Request $request, ImageManager $imageManager, Irl $irl){
+
+        // Récupération des entités
         $em = $this->getDoctrine()->getManager();
         $irlPreview = clone $irl;
 
+        // Afin de ne pas avoir de problème avec le champ image du formulaire, on clone l'objet $irl.
+        // Son clone $irlPreview servira à hydrater la partie aperçue
+        // L'objet $irl initial, qui servira à hydrater le formulaire, se voit remplacer sa propriété $image par un objet de type File attendu par le formulaire.
         $originalImage = $irl->getImage();
         $irl->setImage(new File($this->getParameter('images_directory').'/'.$originalImage));
 
+        // Gestion du formulaire
         $form = $this->createForm(IrlEditType::class, $irl);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // Mise à jour de l'image
             $irl->setImage(
                 $imageManager->manageImageUpdate($irl->getImage(), $originalImage)
             );
@@ -70,15 +104,24 @@ class IrlController extends Controller
             return $this->redirectToRoute('cm_back_irl_list');
         }
 
+        // Génération de la vue
         return $this->render('Back/Irl/single.html.twig', array('irl' => $irlPreview, 'form' => $form->createView()));
 
     }
 
+    /**
+     * @param Request $request
+     * @param ImageManager $imageManager
+     * @param Irl $irl
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * Suppression de l'ntité IRL entrée en paramètre.
+     */
     public function deleteAction(Request $request, ImageManager $imageManager, Irl $irl)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $imageManager->delete($irl->getImage());
+        $imageManager->delete($irl->getImage()); // Suppression de l'image associée
         $em->remove($irl);
         $em->flush();
         $this->get('session')->getFlashbag()->add('notice', "L'élément IRL a été supprimé" );
@@ -86,6 +129,12 @@ class IrlController extends Controller
         return $this->redirectToRoute('cm_back_irl_list');
     }
 
+    /**
+     * @param Irl $irl
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * Change le statut de l'élément ( publié / non-publié)
+     */
     public function togglePublishedAction(Irl $irl){
         $em = $this->getDoctrine()->getManager();
         $newStatus = $irl->getPublished() ? false : true;

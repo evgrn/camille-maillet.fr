@@ -1,14 +1,51 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html prefix="og: http://ogp.me/ns#" lang="fr">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+
+    <meta name="description" content="CM Web | Développeur web sur Toulouse et Montauban">
+    <meta name="keywords" content="Développeur web Toulouse, Débeloppeur web Montauban, javascript, symfony, php, jquery">
+    <meta name="author" content="Camille Maillet">
+    <link rel="icon" href="img/icons/favicon.ico" />
+
+    <!--#### iOS ####-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="CM Web">
+    <link rel="apple-touch-icon" href="img/icons/favicon.ico">
+
+    <!--#### Android ####-->
+    <meta name="color" content="#004B8E">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="CM Web | Développeur web sur Toulouse et Montauban">
+    <link rel="icon" type="image/png" href="img/icons/favicon.ico" sizes="192x192">
+
+    <!--#### Facebook ####-->
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CM Web | Développeur web sur Toulouse et Montauban" />
+    <meta property="og:description" content="Camille Maillet, développeur web junior passionné et ouvert à tout projet" />
+    <meta property="og:url" content="https://camille-maillet.fr/" />
+    <meta property="og:site_name" content="Billet Simple Pour l'Alaska" />
+    <meta property="og:image" content="img/preview-social.jpg" />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="500" />
+
+    <!--#### Twitter ####-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="Camille Maillet, développeur web junior passionné et ouvert à tout projet" />
+    <meta name="twitter:title" content="CM Web - Développeur web sur Toulouse et Montauban" />
+    <meta name="twitter:image" content="<img/preview-social.jpg" />
     <meta charset="utf-8"/>
 
     {% block stylesheets %}
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/jquery-ui.min.css">
     {% endblock %}
       <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
-    <title>{% block title %}Camille Maillet{% endblock %}</title>
+    <title>{% block title %}CM Web{% endblock %}</title>
   </head>
   <body>
       {% block body %}
@@ -18,6 +55,8 @@
       {% block scripts %}
           <script src="/js/jquery-3.3.1.js"></script>
           <script src="/js/jquery-ui.min.js"></script>
+          <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=rw9lllvwivegvt1gptpquf6km3i5u8n7aynhbwhutuxe9db0"></script>
+          <script src="/js/scripts.js"></script>
       {% endblock %}
   </body>
 </html>

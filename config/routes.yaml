@@ -4,6 +4,18 @@ cm_front_home:
    path: /
    controller: App\Controller\Front\HomeController::indexAction
 
+cm_front_productions:
+   path: /productions/{category}
+   controller: App\Controller\Front\HomeController::productionsAction
+   requirements:
+      category: \d+
+   defaults:
+      category: 0
+
+cm_front_production_categories:
+   path: /productions/categories
+   controller: App\Controller\Front\HomeController::productionCategoriesAction
+
 ############################## USERS #################################
 cm_back_admin_user_edit:
     path: /back/admin-user-edit

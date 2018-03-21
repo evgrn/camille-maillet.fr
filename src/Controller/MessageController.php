@@ -16,7 +16,7 @@ class MessageController extends Controller
         $notProcessed = $em->getRepository('App:Message')->findAllByProcessed(false);
 
 
-        $message = ($id) ? $em->getRepository('App:Message')->find($id) : $em->getRepository('App:Message')->findLast();
+        $message = ($id) ? $em->getRepository('App:Message')->find($id) : null;
 
 
 
@@ -30,7 +30,7 @@ class MessageController extends Controller
 
     public function shortListAction(){
         $em = $this->getDoctrine()->getManager();
-        $messages = $em->getRepository('App:Message')->findAllByProcessed(false);
+        $messages = $em->getRepository('App:Message')->findLastUnprocessed(5);
 
         return $this->render('Back/Message/short-list.html.twig', array('messages' => $messages));
     }
@@ -55,4 +55,5 @@ class MessageController extends Controller
         return $this->redirectToRoute('cm_back_message_list');
 
     }
+
 }

@@ -27,6 +27,14 @@ class ProductionCategory
      */
     private $productions;
 
+
+    public function getPropertyArray(){
+        return array(
+            'name' => $this->getName(),
+            'id' =>$this->getId()
+        );
+    }
+
     /**
      * @return mixed
      */

@@ -70,7 +70,7 @@ table caption{
     padding: 5px 0;
 }
 
-table thead{
+table.table thead{
     background-color: #f9ecec;
     color: black;
     border-color: dimgray;
@@ -121,7 +121,7 @@ table tbody tr:nth-child(odd){
     background-color: rgba(53, 56, 65, .9);
 }
 
-table tbody tr:hover{
+table.table tbody tr:hover{
     background-color: rgba(28, 29, 31, .7);
     color: white;
 }
@@ -210,9 +210,16 @@ form option, form select{
     padding: 5px;
 }
 
-
-form select{
+form .input input, form select{
     height: 34px;
+    color: dimgray;
+}
+
+form .input input{
+    width: 100%;
+    text-align: center;
+    color: dimgray;
+    border: none;
 }
 .form-horizontal .control-label{
     text-align: left;
@@ -245,6 +252,18 @@ div.form-group.mastered div.input, div.form-group.published div.input {
 
 form .checkbox{
     margin-top: -.001em
+}
+
+#ui-datepicker-div{
+    background-color: white;
+    padding: 10px;
+    min-width: 200px;
+    border: 1px solid dimgray;
+    color: black;
+    text-align: center;
+}
+.ui-datepicker-calendar{
+    min-width: 200px;
 }
 
 /*### DASHBOARD ###*/

@@ -4,7 +4,8 @@
     {{ include('Front/Home/intro.html.twig') }}
     <div id="main" class="row">
         {{ include('Front/Home/menu.html.twig') }}
-        <div id="main-content" class="col-sm-10 col-sm-offset-2">
+        <div id="main-content" class="col-md-10 col-md-offset-2">
+
             {{ include('Front/Home/productions.html.twig') }}
             {{ include('Front/Home/technologies.html.twig') }}
             {{ include('Front/Home/bio.html.twig') }}
@@ -13,9 +14,15 @@
 
 
         </div>
-            {{ include('Front/Home/footer.html.twig') }}
-        <div id="left-page" class="col-sm-10">
+
+        {{ include('Front/Home/footer.html.twig') }}
+        {{ include('Front/Home/message-notification.html.twig') }}
+
+        <div id="left-page" class="col-md-10">
             {{ include('Front/Home/contact.html.twig') }}
+        </div>
+        <div id="right-page" class="col-md-offset-2 col-md-10">
+            {{ include('Front/Home/production-single.html.twig') }}
         </div>
     </div>
 

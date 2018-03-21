@@ -40,4 +40,16 @@ class ProductionRepository extends ServiceEntityRepository
             ;
     }
 
+    public function findAllPublishedByCategory($category){
+        return $this->createQueryBuilder('p')
+            ->where('p.published = :published')
+            ->setParameter('published', true)
+            ->andWhere('p.productionCategory = :category')
+            ->setParameter('category', $category)
+            ->orderBy('p.date', 'DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 }

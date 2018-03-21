@@ -15,13 +15,22 @@ use Symfony\Component\HttpFoundation\File\File;
 
 class TechnologyController extends Controller
 {
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
+     * Affiche la liste des technologies et un formulaire d'édition / ajout.
+     */
     public function listAction(Request $request, $id){
+
+        // Récupération des entités
         $em = $this->getDoctrine()->getManager();
         $masteredTechnologies = $em->getRepository('App:Technology')->findByMastered(true);
         $learnedTechnologies = $em->getRepository('App:Technology')->findByMastered(false);
         $technologyCategories = $em->getRepository('App:TechnologyCategory')->findAll();
 
-
+        // Gestion du formulaire
         $category = ($id) ? $em->getRepository('App:TechnologyCategory')->find($id) : new TechnologyCategory();
         $form = $this->createForm(TechnologyCategoryType::class, $category);
         $form->handleRequest($request);
@@ -36,6 +45,7 @@ class TechnologyController extends Controller
             return $this->redirectToRoute('cm_back_technology_list');
         }
 
+        // Génération de la vue
         return $this->render('Back/Technology/list.html.twig',
             array(
                 'masteredTechnologies' => $masteredTechnologies,
@@ -46,6 +56,11 @@ class TechnologyController extends Controller
             ));
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * Affichage de la liste des technologies dans le dashboard.
+     */
     public function shortListAction(){
         $em = $this->getDoctrine()->getManager();
         $masteredTechnologies = $em->getRepository('App:Technology')->findByMastered(true);
@@ -54,6 +69,13 @@ class TechnologyController extends Controller
         return $this->render('Back/Technology/short-list.html.twig', array('masteredTechnologies' => $masteredTechnologies, 'learnedTechnologies' => $learnedTechnologies));
     }
 
+    /**
+     * @param Request $request
+     * @param ImageManager $imageManager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
+     * Affichage d'un formulaire d'ajout de technologie.
+     */
     public function addAction(Request $request, ImageManager $imageManager)
     {
         $em = $this->getDoctrine()->getManager();
@@ -63,6 +85,7 @@ class TechnologyController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            // Upload de l'image
             $technology->setImage(
                 $imageManager->uploadImage($technology->getImage())
             );
@@ -79,11 +102,25 @@ class TechnologyController extends Controller
         ));
     }
 
+    /**
+     * @param Request $request
+     * @param ImageManager $imageManager
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
+     * Affiche l'aperçu et un formulaire d'édition de l'entité Technology ayant pour ID la valeur $id entrée en paramètre.
+     */
     public function singleAction(Request $request, ImageManager $imageManager, $id){
+
+        // Récupération de l'entité
         $em = $this->getDoctrine()->getManager();
         $technology = $em->getRepository('App:Technology')->find($id);
-        $technologyPreview = clone $technology;
 
+        // Afin de ne pas avoir de problème avec le champ image, on clone l'objet $technology.
+        // Son clone $technologyPreview servira à hydrater la partie aperçu
+        // L'objet $technology initial, qui servira à hydrater le formulaire, se voit remplacer sa propriétés $image par un objet de type File attendu par le formulaire.
+
+        $technologyPreview = clone $technology;
         $originalImage = $technology->getImage();
         $technology->setImage(new File($this->getParameter('images_directory').'/'. $originalImage));
 

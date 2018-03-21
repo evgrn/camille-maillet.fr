@@ -19,7 +19,7 @@ class IrlType extends AbstractType
         $builder
 
             ->add('name', TextType::class)
-            ->add('description', TextareaType::class)
+            ->add('description', TextareaType::class, array('required' => false))
             ->add('image', FileType::class)
             ->add('published', CheckboxType::class, array('required' => false))
             ->add('submit', SubmitType::class)
