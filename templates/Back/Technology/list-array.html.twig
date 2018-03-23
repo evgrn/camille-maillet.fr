@@ -1,5 +1,5 @@
 <tr>
-    <td class="img-cell">
+    <td class="img-cell hidden-xs hidden-sm">
         <div class="cell-container">
             <img src="{{ images_directory }}/{{ technology.image }}"/>
         </div>
@@ -9,17 +9,17 @@
             {{ technology.name }}
         </div>
     </td>
-    <td class="category-cell">
+    <td class="category-cell hidden-xs">
         <div class="cell-container">
             {% if technology.category %}{{technology.category.name }}{% else %}<span class="not">Aucune</span>{% endif %}
         </div>
     </td>
-    <td class="stack-cell">
+    <td class="stack-cell hidden-xs">
         <div class="cell-container">
             <em>{% if technology.stack %}{{technology.stack }}{% else %}<span class="not">Aucun</span>{% endif %}</em>
         </div>
     </td>
-    <td class="content-cell">
+    <td class="content-cell hidden-xs hidden-sm">
         <div class="cell-container">
             {{ technology.description }}
         </div>

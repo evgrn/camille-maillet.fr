@@ -6,7 +6,7 @@
         <caption>Liste des éléments IRL</caption>
         <thead>
         <tr>
-            <td>Image</td>
+            <td class="hidden-xs hidden-sm hidden-md">Image</td>
             <td>Nom</td>
             <td>Statut</td>
             <td>Actions</td>
@@ -15,28 +15,20 @@
         <tbody>
         {% for irl in irl %}
             <tr>
-                <td class="img-cell">
-                    <div class="cell-container">
+                <td class="img-cell hidden-xs hidden-sm hidden-md">
                         <img src="{{ images_directory }}/{{ irl.image }}"/>
-                    </div>
                 </td>
                 <td class="title-cell">
-                    <div class="cell-container">
                         {{ irl.name }}
-                    </div>
                 </td>
                 <td class="status-cell">
-                    <div class="cell-container">
                         {% if irl.published %} Publié {% endif %}
                         {% if not irl.published %} <span class="not">Non publié </span>{% endif %}
-                    </div>
                 </td>
                 <td class="actions-cell">
-                    <div class="cell-container">
                         <a href="{{ path('cm_back_irl_single', {'id': irl.id}) }}" class=""><i class="fas fa-edit"></i></a>
                         <a href="{{ path('cm_back_irl_toggle_published', {'id': irl.id}) }}" class="">{% if irl.published %}<i class="fas fa-eye-slash"></i>{% else %}<i class="fas fa-eye"></i>{% endif %}</a>
                         <a href="{{ path('cm_back_irl_delete', {'id': irl.id}) }}" class=""><i class="fas fa-trash-alt"></i></a>
-                    </div>
 
                 </td>
             </tr>

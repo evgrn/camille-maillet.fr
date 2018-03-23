@@ -39,18 +39,18 @@
     </div>
 
     <div class="form-group mastered">
-        {{ form_label(form.mastered, "Maîtrisé", {'label_attr': {'class': ' col-sm-4 control-label'}}) }}
+        {{ form_label(form.mastered, "Maîtrisé", {'label_attr': {'class': ' col-xs-4 control-label'}}) }}
         {{ form_errors(form.mastered) }}
-        <div class="col-sm-2 input">
+        <div class="col-sm-2 col-xs-8 input">
             {{ form_widget(form.mastered, {'attr': {'class': 'form-control checkbox'}}) }}
         </div>
     </div>
 
 
     <div class="form-group published">
-        {{ form_label(form.published, "Publié", {'label_attr': {'class': ' col-sm-4  control-label'}}) }}
+        {{ form_label(form.published, "Publié", {'label_attr': {'class': ' col-xs-4  control-label'}}) }}
         {{ form_errors(form.published) }}
-        <div class="col-sm-2 input">
+        <div class="col-sm-2 col-xs-8 input">
             {{ form_widget(form.published, {'attr': {'class': 'form-control checkbox'}}) }}
         </div>
     </div>

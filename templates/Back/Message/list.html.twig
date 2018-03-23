@@ -3,7 +3,9 @@
 {% block title %}Messages - {{ parent() }} {% endblock %}
 
 {% block main %}
-
+    <div class="row">
+        <h2 class="list-page-title hidden-md hidden-lg hidden-xl"> Messages </h2>
+    </div>
     <div class="row">
         <div class="col-md-7">
             <section id="not-processed" class="row">
@@ -11,9 +13,10 @@
                     <caption>Non traités</caption>
                     <thead>
                     <tr>
-                        <td>Expéditeur</td>
-                        <td>Objet</td>
-                        <td>Date</td>
+                        <td class="hidden-xs">Expéditeur</td>
+                        <td class="hidden-xs">Objet</td>
+                        <td class="hidden-xs">Date</td>
+                        <td class="tablet-hidden">Message</td>
                         <td>Actions</td>
                     </tr>
                     </thead>
@@ -31,9 +34,10 @@
                     <caption>Traités</caption>
                     <thead>
                     <tr>
-                        <td>Expéditeur</td>
-                        <td>Objet</td>
-                        <td>Date</td>
+                        <td class="hidden-xs">Expéditeur</td>
+                        <td class="hidden-xs">Objet</td>
+                        <td class="hidden-xs">Date</td>
+                        <td class="tablet-hidden">Message</td>
                         <td>Actions</td>
                     </tr>
                     </thead>
@@ -51,7 +55,7 @@
             <div class="col-md-offset-1 col-md-4">
                 <aside id="message-single" class="row single-aside">
 
-                    <h3>{{ message.object }}</h3>
+                    <h3>{{ message.object }}<i class="far fa-window-close pull-right"></i></h3>
 
                         {% if message %}
                             <div class="message-info col-sm-12">

@@ -1,15 +1,11 @@
 <tr>
-    <td class="name-cell">
-            {{ career.name }}
-    </td>
-    <td class="title-cell">
-            {{ career.structure }}
-    </td>
-    <td class="status-cell">
-        <div class="cell-container">
+    <td class="career-cell">
+        <strong>{{ career.name }}</strong> <br>
+        <em>
             {% if career.published %} Publié {% endif %}
             {% if not career.published %} <span class="not">Non publié </span>{% endif %}
-        </div>
+        </em>
+
     </td>
     <td class="actions-cell">
             <a href="{{ path('cm_back_career_list', {'id': career.id}) }}" class=""><i class="fas fa-edit"></i></a>

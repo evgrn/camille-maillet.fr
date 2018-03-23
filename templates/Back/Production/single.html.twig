@@ -10,24 +10,24 @@
         <section id="preview">
             <h3 class="section-title">Aperçu</h3>
             <div class="section-content row">
-                <div class="col-sm-3">
+                <div id="production-images" class="col-sm-3">
                     <h4>Vignette</h4>
                     <div class="row">
-                        <p class=" col-md-8 single-image">
+                        <p class=" col-md-8 col-sm-12 col-xs-10 col-xs-offset-1">
                             <img src="{{ images_directory }}/{{ production.thumbnail }}" alt="{{ production.name }}" class="col-sm-12"/>
                         </p>
                     </div>
 
                     <h4>Image</h4>
                     <div class="row">
-                        <p class=" col-md-8 single-image">
+                        <p class=" col-md-8 col-sm-12 col-xs-10 col-xs-offset-1">
                             <img src="{{ images_directory }}/{{ production.image }}" alt="{{ production.name }}" class="col-sm-12"/>
                         </p>
                     </div>
 
                     <h4>Aperçu</h4>
                     <div class="row">
-                        <p class=" col-md-8 single-image">
+                        <p class=" col-md-8 col-sm-12 col-xs-10 col-xs-offset-1">
                             <img src="{{ images_directory }}/{{ production.preview }}" alt="{{ production.name }}" class="col-sm-12"/>
                         </p>
                     </div>
@@ -36,34 +36,34 @@
                 <div class="col-sm-9 text-content">
                     <h4>Informations</h4>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Nom : </strong></p>
-                        <p class="col-md-10 col-sm-9">{{ production.name }}</p>
+                        <p class="col-md-2  col-xs-4 "><strong>Nom</strong></p>
+                        <p class="col-md-10 col-xs-8">{{ production.name }}</p>
                     </div>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Catégorie de projet : </strong></p>
-                        <p class="col-md-10 col-sm-9">{% if production.productionCategory %}{{ production.productionCategory.name }}{% else %}<span class="not">Aucune</span>{% endif %}</p>
+                        <p class="col-md-2  col-xs-4 "><strong>Catégorie</strong></p>
+                        <p class="col-md-10 col-xs-8">{% if production.productionCategory %}{{ production.productionCategory.name }}{% else %}<span class="not">Aucune</span>{% endif %}</p>
                     </div>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Technologies utilisées : </strong></p>
-                        <p class="col-md-10 col-sm-9">{% for technology in production.technologies  %}{{ technology.name }}{% if not loop.last %} | {% endif %}{% else %}<span class="not">Aucune</span>{% endfor %}</p>
+                        <p class="col-md-2  col-xs-4 "><strong>Technologies</strong></p>
+                        <p class="col-md-10 col-xs-!">{% for technology in production.technologies  %}{{ technology.name }}{% if not loop.last %} | {% endif %}{% else %}<span class="not">Aucune</span>{% endfor %}</p>
                     </div>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>URL : </strong></p>
-                        <p class="col-md-10 col-sm-9"><a href="{{ production.url }}" target="_blank">{{ production.url }}</a></p>
+                        <p class="col-md-2  col-xs-4 "><strong>URL</strong></p>
+                        <p class="col-md-10 col-xs-8"><a href="{{ production.url }}" target="_blank">{{ production.url }}</a></p>
                     </div>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Date : </strong></p>
-                        <p class="col-md-10 col-sm-9">{{ production.date|date('d/m/Y') }}</p>
+                        <p class="col-md-2  col-xs-4 "><strong>Date</strong></p>
+                        <p class="col-md-10 col-xs-8">{{ production.date|date('d/m/Y') }}</p>
                     </div>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Statut : </strong></p>
-                        <p class="col-md-10 col-sm-9">
+                        <p class="col-md-2  col-xs-4 "><strong>Statut</strong></p>
+                        <p class="col-md-10 col-xs-8">
                             {% if production.published %}Publié{% else %}<span class="not">Non publié</span>{% endif %} <br/>
                         </p>
                     </div>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Description : </strong></p>
-                        <div class="col-md-10 col-sm-9">{{ production.description  | raw }}</div>
+                        <p class="col-md-2  col-xs-4 "><strong>Description</strong></p>
+                        <div class="col-md-10 col-xs-12">{{ production.description  | raw }}</div>
                     </div>
 
 

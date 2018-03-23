@@ -4,43 +4,43 @@
 
 {% block main %}
     <div class="row">
-        <h2 class="section-title">{{ technology.name }}</h2>
+        <h2 class="single-title">{{ technology.name }}</h2>
     </div>
     <div class="row single-content">
-        <section id="preview">
+        <section id="preview" class="">
             <h3 class="section-title">Aperçu</h3>
             <div class="section-content row">
-                <div class="col-sm-2 single-image">
+                <div class="col-md-2 col-md-offset-0 col-xs-offset-4 col-xs-4 single-image">
                     <img src="{{ images_directory }}/{{ technology.image }}" alt="{{ technology.name }}"/>
                 </div>
-                <div class="col-sm-offset-1 col-sm-9 text-content">
+                <div class=" col-md-offset-1 col-md-9 col-xs-12 text-content">
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Nom : </strong></p>
-                        <p class="col-md-10 col-sm-9">{{ technology.name }}</p>
+                        <p class="col-md-2  col-xs-5"><strong>Nom</strong></p>
+                        <p class="ol-md-10 col-xs-7">{{ technology.name }}</p>
                     </div>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Classification : </strong></p>
-                        <p class="col-md-10 col-sm-9">
+                        <p class="col-md-2  col-xs-5"><strong>Classification</strong></p>
+                        <p class="ol-md-10 col-xs-7">
                             {{ technology.category.name }} {{ technology.stack }}
                         </p>
                     </div>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Statut : </strong></p>
-                        <p class="col-md-10 col-sm-9">
+                        <p class="col-md-2  col-xs-5"><strong>Statut</strong></p>
+                        <p class="col-md-10 col-xs-7">
                             {% if technology.published %}Publié{% else %}<span class="not">Non publié</span>{% endif %} <br/>
                             {% if technology.mastered %}Maîtrisé{% else %}<span class="not">Non maîtrisé</span>{% endif %}
                         </p>
                     </div>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Description : </strong></p>
-                        <p class="col-md-10 col-sm-9">{{ technology.description }}</p>
+                        <p class="col-md-2  col-xs-4"><strong>Description</strong></p>
+                        <p class="col-md-10 col-xs-12">{{ technology.description }}</p>
                     </div>
                 </div>
             </div>
 
         </section>
 
-        <section id="edit-technology">
+        <section id="edit-technology" class="">
             <h3 class="section-title">Édition</h3>
             {{ include('Back/Form/technology.html.twig') }}
         </section>

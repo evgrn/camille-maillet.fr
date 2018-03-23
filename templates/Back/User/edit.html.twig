@@ -4,7 +4,7 @@
 
 {% block main %}
     <div class="row">
-        <h2 class="single-title"> Édition de l'utilisateur </h2>
+        <h2 class="list-page-title hidden-md hidden-lg hidden-xl">Édition de l'utilisateur </h2>
     </div>
     <div class="row single-content">
         <section id="preview">
@@ -12,21 +12,19 @@
             <div class="section-content row">
                 <div class="col-sm-offset-1 col-sm-9 text-content">
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Login : </strong></p>
-                        <p class="col-md-10 col-sm-9">{{ user.username }}</p>
+                        <p class="col-md-2  col-xs-3 "><strong>Login</strong></p>
+                        <p class="col-md-10 col-xs-9">{{ user.username }}</p>
                     </div>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Mail: </strong></p>
-                        <p class="col-md-10 col-sm-9">
-                            {{ user.email }}
-                        </p>
+                        <p class="col-md-2  col-xs-3 "><strong>Mail</strong></p>
+                        <p class="col-md-10 col-xs-9">{{ user.email }}</p>
                     </div>
                 </div>
             </div>
 
         </section>
 
-        <section id="edit-user">
+        <section id="edit-user row">
             <h3 class="section-title">Édition</h3>
             <div class="section-content row">
                 {{ form_start(form, {'attr': {'class': 'form-horizontal col-sm-offset-1 col-sm-10'}}) }}

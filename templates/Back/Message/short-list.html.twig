@@ -6,27 +6,16 @@
         <caption>Derniers messages non traités</caption>
         <thead>
         <tr>
-            <td>Expéditeur</td>
-            <td>Objet</td>
-            <td>Date</td>
+            <td>Message</td>
             <td>Actions</td>
         </tr>
         </thead>
         <tbody>
         {% for message in messages %}
             <tr id="message-{{ message.id }}">
-                <td class="author-cell">
-                        <p class="message-author">
-                            {{ message.author }}
-                        </p>
-                </td>
-                <td class="object-cell">
-                        {{message.object }}
-                </td>
-                <td class="date-cell">
-                        {{ message.date|date('d/m/Y') }}
-                </td>
-
+                <td class="message-cell">
+                    {{ message.author }}, <em>le {{ message.date|date('d/m/Y') }}</em><br/>
+                    <strong>{{message.object }}</strong>
                 <td class="actions-cell">
                         <a href="{{ path('cm_back_message_list', {'id': message.id}) }}#message-{{ message.id }}" class=""><i class="fas fa-book"></i></a>
                 </td>

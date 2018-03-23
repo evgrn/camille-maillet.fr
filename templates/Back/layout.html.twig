@@ -17,10 +17,19 @@
             </div>
 
         {% endfor %}
-        {% block main %}
-        {% endblock %}
+        <div class="page-container {% block pageName %} {% endblock %}">
+            {% block main %}
+
+
+            {% endblock %}
+        </div>
     </div>
 
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="/js/backMenuToggle.js"></script>
 {% endblock %}
 
 

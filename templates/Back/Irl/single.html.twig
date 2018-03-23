@@ -6,25 +6,25 @@
     <div class="row">
         <h2 class="single-title">{{ irl.name }}</h2>
     </div>
-    <div class="row single-content">
-        <section id="preview" class="single-section">
+    <div class="single-content">
+        <section id="preview" class="row">
             <h3 class="section-title">Aperçu</h3>
             <div class="section-content row">
-                <div class="col-sm-2 single-image">
+                <div class="col-md-2 col-md-offset-0 col-xs-offset-4 col-xs-4 single-image">
                     <img src="{{ images_directory }}/{{ irl.image }}" alt="{{ irl.name }}"/>
                 </div>
-                <div class=" col-sm-offset-1 col-sm-9 text-content">
+                <div class=" col-md-offset-1 col-md-9 col-xs-12  text-content">
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Nom : </strong></p>
-                        <p class="col-md-10 col-sm-9">{{ irl.name }}</p>
+                        <p class="col-md-2 col-xs-5"><strong>Nom : </strong></p>
+                        <p class="col-md-10 col-xs-7">{{ irl.name }}</p>
                     </div>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Statut : </strong></p>
-                        <p class="col-md-10 col-sm-9">{% if irl.published %}Publié{% else %}<span class="not">Non publié</span>{% endif %}</p>
+                        <p class="col-md-2 col-xs-5"><strong>Statut : </strong></p>
+                        <p class="col-md-10 col-xs-7">{% if irl.published %}Publié{% else %}<span class="not">Non publié</span>{% endif %}</p>
                     </div>
                     <div class="row">
-                        <p class="col-md-2 c col-sm-3"><strong>Description : </strong></p>
-                        <div class="col-md-10 col-sm-9">{{ irl.description  | raw}}</div>
+                        <p class="col-md-2 col-xs-5"><strong>Description : </strong></p>
+                        <div class="col-md-10 col-xs-12">{{ irl.description  | raw}}</div>
                     </div>
                 </div>
             </div>

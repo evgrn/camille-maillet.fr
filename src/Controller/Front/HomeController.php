@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\Serializer;
 
 class HomeController extends Controller{
 
-    public function indexAction(Request $request, \Swift_Mailer $mailer){
+    public function indexAction(Request $request){
 
 
         $em = $this->getDoctrine()->getManager();
@@ -41,19 +41,16 @@ class HomeController extends Controller{
 
             $response = new JsonResponse();
             $response->setData(array("success" => "Le message ayant pour objet <strong>\"{$message->getObject()}\"</strong> a été envoyé !"));
+
+
+
+            $to      = 'camille.maillet@protonmail.com';
+            $subject = $message->getObject();
+            $content = $message->getMessage();
+            $headers = "From: {$message->getEmail()}" . "\r\n";
+
+            mail($to, $subject, $content, $headers);
             $em->flush();
-
-            $notification = (new \Swift_Message('Nouveau message sur Camille-Maillet.fr'))
-                ->setFrom('maillet.camill@gmail.com')
-                ->setTo('camille.maillet@protonmail.com')
-                ->setBody(
-                    $this->renderView(
-                        'Email/message-notification.html.twig',
-                        array('message' => $message)),
-                    'text/html'
-                );
-
-            $mailer->send($notification);
             return $response;
         }
 

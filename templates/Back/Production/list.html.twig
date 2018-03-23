@@ -3,24 +3,24 @@
 {% block title %}Réalisations - {{ parent() }} {% endblock %}
 
 {% block main %}
-
     <div class="row">
-        <a href="{{ path('cm_back_production_add') }}" class="btn btn-success btn-lg">Ajouter une réalisation</a>
+        <h2 class="list-page-title hidden-md hidden-lg hidden-xl">Réalisations </h2>
+    </div>
+    <div class="row" id="categories">
+        {{ include('Back/Production/category-list.html.twig') }}
     </div>
 
-    <section id="prodictions-list" class="row">
+    <section id="productions-list" class="row">
         <table class="table">
-            <caption>Réalisations</caption>
+            <caption>Réalisations  <a href="{{ path('cm_back_production_add') }}" class="btn btn-success btn-xs"><i class="fas fa-plus"</a></caption>
             <thead>
             <tr>
-                <td>Vignette</td>
-                <td>Image</td>
-                <td>Nom</td>
-                <td>Url</td>
-                <td>Description</td>
+                <td class="hidden-xs">Vignette</td>
+                <td>Site</td>
+                <td class="hidden-xs hidden-sm">Description</td>
                 <td>Catégorie</td>
-                <td>Technologies</td>
-                <td>Date</td>
+                <td class="hidden-xs">Technologies</td>
+                <td class="hidden-xs">Date</td>
                 <td>Statut</td>
                 <td>Actions</td>
             </tr>
@@ -28,27 +28,17 @@
             <tbody>
             {% for production in productions %}
                 <tr>
-                    <td class="img-cell">
+                    <td class="img-cell hidden-xs">
                         <div class="cell-container">
                             <img src="{{ images_directory }}/{{ production.thumbnail }}"/>
                         </div>
                     </td>
-                    <td class="img-cell">
+                    <td class="title-cell ">
                         <div class="cell-container">
-                            <img src="{{ images_directory }}/{{ production.image }}"/>
+                            <a href="{{ production.url }}" target="_blank"> {{ production.name }}</a>
                         </div>
                     </td>
-                    <td class="title-cell">
-                        <div class="cell-container">
-                            {{ production.name }}
-                        </div>
-                    </td>
-                    <td class="url-cell">
-                        <div class="cell-container">
-                            <a href="{{ production.url }}" target="_blank">{{ production.url }}</a>
-                        </div>
-                    </td>
-                    <td class="content-cell">
+                    <td class="content-cell hidden-xs  hidden-sm">
                         <div class="cell-container">
                             {{ production.description  | raw }}
                         </div>
@@ -58,7 +48,7 @@
                             {% if production.productionCategory %}{{ production.productionCategory.name }}{% endif %}
                         </div>
                     </td>
-                    <td class="technologies-cell">
+                    <td class="technologies-cell hidden-xs">
                         <div class="cell-container">
                             <ul>
                                 {% for technology in production.technologies %}<li>{{ technology.name }}</li>{% else %}<span class="not">Aucune</span>{% endfor %}
@@ -66,7 +56,7 @@
 
                         </div>
                     </td>
-                    <td class="date-cell">
+                    <td class="date-cell hidden-xs">
                         <div class="cell-container">
                             {{ production.date|date('d-m-Y') }}
                         </div>
@@ -89,10 +79,6 @@
 
         </table>
     </section>
-
-    <div class="row" id="categories">
-        {{ include('Back/Production/category-list.html.twig') }}
-    </div>
 
 
 {% endblock %}

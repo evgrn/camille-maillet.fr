@@ -1,9 +1,39 @@
-/*### POLICES ###*/
+/*#######################################
 
-@font-face {
-    font-family: "Raleway";
-    src: url(../font/Raleway-Black.ttf);
-}
+########## INDEX ##########
+    ### ANIMATIONS
+    ### CONTAINERS JAVASCRIPT
+    ### GENERAL
+    ### FLEX
+    ### STATES
+    ### NAV
+    ### SECTION
+    ### INTRO
+    ### PRODUCTIONS
+    ### TECHNOLOGIES
+    ### BIO
+    ### IRL
+    ### SIDE-PAGES
+    ### CONTACT
+    ### PRODUCTION-SINGLE
+
+    #### MEDIA QUERIES ####
+        ### MEDIUM SCREEN
+            ## INTRO
+        ### TABLET LANDSCAPE
+            ## NAV
+            ## SECTION
+            ## INTRO
+            ## PRODUCTIONS
+            ## TECHNOLOGIES
+            ## BIO
+            ## IRL
+            ## SIDE-PAGES
+            ## CONTACT
+            ## PRODUCTION-SINGLE
+
+#######################################*/
+
 
 /*### ANIMATIONS ###*/
 
@@ -233,55 +263,58 @@ img{
 /*### FLEX ##*/
 
 
-    .flex-horizontal{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-    }
-    .flex-horizontal-center{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-    }
-    .flex-horizontal-space-around{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -ms-flex-pack: distribute;
-        justify-content: space-around;
-    }
-    .flex-vertical-space-around{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -ms-flex-line-pack: distribute;
-        align-content: space-around;
-    }
+.flex-horizontal{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.flex-horizontal-center{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.flex-horizontal-space-around{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.flex-vertical-space-around{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+}
 
 .flex-both-center{
     display: -webkit-box;
@@ -298,7 +331,6 @@ img{
     -ms-flex-align: center;
     align-items: center;
 }
-
 
 
 /*### STATES ###*/
@@ -347,13 +379,6 @@ ul{
     display: none;
 }
 
-
-@media only screen and ( orientation: landscape)  and (min-width: 768px) {
-    #menu-header{
-        display: block;
-    }
-}
-
 #menu-header h3{
     width: 100%;
     text-align: center;
@@ -369,14 +394,6 @@ ul{
     left:0;
     position: absolute;
     overflow-y: scroll;
-}
-
-@media only screen and (orientation: landscape)  and (min-width: 768px) {
-    #global-nav{
-        height: 100vh;
-        -webkit-box-shadow: 3px 3px 10px black;
-        box-shadow: 3px 3px 10px black;
-    }
 }
 
 
@@ -396,14 +413,7 @@ ul{
     display: none;
 }
 
-@media only screen and ( orientation: landscape) and (min-width: 768px){
-    #menu-toggle{
-        display: none;
-    }
-    .mobile-hidden{
-        display: block;
-    }
-}
+
 .submenu .submenu-nav{
     display: none;
     -webkit-transition: all 1s ease;
@@ -418,7 +428,6 @@ ul{
 .submenu-nav li.active{
     background-color: rgba(0, 0, 0, .3) !important;
     color: lightgray !important;
-
 }
 
 ul{
@@ -534,13 +543,6 @@ section:not(#productions):not(#parcours):not(#intro){
     padding-bottom: 50px;
 }
 
-@media only screen and (orientation: landscape)  and (min-width: 768px) {
-    section:not(#intro):not(#productions):not(#technologies):not(#parcours){
-        padding: 50px;
-    }
-}
-
-
 .section-intro{
     text-align: center;
     color: rgba(0,0,0, .75);
@@ -550,42 +552,6 @@ section:not(#productions):not(#parcours):not(#intro){
     padding-right: 10px;
 }
 
-@media only screen and ( orientation: landscape)  and (min-width: 768px) {
-    .section-intro{
-        font-size: 1.2em;
-        margin-top: 20px;
-        padding-left: 50px;
-        padding-right: 50px;
-
-    }
-}
-
-@media only screen and (orientation: landscape)  and (min-width: 768px) {
-    section .subsection{
-        padding: 50px;
-        padding-bottom: 40px;
-    }
-}
-
-.subsection-title{
-
-    text-align: center;
-    margin: 20px 0;
-    color: rgba(0,0, 0, .8);
-    font-weight: bolder;
-    letter-spacing: .1em;
-    font-size: 1.7em;
-    text-transform: uppercase;
-
-}
-
-@media only screen and (orientation: landscape)  and (min-width: 768px) {
-    .subsection-title{
-        margin: 50px !important;
-        letter-spacing: .2em;
-        font-size: 2.5em;
-    }
-}
 .section-title{
     text-align: center;
     margin: 0;
@@ -595,15 +561,15 @@ section:not(#productions):not(#parcours):not(#intro){
     text-transform: uppercase;
 }
 
-@media only screen and (orientation: landscape)  and (min-width: 768px) {
-    .section-title{
-        margin: 50px;
-        letter-spacing: .2em;
-        font-size: 2.8em;
-    }
+.subsection-title{
+    text-align: center;
+    margin: 20px 0;
+    color: rgba(0,0, 0, .8);
+    font-weight: bolder;
+    letter-spacing: .1em;
+    font-size: 1.7em;
+    text-transform: uppercase;
 }
-
-
 
 
 /*### INTRO ###*/
@@ -619,9 +585,7 @@ section:not(#productions):not(#parcours):not(#intro){
     text-transform: uppercase;
     color: white;
     display: -webkit-box;
-
     display: -ms-flexbox;
-
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -630,101 +594,6 @@ section:not(#productions):not(#parcours):not(#intro){
     -ms-flex-pack: distribute;
     justify-content: space-around;
     text-align: center;
-}
-@media only screen and (min-width: 768px){
-    #intro{
-        font-size: 1.8em;
-    }
-}
-@media only screen and (orientation: landscape)  and (min-width: 768px)  {
-    #intro{
-
-        display: -webkit-box;
-
-        display: -ms-flexbox;
-
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        text-align: left;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
-}
-
-
-#intro #intro-text{
-    padding: 0;
-}
-
-
-.intro-logo img{
-    width: 100%;
-    height: auto;
-}
-
-#title-var{
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-}
-@media only screen and (orientation: landscape)  and (min-width: 768px)  {
-    #title-var{
-        text-align: left;
-        width: 300px;
-    }
-}
-
-#intro-scrolldown{
-    display: block;
-    position: absolute;
-    bottom: 10px;
-    color: whitesmoke;
-    text-transform: none;
-    background-color: rgba(0, 0, 0, .7);
-    padding: 0 20px;
-    color: rgba(255, 255, 255, .8);
-    border-radius: 10px;
-    font-size: 1em;
-    -webkit-box-shadow: 1px 1px 3px black;
-    box-shadow: 1px 1px 3px black;
-    font-weight: normal;
-    cursor: pointer;
-    opacity: 0;
-    z-index: 10;
-}
-
-@media only screen and (orientation: landscape)  and (min-width: 768px) {
-    #intro-scrolldown{
-        font-size: .9em;
-    }
-}
-
-section#intro h1{
-    color: whitesmoke;
-    letter-spacing: .2em;
-    font-size: 1.3em;
-    line-height: 1.3em;
-    font-weight: bold;
-
-    margin-top: 30px;
-}
-
-@media only screen and (orientation: landscape)  and (min-width: 768px)  {
-    section#intro h1{
-        color: dimgray;
-    }
-}
-
-
-
-section#intro h1 strong{
-    color: black;
-    font-weight: bolder;
-    letter-spacing: .3em;
 }
 
 #intro-content{
@@ -742,14 +611,7 @@ section#intro h1 strong{
     -ms-flex-align: center;
     align-items: center;
 }
-@media only screen and (orientation: landscape)  and (min-width: 768px) {
-    #intro-content{
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-    }
-}
+
 
 .intro-logo{
     opacity: 0;
@@ -763,7 +625,13 @@ section#intro h1 strong{
     animation-duration: 1.5s;
 }
 
+.intro-logo img{
+    width: 100%;
+    height: auto;
+}
+
 #intro-text{
+    padding: 0;
     opacity: 0;
     -webkit-animation-name: apparition-right;
     animation-name: apparition-right;
@@ -788,6 +656,46 @@ section#intro h1 strong{
     display: inline-block;
 }
 
+section#intro h1{
+    color: whitesmoke;
+    letter-spacing: .2em;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+section#intro h1 strong{
+    color: black;
+    font-weight: bolder;
+    letter-spacing: .3em;
+}
+
+#title-var{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+#intro-scrolldown{
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    color: whitesmoke;
+    text-transform: none;
+    background-color: rgba(0, 0, 0, .7);
+    padding: 0 20px;
+    color: rgba(255, 255, 255, .8);
+    border-radius: 10px;
+    font-size: 1em;
+    -webkit-box-shadow: 1px 1px 3px black;
+    box-shadow: 1px 1px 3px black;
+    font-weight: normal;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 10;
+}
+
 
 /*### PRODUCTIONS ###*/
 
@@ -797,17 +705,11 @@ section#productions{
 
 }
 
-
 #mosaic{
     background-color: rgba(255, 255, 255, .9);
     margin-top: 40px;
 }
 
-@media only screen and ( orientation: landscape)  and (min-width: 768px) {
-    #mosaic {
-        margin-top: 0;
-    }
-}
 .production-preview:hover{
     -webkit-filter: brightness(1.1);
     filter: brightness(1.1);
@@ -846,12 +748,6 @@ section#technologies {
 
 }
 
-@media only screen and ( orientation: landscape)  and (min-width: 768px) {
-    .technology-title{
-        font-size: 1.5em;
-        background-color: rgba(0,0, 0, .8);
-    }
-}
 
 .technology-content{
     color: dimgray;
@@ -861,11 +757,6 @@ section#technologies {
     display: none;
 }
 
-@media only screen and ( orientation: landscape)  and (min-width: 768px) {
-    .technology-content{
-        display: block;
-    }
-}
 
 #mastered{
     background-color: white;
@@ -935,11 +826,6 @@ ul.parcours-list li{
     font-size: 1.1em;
 }
 
-@media only screen and ( orientation: landscape)  and (min-width: 768px) {
-    section#parcours{
-        padding-bottom: 100px;
-    }
-}
 ul.parcours-list li{
     border: none;
     background: transparent;
@@ -964,21 +850,10 @@ ul.parcours-list li{
 #irl{
     background-color: rgba( 255, 255, 255, .3);
 }
-@media only screen and ( orientation: landscape)  and (min-width: 768px) {
-    #irl {
-        background-image: url("../img/wallpaper.jpg");
-        min-height: calc(100vh - 70px);
-        color: white;
-        background-size: cover;
-    }
-}
-
 
 .irl{
     margin-top: 30px;
     color: black;
-
-
 }
 
 #irl .section-title{
@@ -988,13 +863,6 @@ ul.parcours-list li{
 h4.irl-title{
     margin-top: 0;
     color: dimgray;
-}
-
-@media only screen and (orientation: landscape)  and (min-width: 768px) {
-    h4.irl-title{
-        margin-top: 10px;
-        color: black;
-    }
 }
 
 
@@ -1046,12 +914,6 @@ footer #credits{
     width: 100%;
 }
 
-@media only screen and (orientation: landscape) and ( min-width: 768px) {
-    #left-page{
-        width: 83.33333333%;
-    }
-}
-
 #right-page{
     position: fixed;
     left: 100%;
@@ -1065,24 +927,10 @@ footer #credits{
     background-image: url("../img/wallpaper.jpg");
     background-attachment: fixed;
     background-size: cover;
-    overflow-y: scroll;
 }
 
-@media only screen and (orientation: landscape) and ( min-width: 768px) {
-    #left-page, #right-page {
-        background: rgba(255, 255, 255, .5);
-    }
-}
-
-@media only screen and (orientation: landscape )  and ( min-width: 768px) {
-    #right-page{
-        background-color: transparent;
-    }
-}
 
 /*### CONTACT ###*/
-
-
 
 #contact{
     height: 100%;
@@ -1095,15 +943,6 @@ footer #credits{
     padding-top: 40px;
 }
 
-
-@media only screen and ( orientation: landscape)  and ( min-width: 768px) {
-    #contact-container{
-        padding: 0;
-        padding-bottom: 100px;
-    }
-
-
-}
 #contact h2.section-title{
     color: dimgray !important;
     margin: 50px
@@ -1121,9 +960,6 @@ footer #credits{
     padding: 30px;
     padding-bottom: 50px;
 }
-
-
-
 
 .control-label{
     text-align: left !important;
@@ -1165,12 +1001,14 @@ footer #credits{
     display: none;
     opacity: 0;
 }
+
 #message-notification.active{
     -webkit-animation: apparition-right forwards .5s 1s, disparition forwards .5s 3s;
     animation: apparition-right forwards .5s 1s, disparition forwards .5s 3s;
 
     display: block;
 }
+
 #message-notification.success{
     background-color: rgba(255, 255, 255, .9);
     color: dimgray;
@@ -1180,6 +1018,7 @@ footer #credits{
     background-color: rgba(255, 255, 255, .9);
     color: dimgray;
 }
+
 
 /*### PRODUCTION-SINGLE ###*/
 
@@ -1193,26 +1032,11 @@ section#production-single{
     margin-top: 40px;
 }
 
-@media only screen and ( orientation: landscape)  and ( min-width: 768px) {
-    #production-single-container{
-        margin-top: 0;
-    }
-
-    section#production-single{
-       margin-bottom: 100px !important;
-    }
-}
 
 #production-single-header{
     overflow: hidden;
     position: relative;
     height: 20vh;
-}
-
-@media only screen and (orientation: landscape)  and ( min-width: 768px) {
-    #production-single-header{
-        height: 35vh;
-    }
 }
 
 #production-single-title{
@@ -1229,23 +1053,10 @@ section#production-single{
 
 }
 
-@media only screen and (orientation: landscape)  and ( min-width: 768px) {
-    #production-single-title{
-        font-size: 4em;
-    }
-}
-
-
-
-@media only screen and (orientation: landscape)  and ( min-width: 768px) {
-    #production-single-content{
-        margin-top: 100px;
-    }
-}
-
 #production-single-preview{
     margin-bottom: 50px;
 }
+
 #production-single-info-title, #production-single-description-title{
     margin-top: 0;
     text-transform: uppercase;
@@ -1256,6 +1067,7 @@ section#production-single{
     padding: 10px 0;
     border: 1px solid lightgray;
 }
+
 #production-single-info{
     background-color: rgba(255, 255, 255, .3);
     padding: 0;
@@ -1274,6 +1086,7 @@ section#production-single{
 #production-single-info span a{
     font-style: italic;
 }
+
 #production-single-description{
     color: rgba(0, 0, 0, .5);
     padding: 0;
@@ -1281,16 +1094,198 @@ section#production-single{
     padding-bottom: 50px;
 }
 
-@media only screen and (orientation: landscape) and (min-width: 768px){
-    #production-single-description{
-        background-color: transparent;
-    }
-}
-
 #production-single-description-content-text{
     padding: 10px;
 }
-@media only screen and (orientation: landscape)  and ( min-width: 768px) {
+
+
+/*######## MEDIA QUERIES ########*/
+
+/*#### MEDIUM SCREEN ####*/
+
+@media only screen and (min-width: 768px){
+
+    /*### INTRO ###*/
+    #intro{
+        font-size: 1.8em;
+    }
+}
+
+
+/*#### TABLETS LANDSCAPE ####*/
+
+@media only screen and ( orientation: landscape)  and (min-width: 768px) {
+
+    /*### NAV ###*/
+
+    #menu-header{
+        display: block;
+    }
+
+    #global-nav{
+        height: 100vh;
+        -webkit-box-shadow: 3px 3px 10px black;
+        box-shadow: 3px 3px 10px black;
+    }
+
+    #menu-toggle{
+        display: none;
+    }
+
+    .mobile-hidden{
+        display: block;
+    }
+
+
+    /*### SECTION ###*/
+
+    section:not(#intro):not(#productions):not(#technologies):not(#parcours){
+        padding: 50px;
+    }
+
+    .section-intro{
+        font-size: 1.2em;
+        margin-top: 20px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .section-title{
+        margin: 50px;
+        letter-spacing: .2em;
+        font-size: 2.8em;
+    }
+
+    section .subsection{
+        padding: 50px;
+        padding-bottom: 40px;
+    }
+
+    .subsection-title{
+        margin: 50px !important;
+        letter-spacing: .2em;
+        font-size: 2.5em;
+    }
+
+
+    /*### INTRO ###*/
+
+    #intro{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        text-align: left;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    #intro-content{
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+
+    section#intro h1{
+        color: dimgray;
+    }
+
+    #title-var{
+        text-align: left;
+        width: 300px;
+    }
+
+    #intro-scrolldown{
+        font-size: .9em;
+    }
+
+    /*### PRODUCTIONS ###*/
+
+    #mosaic {
+        margin-top: 0;
+    }
+
+    /*### TECHNOLOGIES ###*/
+
+    .technology-title{
+        font-size: 1.5em;
+        background-color: rgba(0,0, 0, .8);
+    }
+
+    .technology-content{
+        display: block;
+    }
+
+
+    /*### BIO ###*/
+
+    section#parcours{
+        padding-bottom: 100px;
+    }
+
+    /*### IRL ###*/
+
+    #irl {
+        background-image: url("../img/wallpaper.jpg");
+        min-height: calc(100vh - 70px);
+        color: white;
+        background-size: cover;
+    }
+
+    h4.irl-title{
+        margin-top: 10px;
+        color: black;
+    }
+
+    /*### SIDE-PAGES ###*/
+
+    #left-page{
+        width: 83.33333333%;
+        background: rgba(255, 255, 255, .5);
+    }
+
+    #right-page{
+        background-color: transparent;
+    }
+
+    /*### CONTACT ###*/
+
+    #contact-container{
+        padding: 0;
+        padding-bottom: 100px;
+    }
+
+    /*### PRODUCTION-SINGLE ###*/
+
+    #production-single-container{
+        margin-top: 0;
+    }
+
+    section#production-single{
+        margin-bottom: 100px !important;
+    }
+
+    #production-single-header{
+        height: 35vh;
+    }
+
+    #production-single-title{
+        font-size: 4em;
+    }
+
+    #production-single-content{
+        margin-top: 100px;
+    }
+
+    #production-single-description{
+        background-color: transparent;
+    }
+
     #production-single-description{
         padding-left: 15px;
         padding-right: 15px;
@@ -1298,4 +1293,5 @@ section#production-single{
     #production-single-description-content-text{
         padding: 0;
     }
+
 }

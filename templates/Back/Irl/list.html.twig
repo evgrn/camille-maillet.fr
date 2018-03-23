@@ -4,25 +4,26 @@
 
 {% block main %}
     <div class="row">
-        <a href="{{ path('cm_back_irl_add') }}" class="btn btn-success btn-lg">Ajouter une élément IRL</a>
+        <h2 class="list-page-title hidden-md hidden-lg hidden-xl">IRL </h2>
     </div>
-
     <section id="irl-list" class="row">
+
         <table class="table">
-            <caption>Liste des éléments IRL</caption>
+            <caption>Liste des éléments IRL  <a href="{{ path('cm_back_irl_add') }}" class="btn btn-success btn-xs"><i class="fas fa-plus"></i></a></caption>
             <thead>
             <tr>
-                <td>Image</td>
+                <td class="hidden-xs">Image</td>
                 <td>Nom</td>
-                <td>Description</td>
+                <td class="hidden-xs hidden-sm">Description</td>
                 <td>Statut</td>
                 <td>Actions</td>
             </tr>
             </thead>
             <tbody>
+
             {% for irl in irl %}
                 <tr>
-                    <td class="img-cell">
+                    <td class="img-cell hidden-xs">
                         <div class="cell-container">
                             <img src="{{ images_directory }}/{{ irl.image }}"/>
                         </div>
@@ -32,9 +33,9 @@
                             {{ irl.name }}
                         </div>
                     </td>
-                    <td class="content-cell">
+                    <td class="content-cell hidden-xs hidden-sm">
                         <div class="cell-container">
-                            {{ irl.description  | raws}}
+                            {{ irl.description  | raw}}
                         </div>
                     </td>
                     <td class="status-cell">

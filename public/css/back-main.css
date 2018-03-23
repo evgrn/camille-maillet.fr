@@ -1,28 +1,78 @@
+/*#######################################
+
+########## INDEX ##########
+    ### GENERAL
+    ### HEADER
+    ### MENU
+    ### LIST
+        ## Tables
+        ## Categories
+    ### SINGLE
+    ### FORM
+    ### DASHBOARD
+    ### PRODUCTIONS
+    ### LOGIN
+    ### MESSAGES
+        ## List
+        ## Single
+    ### NOTICES
+
+    #### MEDIA QUERIES ####
+        ### MEDIUM SCREEN
+            ## GENERAL
+            ## LIST
+        ### TABLET LANDSCAPE
+            ## LIST
+                # Tables
+                # Categories
+            ## NAV
+            ## MESSAGES
+
+#######################################*/
+
+
 /*### GENERAL ###*/
 
 body{
     background-color: #434449;
-    background-size: cover;
-    background-attachment: fixed;
-    padding: 50px;
     padding-top: 0;
     color: white;
+    overflow-x: hidden;
+    margin-top: 42px;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-section, aside{
+
+section, aside, div#categories{
     margin-top: 50px;
     background-color: rgba(0, 0, 0, .4);
+    border: 1px solid dimgray;
 }
+
+#page-title{
+    padding: 0 10px;
+}
+
 aside h3{
     margin-top: 0;
 }
+
 .not{
     color: dimgray;
 }
 
-.full-width{
-    margin-left: -30px;
-    margin-right: -30px;
+span.visible-xs{
+    display: inline !important;
+}
+
+.paddingless{
+    padding: 0;
+}
+
+.btn.pull-right{
+    margin-right: 5px;
 }
 
 /*### HEADER ###*/
@@ -39,13 +89,77 @@ header{
 
 /*### MENU ###*/
 
-.navbar-default{
-
-    border-radius: 0;
+.mobile-hidden{
+    display: none;
 }
 
+#head-block{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+#menu-toggle{
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+}
+
+ul.nav{
+    border-radius: 0;
+    padding: 0 20px;
+    margin: 0 !important;
+}
+
+#main-nav li{
+    border-bottom: 1px solid lightgray;
+}
+
+.navbar-header{
+    height: 42px;
+    border-bottom: 1px solid lightgray;
+}
+
+#main-nav li, .navbar-header{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.navbar-brand{
+    height: 100%;
+    font-size: 1em;
+    padding: 10px;
+    border-top: 1px solid lightgray;
+    width: 100%;
+    display: block;
+}
+
+nav.navbar{
+    min-height: 42px;
+}
+
+nav.navbar .navbar-brand img{
+    height: 100%;
+    width: auto;
+    margin-right: 10px;
+}
+
+nav.navbar .navbar-nav{
+    float: none !important;
+}
+
+nav.navbar-links{
+    text-align: center;
+}
 
 /*### LIST ###*/
+
+/* Tables */
+
 .form-aside, .single-aside{
     padding: 0;
     padding-bottom: 10px;
@@ -60,10 +174,12 @@ header{
     margin-bottom: 25px;
     text-align: center;
 }
+
 table{
     color: lightgray;
     margin-bottom: 0 !important;
 }
+
 table caption{
     background-color: rgba(0, 0, 0, .55);
     font-size: 1.2em;
@@ -74,12 +190,6 @@ table.table thead{
     background-color: #f9ecec;
     color: black;
     border-color: dimgray;
-}
-
-table div.cell-container{
-    height: 100px;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 table tbody .content-cell .cell-container{
@@ -102,6 +212,7 @@ table .img-cell .cell-container{
 table .url-cell .cell-container{
     max-width: 200px;
 }
+
 table .img-cell img{
     height: 100px;
     width: auto;
@@ -112,11 +223,10 @@ table ul{
     padding-left: 0;
 }
 
-
-
 table tbody{
     background-color: rgba(53, 56, 65, .4);
 }
+
 table tbody tr:nth-child(odd){
     background-color: rgba(53, 56, 65, .9);
 }
@@ -126,18 +236,29 @@ table.table tbody tr:hover{
     color: white;
 }
 
+/* Categories */
+
+div#categories{
+    background-color: rgba(255, 255, 255, .5);
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+}
+
+div#categories section{
+    margin-top: 0;
+}
+
+div#categories section#category-form{
+    margin-top: 40px;
+}
+
 
 /*### SINGLE ###*/
 
-h2.single-title, h2.module-title{
+h2.single-title, h2.module-title, h2.list-page-title{
     width: 100%;
     text-align: center;
     background-color: rgba(28, 29, 31, .7);
-    padding: 30px 0;
-    margin-bottom: 0;
-}
-
-h2.module-title{
     padding: 30px 0;
     margin: 0;
 }
@@ -167,26 +288,48 @@ h3.section-title{
     color: rgba(28, 29, 31, .7);
     background-color: lightgray;
 }
+
 div.single-content h4{
     background-color: #868686;
     width: auto !important;
     padding: 5px;
 }
+
 div.single-image img{
     width: 100%;
     height: auto;
     border: 1px solid dimgray;
 }
 
+.single-content .section-content{
+    padding-bottom: 30px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
 /*### FORM ###*/
+
+form {
+    padding-bottom: 45px !important;
+}
 
 .form-horizontal .form-group{
     background-color: rgba(28, 29, 31, .7);
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+.form-group div{
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .form-horizontal textarea, .form-horizontal input{
     background-color: rgba(255, 255, 255, .8);
     border-radius: 0;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
     transition: all .5s ease;
 }
 
@@ -194,7 +337,8 @@ div.single-image img{
     background-color: rgba(255, 255, 255, 1);
     color: black;
     border: 1px solid black;
-    box-shadow: 0px 0px 1.5px white !important;
+    -webkit-box-shadow: 0 0 1.5px white !important;
+    box-shadow: 0 0 1.5px white !important;
 }
 
 .form-horizontal .input{
@@ -205,6 +349,7 @@ form option, form select{
     color: dimgray;
     width: 100%;
 }
+
 #production_date select{
     width: auto;
     padding: 5px;
@@ -221,12 +366,14 @@ form .input input{
     color: dimgray;
     border: none;
 }
+
 .form-horizontal .control-label{
     text-align: left;
     background-color: rgba(28, 29, 31, .7);
     color: rgba(255, 255, 255, .5);
     padding: 7px 10px;
 }
+
 form input.image-picker{
     width: 100%;
     min-height: 33px;
@@ -241,6 +388,7 @@ form div.checkbox-container{
 .form-horizontal div.form-group.mastered .control-label, .form-horizontal div.form-group.published .control-label{
     background-color: rgba(28, 29, 31, .9);
 }
+
 div.form-group.mastered, div.form-group.published{
     background-color: transparent;
 }
@@ -262,6 +410,7 @@ form .checkbox{
     color: black;
     text-align: center;
 }
+
 .ui-datepicker-calendar{
     min-width: 200px;
 }
@@ -273,6 +422,13 @@ form .checkbox{
     padding-bottom: 0;
 }
 
+h2.module-title{
+    padding: 10px 0;
+    margin: 0;
+    background-color: dimgray;
+    color: white;
+    font-size: 1.5em;
+}
 
 .dashboard-module .module-content{
     margin: 10px;
@@ -287,32 +443,70 @@ form .checkbox{
     margin-top: 20px;
 }
 
-/*### PRODUCTIONS ###*/
-
-div#categories{
-    background-color: rgba(255, 255, 255, .5);
-    padding: 30px;
-    /*padding-bottom: 50px;*/
-    margin-bottom: 50px;
+#bio.dashboard-module .text-content{
+    padding: 0 10px;
 }
 
-/*## LOGIN ##*/
+#bio.dashboard-module .single-image img{
+    border: none;
+}
+
+/*### PRODUCTIONS ###*/
+
+#production-images img{
+    width: 100%;
+    height: auto;
+}
+
+/*### LOGIN ###*/
 
 section#login{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
     padding: 15px 0;
     padding-top: 0;
     background-color: rgba(0, 0, 0, .4);
+    margin-top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container{
+    border: 1px solid lightgray;
+    padding: 0;
+    padding-bottom: 20px;
+
 }
 
 section#login form{
     margin-top: 30px;
 }
+
 section#login .form-group{
     margin-left: 0;
     margin-right: 0;
 }
 
 /*## MESSAGES ##*/
+
+/* List */
 
 .author-cell .cell-container{
     background-color: rgba(0, 0, 0, .2);
@@ -339,15 +533,28 @@ section#login .form-group{
     font-style: italic;
 }
 
+/* Single */
+
 #message-single{
-    height: 60vh;
+    height: calc( 100vh - 43px);
     position: fixed;
-    bottom: 40px;
-    width: 30%;
+    bottom: 0;
     overflow-y: scroll;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    background-color: #33313F;
+    padding: 0 15px;
 }
+
 #message-single h3{
     margin-bottom: 0;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#message-single h3 i{
+    cursor: pointer;
 }
 #message-single .not{
     text-align: center;
@@ -374,6 +581,7 @@ section#login .form-group{
 }
 
 /*### NOTICES ###*/
+
 .notice{
     text-align: center;
     background-color: rgba(95, 186, 125, 1);
@@ -390,4 +598,141 @@ section#login .form-group{
 }
 
 
+/*######## MEDIA QUERIES ########*/
 
+/*#### MEDIUM SCREEN ####*/
+
+@media only screen and (min-width: 768px){
+
+    /*### GENERAL ###*/
+
+    .main-content{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    section, aside{
+        padding: 0;
+    }
+
+    .tablet-hidden{
+        display: none;
+    }
+
+    span.visible-xs{
+        display: none !important;
+    }
+
+    /*### LIST ###*/
+
+    table div.cell-container{
+        height: 75px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    table td.mobile-hidden{
+        display: table-cell
+    }
+
+    table .img-cell .cell-container {
+        width: 75px;
+    }
+
+    table .img-cell img {
+        height: 75px;
+    }
+}
+
+
+/*#### TABLETS LANDSCAPE ####*/
+
+@media only screen and (orientation: landscape) and (min-width: 769px){
+
+    /*### LIST ###*/
+
+    /* Tables */
+
+    table div.cell-container{
+        height: 75px;
+    }
+
+
+    /* Categories */
+
+    div#categories {
+        padding: 30px;
+    }
+
+    div#categories section#category-form {
+        margin-top: 0;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+
+    /*### NAV ###*/
+
+    .mobile-hidden{
+        display: block;
+    }
+
+    #menu-toggle{
+        display: none;
+    }
+
+    nav.navbar{
+        height: 52px;
+        padding: 0 30px;
+    }
+
+    ul.nav{
+        padding: auto;
+    }
+
+    nav.navbar-links{
+        text-align: left;
+    }
+
+    .navbar-header{
+        height: 52px;
+
+    }
+
+    #main-nav li, .navbar-header{
+        display: inline-block;
+        width: auto;
+        text-align: left;
+        border-bottom: none;
+    }
+
+    #main-nav li{
+        height: auto;
+    }
+
+    nav.navbar .navbar-brand{
+        height: 100%;
+        font-size: inherit;
+
+        border-top: none;
+        width: auto;
+        display: inline-block;
+    }
+
+    nav.navbar .navbar-nav{
+        float: right !important;
+    }
+
+
+    /*### MESSAGES ###*/
+
+    #message-single{
+        height: 60vh;
+        width: 30%;
+        left: auto;
+        right: auto;
+        padding: 0;
+    }
+
+
+}

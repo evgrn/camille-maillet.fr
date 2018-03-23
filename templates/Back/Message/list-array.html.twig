@@ -1,11 +1,11 @@
 <tr id="message-{{ message.id }}">
-    <td class="author-cell">
+    <td class="author-cell hidden-xs">
         <div class="cell-container">
             <p class="message-author">
                 {{ message.author }}
             </p>
 
-            <div class="contact-info">
+            <div class="contact-info hidden-xs">
                 <p class="contact-email">
                     <em>{{ message.email }}</em>
                 </p>
@@ -19,14 +19,20 @@
 
         </div>
     </td>
-    <td class="object-cell">
+    <td class="object-cell hidden-xs">
         <div class="cell-container">
             {{message.object }}
         </div>
     </td>
-    <td class="date-cell">
+    <td class="date-cell hidden-xs">
         <div class="cell-container">
-            le {{ message.date|date('d/m/Y à h:m:i') }}
+            le {{ message.date|date('d/m/Y') }}
+        </div>
+    </td>
+    <td class="message tablet-hidden">
+        <div class="cell-container">
+            <h5>{{ message.object }}</h5>
+            <p>De {{ message.author }}, <em>le {{ message.date|date('d/m/Y') }}</em></p>
         </div>
     </td>
 

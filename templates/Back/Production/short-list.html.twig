@@ -8,10 +8,10 @@
         <caption>Réalisations</caption>
         <thead>
         <tr>
-            <td>Vignette</td>
-            <td>Image</td>
+            <td class="hidden-xs">Vignette</td>
+            <td class="hidden-xs">Image</td>
             <td>Nom</td>
-            <td>Technologies</td>
+            <td class="hidden-xs">Technologies</td>
             <td>Statut</td>
             <td>Actions</td>
         </tr>
@@ -19,23 +19,23 @@
         <tbody>
         {% for production in productions %}
             <tr>
-                <td class="img-cell">
+                <td class="img-cell hidden-xs">
                     <div class="cell-container">
                         <img src="{{ images_directory }}/{{ production.thumbnail }}"/>
                     </div>
                 </td>
-                <td class="img-cell">
+                <td class="img-cell hidden-xs">
                     <div class="cell-container">
                         <img src="{{ images_directory }}/{{ production.image }}"/>
                     </div>
                 </td>
 
-                <td class="title-cell">
+                <td class="title-cell ">
                     <div class="cell-container">
                         <a href="{{ production.url }}">{{ production.name }}</a>
                     </div>
                 </td>
-                <td class="technologies-cell">
+                <td class="technologies-cell hidden-xs">
                     <div class="cell-container">
                         <ul>
                             {% for technology in production.technologies %}<li>{{ technology.name }}</li>{% else %}<span class="not">Aucune</span>{% endfor %}

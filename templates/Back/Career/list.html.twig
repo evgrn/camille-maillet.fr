@@ -3,16 +3,28 @@
 {% block title %}Parcours - {{ parent() }} {% endblock %}
 
 {% block main %}
-
     <div class="row">
-        <div class="col-md-7">
+        <h2 class="list-page-title hidden-md hidden-lg hidden-xl"> Parcours </h2>
+    </div>
+
+
+        <aside id="career-form" class="form-aside row">
+
+            <h3>{% if career.name %}Édition de l'élément du parcours <strong>"{{ career.name }}"</strong>{% else %}Ajout d'une élément au parcours{% endif %}</h3>
+
+            {{ include('Back/Form/career.html.twig') }}
+
+
+        </aside>
+
+
             <section id="corporate" class="row">
                 <table class="table">
                     <caption>Entreprise</caption>
                     <thead>
                     <tr>
                         <td>Poste</td>
-                        <td>Description</td>
+                        <td class="hidden-xs">Description</td>
                         <td>Statut</td>
                         <td>Actions</td>
                     </tr>
@@ -32,7 +44,7 @@
                     <thead>
                     <tr>
                         <td>Intitulé</td>
-                        <td>Description</td>
+                        <td class="hidden-xs">Description</td>
                         <td>Statut</td>
                         <td>Actions</td>
                     </tr>
@@ -45,20 +57,6 @@
 
                 </table>
             </section>
-        </div>
-
-        <div class="col-md-offset-1 col-md-4">
-            <aside id="career-form" class="row form-aside">
-
-                <h3>{% if career.name %}Édition de l'élément du parcours <strong>"{{ career.name }}"</strong>{% else %}Ajout d'une élément au parcours{% endif %}</h3>
-                <div class="section-content row">
-                    {{ include('Back/Form/career.html.twig') }}
-                </div>
-
-            </aside>
-        </div>
-
-    </div>
 
 
 

@@ -1,6 +1,7 @@
-<h3>Nouveau message de {{ message.author }}</h3>
+<h3><strong>Objet :</strong>  {{ message.object }}</h3>
 
 <p class="well">
+    <strong>Nom : </strong> {{ message.author }} <br>
     <strong>Mail :</strong> {{ message.email }} <br>
     <strong>Tel :</strong> {% if message.tel %}{{ message.tel }}{% endif %}
 </p>
