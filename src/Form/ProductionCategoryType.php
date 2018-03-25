@@ -9,16 +9,30 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+/**
+ * Class ProductionCategoryType
+ * @package App\Form
+ *
+ * Classe contenant le constructeur du formulaire de l'entité ProductionCategory
+ */
 class ProductionCategoryType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     *
+     * Constructeur du formulaire de l'entité ProductionCategory
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options){
         $builder
             ->add('name', TextType::class)
             ->add('submit', SubmitType::class)
         ;
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

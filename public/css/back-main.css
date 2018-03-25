@@ -140,6 +140,7 @@ ul.nav{
 
 nav.navbar{
     min-height: 42px;
+    margin-bottom: 0;
 }
 
 nav.navbar .navbar-brand img{
@@ -216,6 +217,11 @@ table .url-cell .cell-container{
 table .img-cell img{
     height: 100px;
     width: auto;
+}
+
+table .actions-cell{
+    font-size: 1.25em;
+    letter-spacing: .2em;
 }
 
 table ul{
@@ -606,7 +612,7 @@ section#login .form-group{
 
     /*### GENERAL ###*/
 
-    .main-content{
+    #global-content{
         padding-left: 40px;
         padding-right: 40px;
     }
@@ -642,6 +648,10 @@ section#login .form-group{
     table .img-cell img {
         height: 75px;
     }
+
+    table .actions-cell{
+        font-size: 1em;
+    }
 }
 
 
@@ -656,6 +666,7 @@ section#login .form-group{
     table div.cell-container{
         height: 75px;
     }
+
 
 
     /* Categories */

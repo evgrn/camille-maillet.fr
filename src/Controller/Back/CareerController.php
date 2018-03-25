@@ -4,10 +4,17 @@ namespace App\Controller\Back;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Career;
 use App\Form\CareerType;
+use App\Service\PublicationToggler;
 
+
+/**
+ * Class CareerController
+ * @package App\Controller\Back
+ *
+ * Contrôleur de la partie "Parcours" du back-office
+ */
 class CareerController extends Controller
 {
 
@@ -92,14 +99,9 @@ class CareerController extends Controller
      *
      * Change le statut de l'élément ( publié / non-publié)
      */
-    public function togglePublishedAction(Career $career){
-        $em = $this->getDoctrine()->getManager();
-        $newStatus = $career->getPublished() ? false : true;
-        $career->setPublished($newStatus);
-        $em->flush();
-
-        $notice= $career->getPublished() ? "L'élément du parcours a été publié" : "L'élément du parcours a été dépublié";
-        $this->get('session')->getFlashbag()->add('notice', $notice );
+    public function togglePublishedAction(Career $career, PublicationToggler $toggler){
+        $this->get('session')->getFlashbag()
+            ->add('notice', $toggler->toggle($career) );
         return $this->redirectToRoute('cm_back_career_list');
 
     }

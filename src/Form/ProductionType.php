@@ -17,10 +17,23 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Repository\TechnologyRepository;
 
+
+/**
+ * Class ProductionType
+ * @package App\Form
+ *
+ * Classe contenant le constructeur du formulaire d'ajout de l'entité Production
+ */
 class ProductionType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     *
+     * Constructeur du formulaire d'ajout de l'entité Production
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options){
         $builder
             ->add('name', TextType::class)
             ->add('url', TextType::class)
@@ -52,6 +65,9 @@ class ProductionType extends AbstractType
         ;
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

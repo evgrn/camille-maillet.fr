@@ -1,6 +1,6 @@
 {% extends('Back/layout.html.twig') %}
 {% block title %}Dashboard - {{ parent() }}{% endblock %}
-
+{% block pageName %}dashboard{% endblock %}
 {% block main %}
     <div class="row">
         <h2 class="single-title">Dashboard</h2>
@@ -11,7 +11,7 @@
             <section id="technologies" class="col-sm-12 dashboard-module">{{ render(controller("App\\Controller\\Back\\TechnologyController::shortListAction")) }}</section>
         </div>
         <div class="col-md-4">
-            <section id="messages" class="col-sm-12 dashboard-module">{{ render(controller("App\\Controller\\MessageController::shortListAction")) }}</section>
+            <section id="messages" class="col-sm-12 dashboard-module">{{ render(controller("App\\Controller\\Back\\MessageController::shortListAction")) }}</section>
             <section id="bio" class="col-sm-12 dashboard-module">{{ render(controller("App\\Controller\\Back\\BioController::smallAction")) }}</section>
             <section id="messages" class="col-sm-12 dashboard-module">{{ render(controller("App\\Controller\\Back\\CareerController::shortListAction")) }}</section>
             <section id="production-categories" class="col-sm-12 dashboard-module">{{ render(controller("App\\Controller\\Back\\ProductionController::shortCategoriesAction")) }}</section>

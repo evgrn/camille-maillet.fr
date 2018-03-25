@@ -6,7 +6,12 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-
+/**
+ * Class SecurityController
+ * @package App\Controller
+ *
+ * Contrôleur affichant le formulaire de connexion.
+ */
 class SecurityController extends Controller
 {
     public function loginAction(Request $request)

@@ -10,14 +10,14 @@
 {% block body %}
 
     {{ render(controller("App\\Controller\\Back\\GlobalController::HeadAction")) }}
-    <div class="main-content">
+    <div id="global-content">
         {% for notice in app.session.flashbag.get('notice') %}
             <div class="notice">
                 {{ notice }}
             </div>
 
         {% endfor %}
-        <div class="page-container {% block pageName %} {% endblock %}">
+        <div class="page-container" id="{% block pageName %} {% endblock %}">
             {% block main %}
 
 
@@ -29,7 +29,10 @@
 
 {% block scripts %}
     {{ parent() }}
-    <script src="/js/backMenuToggle.js"></script>
+    <script src="/js/menuToggle.js"></script>
+    <script src="/js/backNavSync.js"></script>
+    <script src="/js/pwdConfirm.js"></script>
+    <script src="/js/backMessageWindowManager.js"></script>
 {% endblock %}
 
 

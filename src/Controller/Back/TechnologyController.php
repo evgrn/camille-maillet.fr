@@ -6,13 +6,20 @@ use App\Entity\TechnologyCategory;
 use App\Form\TechnologyCategoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Technology;
 use App\Form\TechnologyType;
 use App\Form\TechnologyEditType;
 use App\Service\ImageManager;
 use Symfony\Component\HttpFoundation\File\File;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use App\Service\PublicationToggler;
 
+/**
+ * Class TechnologyController
+ * @package App\Controller\Back
+ *
+ * Contrôleur de la partie "Technologies" du back-office
+ */
 class TechnologyController extends Controller
 {
     /**
@@ -76,8 +83,7 @@ class TechnologyController extends Controller
      *
      * Affichage d'un formulaire d'ajout de technologie.
      */
-    public function addAction(Request $request, ImageManager $imageManager)
-    {
+    public function addAction(Request $request, ImageManager $imageManager){
         $em = $this->getDoctrine()->getManager();
         $technology = new Technology();
         $form = $this->createForm(TechnologyType::class, $technology);
@@ -110,11 +116,10 @@ class TechnologyController extends Controller
      *
      * Affiche l'aperçu et un formulaire d'édition de l'entité Technology ayant pour ID la valeur $id entrée en paramètre.
      */
-    public function singleAction(Request $request, ImageManager $imageManager, $id){
+    public function singleAction(Request $request, ImageManager $imageManager, Technology $technology){
 
-        // Récupération de l'entité
         $em = $this->getDoctrine()->getManager();
-        $technology = $em->getRepository('App:Technology')->find($id);
+
 
         // Afin de ne pas avoir de problème avec le champ image, on clone l'objet $technology.
         // Son clone $technologyPreview servira à hydrater la partie aperçu
@@ -127,7 +132,7 @@ class TechnologyController extends Controller
         $form = $this->createForm(TechnologyEditType::class, $technology);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()){
 
             $technology->setImage(
                 $imageManager->manageImageUpdate($technology->getImage(), $originalImage)
@@ -143,51 +148,76 @@ class TechnologyController extends Controller
 
     }
 
-    public function deleteAction(Request $request, ImageManager $imageManager, $id)
-    {
+    /**
+     * @param Request $request
+     * @param ImageManager $imageManager
+     * @param Technology $technology
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * Suppression de l'entité $technology entrée en paramètre.
+     */
+    public function deleteAction(Request $request, ImageManager $imageManager, Technology $technology){
         $em = $this->getDoctrine()->getManager();
 
-        $technology = $em->getRepository('App:Technology')->find($id);
+        // Suppression de l'image affiliée
         $imageManager->delete($technology->getImage());
+
         $em->remove($technology);
         $em->flush();
         $this->get('session')->getFlashbag()->add('notice', "La technologie a été supprimée" );
 
-
         return $this->redirectToRoute('cm_back_technology_list');
     }
 
-    public function togglePublishedAction($id){
-        $em = $this->getDoctrine()->getManager();
-        $technology = $em->getRepository('App:Technology')->find($id);
-        $newStatus = $technology->getPublished() ? false : true;
-        $technology->setPublished($newStatus);
-        $em->flush();
-
-        $notice= $technology->getPublished() ? "La technologiea été publiée" : "La technologie a été dépubliée";
-        $this->get('session')->getFlashbag()->add('notice', $notice );
-
+    /**
+     * @param PublicationToggler $toggler
+     * @param Technology $technology
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * Suppression de l'entité $production entrée en paramètre.
+     */
+    public function togglePublishedAction(PublicationToggler $toggler, Technology $technology){
+        $this->get('session')->getFlashbag()
+            ->add('notice', $toggler->toggle($technology) );
         return $this->redirectToRoute('cm_back_technology_list');
-
     }
 
-    public function toggleMasteredAction($id){
+    /**
+     * @param Technology $technology
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * Change le statut de l'élément $technology entré en paramètre( maîtrisé / non-maîtrisé)
+     */
+    public function toggleMasteredAction(Technology $technology){
+
+        // Récupération de l'élément
         $em = $this->getDoctrine()->getManager();
         $technology = $em->getRepository('App:Technology')->find($id);
+
+        // Modification du statut
         $newStatus = $technology->getMastered() ? false : true;
         $technology->setMastered($newStatus);
+
+        // Sauvegarde de l'élément
         $em->flush();
 
-        $notice= $technology->getMAstered() ? "La technologie a été marquée comme maîtrisée" : "La technologie a été marquée comme non-maîtrisée";
+        // Affichage de la notification
+        $notice= $technology->getMastered() ? "La technologie a été marquée comme maîtrisée" : "La technologie a été marquée comme non-maîtrisée";
         $this->get('session')->getFlashbag()->add('notice', $notice );
 
+        // Redirection vers la la liste des technologies
         return $this->redirectToRoute('cm_back_technology_list');
 
     }
 
-    public function categoryDeleteAction($id){
+    /**
+     * @param TechnologyCategory $category
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * Supprime l'entité $technologyCategory entrée en paramètre
+     */
+    public function categoryDeleteAction(TechnologyCategory $category){
         $em = $this->getDoctrine()->getManager();
-        $category = $em->getRepository('App:TechnologyCategory')->find($id);
         $em->remove($category);
         $em->flush();
 

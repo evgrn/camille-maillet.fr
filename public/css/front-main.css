@@ -20,6 +20,7 @@
     #### MEDIA QUERIES ####
         ### MEDIUM SCREEN
             ## INTRO
+            ## SIDE PAGES
         ### TABLET LANDSCAPE
             ## NAV
             ## SECTION
@@ -256,7 +257,7 @@ img{
     height: auto;
 }
 
-.main-content{
+#global-content{
     overflow-x: hidden;
 }
 
@@ -529,6 +530,8 @@ ul{
 #main-content{
     padding : 0;
     margin-bottom: 70px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 /* SECTION */
@@ -708,6 +711,26 @@ section#productions{
 #mosaic{
     background-color: rgba(255, 255, 255, .9);
     margin-top: 40px;
+}
+
+#mosaic-loader{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    background-color: rgba(255, 255, 255, .9);
+    z-index: 2;
+    display: none;
+}
+
+#mosaic-loader img{
+    max-width: 100px;
+    position: absolute;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    top: 50vh;
 }
 
 .production-preview:hover{
@@ -927,6 +950,8 @@ footer #credits{
     background-image: url("../img/wallpaper.jpg");
     background-attachment: fixed;
     background-size: cover;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 
@@ -1106,10 +1131,16 @@ section#production-single{
 @media only screen and (min-width: 768px){
 
     /*### INTRO ###*/
+
     #intro{
         font-size: 1.8em;
     }
-}
+
+    /*### SIDE-PAGES ###*/
+
+    #right-page{
+        background: transparent;
+    }
 
 
 /*#### TABLETS LANDSCAPE ####*/

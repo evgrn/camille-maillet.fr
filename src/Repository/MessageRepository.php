@@ -6,6 +6,7 @@ use App\Entity\Message;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\ORM\NonUniqueResultException;
 
 /**
  * @method Message|null find($id, $lockMode = null, $lockVersion = null)
@@ -20,9 +21,12 @@ class MessageRepository extends ServiceEntityRepository
         parent::__construct($registry, Message::class);
     }
 
-
-
-
+    /**
+     * @param $processed
+     * @return mixed
+     *
+     * Affiche la totalité des messages dont l'attribut $processed vaut true.
+     */
     public function findAllByProcessed($processed)
     {
         return $this->createQueryBuilder('m')
@@ -35,7 +39,13 @@ class MessageRepository extends ServiceEntityRepository
 
     }
 
-
+    /**
+     * @param $limit
+     * @return mixed
+     *
+     * Affiche les derniers messages dont l'attribut $processed vaut true
+     * et fixe la valeur $limit entrée en paramètre comme limite.
+     */
     public function findLastUnprocessed($limit)
     {
         return $this->createQueryBuilder('m')
@@ -47,6 +57,22 @@ class MessageRepository extends ServiceEntityRepository
             ->getResult()
             ;
 
+    }
+
+    /**
+     * @return mixed
+     * @throws NonUniqueResultException
+     *
+     * Récupère le nombre d'entités Message dont l'attribut $processed vaut false.
+     */
+    public function countUnprocessed()
+    {
+        return $this->createQueryBuilder('m')
+            ->select('count(m.id)')
+            ->where('m.processed = :processed')
+            ->setParameter('processed', false)
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 
 

@@ -9,6 +9,8 @@ use App\Entity\Production;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TechnologyRepository")
+ *
+ * Entité représentant une technologie
  */
 class Technology
 {
@@ -220,14 +222,6 @@ class Technology
     {
         $this->stack = $stack;
     }
-
-
-
-
-
-
-
-
 
 
 }

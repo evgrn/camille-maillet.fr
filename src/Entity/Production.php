@@ -103,7 +103,7 @@ class Production
             'technologies' => $this->getTechnologyList(),
             'category' => $this->getProductionCategoryName(),
             'date' => $this->getDate(),
-            'gthub' => $this->getGithub()
+            'github' => $this->getGithub()
         );
     }
 

@@ -1,0 +1,6 @@
+swiftmailer:
+    host: smtp.1and1.com
+    port: 25
+    encryption: tls
+    username: contact@camille-maillet.fr
+    password: AQWxsz13579_

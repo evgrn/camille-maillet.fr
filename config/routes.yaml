@@ -186,7 +186,7 @@ cm_back_career_toggle_published:
 
 cm_back_message_list:
    path: /back/messages/{id}
-   controller: App\Controller\MessageController::listAction
+   controller: App\Controller\Back\MessageController::listAction
    requirements:
       id: \d+
    defaults:
@@ -194,12 +194,12 @@ cm_back_message_list:
 
 cm_back_message_delete:
     path:    /back/message/delete/{id}
-    controller:   App\Controller\MessageController::deleteAction
+    controller:   App\Controller\Back\MessageController::deleteAction
     requirements:
       id: \d+
 
 cm_back_message_toggle_processed:
     path:    /back/message/toggle-processed/{id}
-    controller:   App\Controller\MessageController::toggleProcessedAction
+    controller:   App\Controller\Back\MessageController::toggleProcessedAction
     requirements:
       id: \d+

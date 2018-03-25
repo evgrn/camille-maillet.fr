@@ -20,6 +20,11 @@ class ProductionRepository extends ServiceEntityRepository
     }
 
 
+    /**
+     * @return mixed
+     *
+     * Récupération de la totalité des entités Production triés par date.
+     */
     public function findAllOrderedByDate()
     {
         return $this->createQueryBuilder('p')
@@ -29,6 +34,11 @@ class ProductionRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @return mixed
+     *
+     * Récupération de la totalité des entités Production dont l'attribut $published vaut True triés par date.
+     */
     public function findAllPublishedOrderedByDate()
     {
         return $this->createQueryBuilder('p')
@@ -40,6 +50,13 @@ class ProductionRepository extends ServiceEntityRepository
             ;
     }
 
+    /**
+     * @param $category
+     * @return mixed
+     *
+     * Récupération de la totalité des entités Production dont l'attribut $published vaut True
+     * et dont la catégorie correspond à celle entrée en paramètre,  triés par date.
+     */
     public function findAllPublishedByCategory($category){
         return $this->createQueryBuilder('p')
             ->where('p.published = :published')

@@ -34,6 +34,11 @@ services:
         arguments:
             $targetDirectory: '%images_directory%'
 
+    App\Service\PublicationToggler:
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+
+
     ##tags:
            # - { name: doctrine.event_listener, event: prePersist }
             #- { name: doctrine.event_listener, event: preUpdate }

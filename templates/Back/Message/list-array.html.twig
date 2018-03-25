@@ -1,35 +1,5 @@
 <tr id="message-{{ message.id }}">
-    <td class="author-cell hidden-xs">
-        <div class="cell-container">
-            <p class="message-author">
-                {{ message.author }}
-            </p>
-
-            <div class="contact-info hidden-xs">
-                <p class="contact-email">
-                    <em>{{ message.email }}</em>
-                </p>
-                {% if message.tel %}
-                    <p class="contact-tel">
-                        {{ message.tel }}
-                    </p>
-                {% endif %}
-
-            </div>
-
-        </div>
-    </td>
-    <td class="object-cell hidden-xs">
-        <div class="cell-container">
-            {{message.object }}
-        </div>
-    </td>
-    <td class="date-cell hidden-xs">
-        <div class="cell-container">
-            le {{ message.date|date('d/m/Y') }}
-        </div>
-    </td>
-    <td class="message tablet-hidden">
+    <td class="message" >
         <div class="cell-container">
             <h5>{{ message.object }}</h5>
             <p>De {{ message.author }}, <em>le {{ message.date|date('d/m/Y') }}</em></p>
@@ -40,7 +10,7 @@
         <div class="cell-container">
             <a href="{{ path('cm_back_message_toggle_processed', {'id': message.id}) }}" class="">{% if message.processed %}<i class="fas fa-dot-circle"></i>{% else %}<i class="fas fa-check"></i>{% endif %}</a>
             <a href="{{ path('cm_back_message_delete', {'id': message.id}) }}" class=""><i class="fas fa-trash-alt"></i></a>
-            <a href="{{ path('cm_back_message_list', {'id': message.id}) }}#message-{{ message.id }}" class=""><i class="fas fa-book"></i></a>
+            <span class="show-message" author="{{ message.author }}" email="{{ message.email }}" tel="{{ message.tel }}" date="{{ message.date|date('d/m/Y') }}" object="{{ message.object }}" message="{{ message.message|raw }}"><i class="fas fa-book"></i></span>
         </div>
 
     </td>

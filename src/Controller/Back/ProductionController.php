@@ -7,17 +7,21 @@ use App\Entity\ProductionCategory;
 use App\Entity\Production;
 use App\Form\ProductionCategoryType;
 use App\Form\ProductionEditType;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Service\ImageManager;
 use App\Form\ProductionType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Routing\Annotation\Route;
+use App\Service\PublicationToggler;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
-
+/**
+ * Class ProductionController
+ * @package App\Controller\Back
+ *
+ * Contrôleur de la partie "Réalisations" du back-office
+ */
 class ProductionController extends Controller
 {
 
@@ -106,7 +110,7 @@ class ProductionController extends Controller
         $em->flush();
         $this->get('session')->getFlashbag()->add('notice', "La catégorie a été supprimée" );
 
-        return $this->redirectToRoute('cm_back_production_categories');
+        return $this->redirectToRoute('cm_back_production_list');
     }
 
     /**
@@ -124,6 +128,8 @@ class ProductionController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
 
             $production->setImage(
                 // Stockage de l'image
@@ -242,15 +248,9 @@ class ProductionController extends Controller
      *
      * Change le statut de l'élément ( publié / non-publié)
      */
-    public function togglePublishedAction(Production $production){
-        $em = $this->getDoctrine()->getManager();
-
-        $newStatus = $production->getPublished() ? false : true;
-        $production->setPublished($newStatus);
-        $em->flush();
-        $notice= $production->getPublished() ? "Le projet a été publié" : "Le projet a été dépublié";
-        $this->get('session')->getFlashbag()->add('notice', $notice );
-
+    public function togglePublishedAction(Production $production, PublicationToggler $toggler){
+        $this->get('session')->getFlashbag()
+             ->add('notice', $toggler->toggle($production) );
         return $this->redirectToRoute('cm_back_production_list');
 
     }

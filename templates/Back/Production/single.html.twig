@@ -1,7 +1,7 @@
 {% extends 'Back/layout.html.twig' %}
 
 {% block title %}{{ production.name }} (Réalisations) - {{ parent() }}{% endblock %}
-
+{% block pageName %}productions{% endblock %}
 {% block main %}
     <div class="row">
         <h2 class="single-title">{{ production.name }}</h2>
@@ -50,6 +50,10 @@
                     <div class="row">
                         <p class="col-md-2  col-xs-4 "><strong>URL</strong></p>
                         <p class="col-md-10 col-xs-8"><a href="{{ production.url }}" target="_blank">{{ production.url }}</a></p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-2  col-xs-4 "><strong>Github</strong></p>
+                        <p class="col-md-10 col-xs-8">{% if production.github %}<a href="{{ production.github }}" target="_blank">{{ production.github }}</a>{% else %} <span class="not">Non disponible</span>{% endif %}</p>
                     </div>
                     <div class="row">
                         <p class="col-md-2  col-xs-4 "><strong>Date</strong></p>

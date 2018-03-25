@@ -4,13 +4,20 @@ namespace App\Controller\Back;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Irl;
 use App\Form\IrlType;
 use App\Form\IrlEditType;
 use App\Service\ImageManager;
 use Symfony\Component\HttpFoundation\File\File;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use App\Service\PublicationToggler;
 
+/**
+ * Class IrlController
+ * @package App\Controller\Back
+ *
+ * Contrôleur de la partie "Irl" du back-offica
+ */
 class IrlController extends Controller
 {
 
@@ -133,18 +140,12 @@ class IrlController extends Controller
      * @param Irl $irl
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      *
-     * Change le statut de l'élément ( publié / non-publié)
+     * Change le statut de l'entité $irl entrée en paramètre ( publié / non-publié)
      */
-    public function togglePublishedAction(Irl $irl){
-        $em = $this->getDoctrine()->getManager();
-        $newStatus = $irl->getPublished() ? false : true;
-        $irl->setPublished($newStatus);
-        $em->flush();
-        $notice= $career->getPublished() ? "L'élément IRL a été publié" : "L'élément IRL a été dépublié";
-        $this->get('session')->getFlashbag()->add('notice', $notice );
-
+    public function togglePublishedAction(PublicationToggler $toggler, Irl $irl){
+        $this->get('session')->getFlashbag()
+            ->add('notice', $toggler->toggle($irl) );
         return $this->redirectToRoute('cm_back_irl_list');
-
     }
 
 }

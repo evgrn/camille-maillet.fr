@@ -5,6 +5,9 @@
     <div id="main" class="row">
         {{ include('Front/Home/menu.html.twig') }}
         <div id="main-content" class="col-md-10 col-md-offset-2">
+            <div id="mosaic-loader">
+                <img src="/img/ajax-loader.gif"  alt="chargement" />
+            </div>
 
             {{ include('Front/Home/productions.html.twig') }}
             {{ include('Front/Home/technologies.html.twig') }}

@@ -1,7 +1,7 @@
 {% extends 'Back/layout.html.twig' %}
 
 {% block title %}Messages - {{ parent() }} {% endblock %}
-
+{% block pageName %}messages{% endblock %}
 {% block main %}
     <div class="row">
         <h2 class="list-page-title hidden-md hidden-lg hidden-xl"> Messages </h2>
@@ -13,10 +13,7 @@
                     <caption>Non traités</caption>
                     <thead>
                     <tr>
-                        <td class="hidden-xs">Expéditeur</td>
-                        <td class="hidden-xs">Objet</td>
-                        <td class="hidden-xs">Date</td>
-                        <td class="tablet-hidden">Message</td>
+                        <td>Message</td>
                         <td>Actions</td>
                     </tr>
                     </thead>
@@ -34,10 +31,7 @@
                     <caption>Traités</caption>
                     <thead>
                     <tr>
-                        <td class="hidden-xs">Expéditeur</td>
-                        <td class="hidden-xs">Objet</td>
-                        <td class="hidden-xs">Date</td>
-                        <td class="tablet-hidden">Message</td>
+                        <td >Message</td>
                         <td>Actions</td>
                     </tr>
                     </thead>
@@ -51,41 +45,34 @@
             </section>
         </div>
 
-        {% if message %}
+
             <div class="col-md-offset-1 col-md-4">
-                <aside id="message-single" class="row single-aside">
+                <aside id="message-single" class="row single-aside hidden">
 
-                    <h3>{{ message.object }}<i class="far fa-window-close pull-right"></i></h3>
+                    <h3><span class="message-object"></span><span id="message-window-close" class="pull-right"><i class="fas fa-window-close"></i></span></h3>
 
-                        {% if message %}
                             <div class="message-info col-sm-12">
                                 <div class="message-contact-info">
-                                    <p class="contact-name"><strong>Nom :</strong> {{ message.author }}</p>
+                                    <p class="contact-name"><strong>Auteur :</strong> <span></span></p>
                                     <p class="contact-email">
-                                        <strong>Email</strong> : <em>{{ message.email }}</em>
+                                        <strong>Email</strong> : <em><span></span></em>
                                     </p>
-                                    {% if message.tel %}
                                         <p class="contact-tel">
-                                            <strong>Tel :</strong> {{ message.tel }}
+                                            <strong>Tel :</strong> <span></span>
                                         </p>
-                                    {% endif %}
                                 </div>
                                 <div class="message-date">
-                                    Le {{ message.date|date('d/m/Y à h:i') }}
+                                    Le <span></span>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 message-content">
-                                {{ message.message | raw}}
+                                <span></span>
                             </div>
-                        {% else %}
-                            <p class="col-sm-12 not">Aucun message actuellement</p>
-                        {% endif %}
 
 
                 </aside>
          </div>
-        {% endif %}
 
     </div>
 

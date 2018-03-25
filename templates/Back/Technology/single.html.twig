@@ -1,7 +1,7 @@
 {% extends 'Back/layout.html.twig' %}
 
 {% block title %}{{ technology.name }} (Technologies) - {{ parent() }}{% endblock %}
-
+{% block pageName %}technologies{% endblock %}
 {% block main %}
     <div class="row">
         <h2 class="single-title">{{ technology.name }}</h2>

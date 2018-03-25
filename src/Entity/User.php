@@ -9,6 +9,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ *
+ * Entité représentatnt l'utilisateur
  */
 class User implements UserInterface
 {
@@ -43,9 +45,9 @@ class User implements UserInterface
     private $roles = array();
 
 
-
     public function eraseCredentials(){
     }
+
     public function getSalt(){
 
     }

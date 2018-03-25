@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TechnologyCategoryRepository")
+ *
+ * Entité représentant une catégorie de technologie
  */
 class TechnologyCategory
 {

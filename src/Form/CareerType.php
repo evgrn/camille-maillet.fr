@@ -26,7 +26,7 @@ class CareerType extends AbstractType
             ))
             ->add('name', TextType::class )
             ->add('structure', TextType::class, array('required' => false))
-            ->add('description', TextareaType::class )
+            ->add('description', TextareaType::class, array('required' => false) )
             ->add('date', DateType::class,
                 array(
                     'widget' => 'single_text',

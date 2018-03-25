@@ -7,9 +7,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Service\ImageManager;
-use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
+/**
+ * Class BioController
+ * @package App\Controller\Back
+ *
+ * Contrôleur de la partie "Bio" du back-office
+ */
 class BioController extends Controller
 {
 

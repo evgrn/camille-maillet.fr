@@ -14,12 +14,20 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class TechnologyRepository extends ServiceEntityRepository
 {
+    /**
+     * TechnologyRepository constructor.
+     * @param RegistryInterface $registry
+     */
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Technology::class);
     }
 
-
+    /**
+     * @return \Doctrine\ORM\QueryBuilder
+     *
+     * Récupération des entités Technology dont les propriétés $mastered et $published valent true.
+     */
     public function getAllMasteredAndPublished()
     {
         return $this->createQueryBuilder('t')
@@ -29,6 +37,12 @@ class TechnologyRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $mastered
+     * @return mixed
+     *
+     * Récupération des entités Technology publiées selon la valeur de leur attribut $mastered entrée en paramètre.
+     */
     public function getByMasteredAndPublished($mastered)
     {
         return $this->createQueryBuilder('t')
