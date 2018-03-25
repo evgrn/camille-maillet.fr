@@ -4,7 +4,7 @@
         <ul class="parcours-list">
             {% for career in formationCareer %}
             <li>
-                {% if career.structure %}<span class="structure">A-Zerty : </span> {% endif %}{{ career.name }} <span class="date">({{ career.date|date('Y') }})</span>
+                {% if career.structure %}<span class="structure">{{ career.structure }}: </span> {% endif %}{{ career.name }} <span class="date">({{ career.date|date('Y') }})</span>
                     <p class="parcours-list-description">
                 {{ career.description | raw }}
             </p>
@@ -17,7 +17,7 @@
         <ul class="parcours-list">
             {% for career in corporateCareer %}
                 <li>
-                    {% if career.structure %}<span class="structure">A-Zerty : </span> {% endif %}{{ career.name }} <span class="date">({{ career.date|date('Y') }})</span>
+                    {% if career.structure %}<span class="structure">{{ career.structure }} : </span> {% endif %}{{ career.name }} <span class="date">({{ career.date|date('Y') }})</span>
                     <p class="parcours-list-description">
                         {{ career.description | raw }}
                     </p>

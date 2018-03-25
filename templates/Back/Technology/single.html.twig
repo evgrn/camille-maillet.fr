@@ -2,7 +2,9 @@
 
 {% block title %}{{ technology.name }} (Technologies) - {{ parent() }}{% endblock %}
 {% block pageName %}technologies{% endblock %}
+
 {% block main %}
+
     <div class="row">
         <h2 class="single-title">{{ technology.name }}</h2>
     </div>
@@ -33,19 +35,16 @@
                     </div>
                     <div class="row">
                         <p class="col-md-2  col-xs-4"><strong>Description</strong></p>
-                        <p class="col-md-10 col-xs-12">{{ technology.description }}</p>
+                        <p class="col-md-10 col-xs-12">{{ technology.description | raw }}</p>
                     </div>
                 </div>
             </div>
-
         </section>
 
         <section id="edit-technology" class="">
             <h3 class="section-title">Édition</h3>
             {{ include('Back/Form/technology.html.twig') }}
         </section>
-
-
-
     </div>
+
 {% endblock %}

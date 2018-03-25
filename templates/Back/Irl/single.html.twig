@@ -2,7 +2,9 @@
 
 {% block title %}{{ irl.name }} (Technologies) - {{ parent() }}{% endblock %}
 {% block pageName %}irl{% endblock %}
+
 {% block main %}
+
     <div class="row">
         <h2 class="single-title">{{ irl.name }}</h2>
     </div>
@@ -28,15 +30,12 @@
                     </div>
                 </div>
             </div>
-
         </section>
 
         <section id="form" class="single-section">
             <h3 class="section-title">Édition</h3>
             {{ include('Back/Form/irl.html.twig') }}
         </section>
-
-
-
     </div>
+
 {% endblock %}

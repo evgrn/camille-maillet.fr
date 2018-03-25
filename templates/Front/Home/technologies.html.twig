@@ -1,9 +1,7 @@
 <section id="technologies" >
     <div class="section-intro">
         <p>
-            Blablabla lorem ipsum tadadadda liyazd lizzaoi diyakhpoudk; oziyd, aoiyd. dhoiyezu. Lian dyi, d'aouepou et poua fulminent... Jepoua diyaoi, disons que oui.
-            Ihuho alue ziy, zuyd'e, zioy et aoiyd lo l'aoyufdh. Au djoau eudo, elu l'ouad po.
-
+            Le monde du web foisonne de technologies toutes plus puissantes et utiles les unes que les autres.
         </p>
     </div>
 
@@ -26,8 +24,6 @@
                 </div>
             {% endfor %}
         </div>
-
-
     </div>
 
     <div id="learned" class="subsection row flex-vertical-space-around">
@@ -43,14 +39,11 @@
                     <h4 class="technology-title">{{ technology.name }}</h4>
                     <div class="technology-content">
                         <p>
-                            {{ technology.description }}
+                            {{ technology.description | raw }}
                         </p>
                     </div>
                 </div>
             {% endfor %}
         </div>
-
-
     </div>
-
 </section>

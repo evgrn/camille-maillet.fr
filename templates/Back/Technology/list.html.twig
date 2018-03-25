@@ -2,7 +2,9 @@
 
 {% block title %}Liste des technologies - {{ parent() }} {% endblock %}
 {% block pageName %}technologies{% endblock %}
+
 {% block main %}
+
     <div class="row">
         <h2 class="list-page-title hidden-md hidden-lg hidden-xl">Technologies </h2>
     </div>
@@ -42,7 +44,6 @@
 
         <div class="col-md-offset-1 col-md-3 embedded-form-container">
             <section id="category-form" class="form-aside row">
-
                 <h3>{% if category.name %}Édition de la catégorie <strong>"{{ category.name }}"</strong>{% else %}Ajout d'une catégorie{% endif %}</h3>
                 <div class="section-content">
                     {{ form_start(form, {'attr': {'class': 'form-horizontal col-sm-offset-1 col-sm-10'}}) }}
@@ -57,17 +58,11 @@
                     </div>
 
                     {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary pull-right'}}) }}
-
                     {{ form_rest(form) }}
                     {{ form_end(form) }}
                 </div>
-
             </section>
         </div>
-
-
-
-
     </div>
 
 
@@ -122,9 +117,5 @@
 
         </table>
     </section>
-
-
-
-
 
 {% endblock %}

@@ -12,15 +12,12 @@
     {{ render(controller("App\\Controller\\Back\\GlobalController::HeadAction")) }}
     <div id="global-content">
         {% for notice in app.session.flashbag.get('notice') %}
-            <div class="notice">
+            <div class="notice hidden">
                 {{ notice }}
             </div>
-
         {% endfor %}
         <div class="page-container" id="{% block pageName %} {% endblock %}">
             {% block main %}
-
-
             {% endblock %}
         </div>
     </div>
@@ -33,6 +30,7 @@
     <script src="/js/backNavSync.js"></script>
     <script src="/js/pwdConfirm.js"></script>
     <script src="/js/backMessageWindowManager.js"></script>
+    <script src="/js/noticeAnimator.js"></script>
 {% endblock %}
 
 

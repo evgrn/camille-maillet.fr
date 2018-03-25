@@ -17,14 +17,14 @@
                     {{ message.author }}, <em>le {{ message.date|date('d/m/Y') }}</em><br/>
                     <strong>{{message.object }}</strong>
                 <td class="actions-cell">
-                        <a href="{{ path('cm_back_message_list', {'id': message.id}) }}#message-{{ message.id }}" class=""><i class="fas fa-book"></i></a>
+                    <a href="{{ path('cm_back_message_list', {'id': message.id}) }}#message-{{ message.id }}" class=""><i class="fas fa-book"></i></a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
-
     </table>
 </div>
+
 <div class="row">
     <a href="{{ path('cm_back_message_list') }}" class="btn btn-default col-xs-12">Accéder à la section</a>
 </div>

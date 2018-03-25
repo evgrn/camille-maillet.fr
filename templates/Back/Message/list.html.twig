@@ -2,7 +2,9 @@
 
 {% block title %}Messages - {{ parent() }} {% endblock %}
 {% block pageName %}messages{% endblock %}
+
 {% block main %}
+
     <div class="row">
         <h2 class="list-page-title hidden-md hidden-lg hidden-xl"> Messages </h2>
     </div>
@@ -22,7 +24,6 @@
                         {{ include('Back/Message/list-array.html.twig') }}
                     {% endfor %}
                     </tbody>
-
                 </table>
             </section>
 
@@ -40,7 +41,6 @@
                         {{ include('Back/Message/list-array.html.twig') }}
                     {% endfor %}
                     </tbody>
-
                 </table>
             </section>
         </div>
@@ -48,36 +48,27 @@
 
             <div class="col-md-offset-1 col-md-4">
                 <aside id="message-single" class="row single-aside hidden">
-
                     <h3><span class="message-object"></span><span id="message-window-close" class="pull-right"><i class="fas fa-window-close"></i></span></h3>
-
-                            <div class="message-info col-sm-12">
-                                <div class="message-contact-info">
-                                    <p class="contact-name"><strong>Auteur :</strong> <span></span></p>
-                                    <p class="contact-email">
-                                        <strong>Email</strong> : <em><span></span></em>
-                                    </p>
-                                        <p class="contact-tel">
-                                            <strong>Tel :</strong> <span></span>
-                                        </p>
-                                </div>
-                                <div class="message-date">
-                                    Le <span></span>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 message-content">
-                                <span></span>
-                            </div>
-
-
+                    <div class="message-info col-sm-12">
+                        <div class="message-contact-info">
+                            <p class="contact-name"><strong>Auteur :</strong> <span></span></p>
+                            <p class="contact-email">
+                                <strong>Email</strong> : <em><span></span></em>
+                            </p>
+                                <p class="contact-tel">
+                                    <strong>Tel :</strong> <span></span>
+                                </p>
+                        </div>
+                        <div class="message-date">
+                            Le <span></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 message-content">
+                        <span></span>
+                    </div>
                 </aside>
-         </div>
+            </div>
 
     </div>
-
-
-
-
 
 {% endblock %}

@@ -2,7 +2,9 @@
 
 {% block title %}{{ production.name }} (Réalisations) - {{ parent() }}{% endblock %}
 {% block pageName %}productions{% endblock %}
+
 {% block main %}
+
     <div class="row">
         <h2 class="single-title">{{ production.name }}</h2>
     </div>
@@ -31,7 +33,6 @@
                             <img src="{{ images_directory }}/{{ production.preview }}" alt="{{ production.name }}" class="col-sm-12"/>
                         </p>
                     </div>
-
                 </div>
                 <div class="col-sm-9 text-content">
                     <h4>Informations</h4>
@@ -69,8 +70,6 @@
                         <p class="col-md-2  col-xs-4 "><strong>Description</strong></p>
                         <div class="col-md-10 col-xs-12">{{ production.description  | raw }}</div>
                     </div>
-
-
                 </div>
             </div>
 
@@ -80,8 +79,6 @@
             <h3 class="section-title">Édition</h3>
             {{ include('Back/Form/production.html.twig') }}
         </section>
-
-
-
     </div>
+
 {% endblock %}

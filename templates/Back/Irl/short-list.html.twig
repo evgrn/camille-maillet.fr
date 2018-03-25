@@ -29,14 +29,13 @@
                         <a href="{{ path('cm_back_irl_single', {'id': irl.id}) }}" class=""><i class="fas fa-edit"></i></a>
                         <a href="{{ path('cm_back_irl_toggle_published', {'id': irl.id}) }}" class="">{% if irl.published %}<i class="fas fa-eye-slash"></i>{% else %}<i class="fas fa-eye"></i>{% endif %}</a>
                         <a href="{{ path('cm_back_irl_delete', {'id': irl.id}) }}" class=""><i class="fas fa-trash-alt"></i></a>
-
                 </td>
             </tr>
         {% endfor %}
         </tbody>
-
     </table>
 </div>
+
 <div class="row">
     <a href="{{ path('cm_back_irl_list') }}" class="btn btn-default col-xs-12">Accéder à la section</a>
 </div>

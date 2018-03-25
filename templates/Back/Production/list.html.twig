@@ -2,6 +2,7 @@
 
 {% block title %}Réalisations - {{ parent() }} {% endblock %}
 {% block pageName %}productions{% endblock %}
+
 {% block main %}
     <div class="row">
         <h2 class="list-page-title hidden-md hidden-lg hidden-xl">Réalisations </h2>
@@ -53,7 +54,6 @@
                             <ul>
                                 {% for technology in production.technologies %}<li>{{ technology.name }}</li>{% else %}<span class="not">Aucune</span>{% endfor %}
                             </ul>
-
                         </div>
                     </td>
                     <td class="date-cell hidden-xs">
@@ -76,9 +76,7 @@
                 </tr>
             {% endfor %}
             </tbody>
-
         </table>
     </section>
-
 
 {% endblock %}

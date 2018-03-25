@@ -2,7 +2,9 @@
 
 {% block title %}Liste des éléments IRL - {{ parent() }} {% endblock %}
 {% block pageName %}irl{% endblock %}
+
 {% block main %}
+
     <div class="row">
         <h2 class="list-page-title hidden-md hidden-lg hidden-xl">IRL </h2>
     </div>
@@ -20,7 +22,6 @@
             </tr>
             </thead>
             <tbody>
-
             {% for irl in irl %}
                 <tr>
                     <td class="img-cell hidden-xs">
@@ -55,10 +56,7 @@
                 </tr>
             {% endfor %}
             </tbody>
-
         </table>
     </section>
-
-
 
 {% endblock %}

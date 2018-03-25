@@ -75,6 +75,10 @@ span.visible-xs{
     margin-right: 5px;
 }
 
+.hidden{
+    display: none;
+}
+
 /*### HEADER ###*/
 
 header{
@@ -222,6 +226,10 @@ table .img-cell img{
 table .actions-cell{
     font-size: 1.25em;
     letter-spacing: .2em;
+    color: #428bca;
+}
+table .actions-cell span{
+    cursor: pointer;
 }
 
 table ul{

@@ -2,6 +2,7 @@
 
 {% block title %}Biographie - {{ parent() }}{% endblock %}
 {% block pageName %}bio{% endblock %}
+
 {% block main %}
 
     <div class="row">
@@ -14,7 +15,6 @@
                 <div class="col-sm-2 col-xs-4 single-image">
                     <img src="{{ images_directory }}/{{ bio.image }}" alt="Biographie"/>
                 </div>
-
                 <div class="col-sm-offset-1 col-sm-9 text-content">
                     <div class="row">
                         <p class="col-md-2 col-sm-3"><strong>Contenu : </strong></p>
@@ -22,7 +22,6 @@
                     </div>
                 </div>
             </div>
-
         </section>
 
         <section id="form" class="single-section">
@@ -30,7 +29,6 @@
             <div class="section-content row">
                 {{ form_start(form, {'attr': {'class': 'form-horizontal col-sm-offset-1 col-sm-10'}}) }}
                 {{ form_errors(form, {'attr': {'class': 'alert alert-warning'}}) }}
-
                 <div class="form-group">
                     {{ form_label(form.content, "Contenu", {'label_attr': {'class': ' col-md-4  control-label'}}) }}
                     {{ form_errors(form.content) }}
@@ -46,18 +44,11 @@
                     </div>
                 </div>
 
-
                 {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary pull-right'}}) }}
-
-
                 {{ form_rest(form) }}
-
-
                 {{ form_end(form) }}
             </div>
         </section>
-
-
-
     </div>
+
 {% endblock %}
