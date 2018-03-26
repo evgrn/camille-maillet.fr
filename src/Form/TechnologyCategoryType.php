@@ -27,7 +27,7 @@ class TechnologyCategoryType extends AbstractType
     {
         $builder
             ->add('name', TextType::class)
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, array('label' => 'Valider'))
         ;
     }
 

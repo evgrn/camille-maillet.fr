@@ -12,4 +12,5 @@
 /public/uploads/
 /src/DataFixtures/
 /src/Migrations/
+/config/packages/swiftmailer.yaml
 .idea/

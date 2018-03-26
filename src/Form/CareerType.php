@@ -33,7 +33,7 @@ class CareerType extends AbstractType
                     'format' => 'dd/MM/yyyy'
                 ) )
             ->add('published', CheckboxType::class, array('required' => false) )
-            ->add('submit', SubmitType::class )
+            ->add('submit', SubmitType::class, array('label' => 'Valider') )
         ;
     }
 

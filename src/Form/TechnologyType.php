@@ -47,7 +47,7 @@ class TechnologyType extends AbstractType
         ))
         ->add('mastered', CheckboxType::class, array('required' =>false))
         ->add('published', CheckboxType::class, array('required' => false))
-        ->add('submit', SubmitType::class)
+        ->add('submit', SubmitType::class, array('label' => 'Valider'))
         ;
     }
 

@@ -34,7 +34,7 @@ class IrlType extends AbstractType
             ->add('description', TextareaType::class, array('required' => false))
             ->add('image', FileType::class)
             ->add('published', CheckboxType::class, array('required' => false))
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, array('label' => 'Valider'))
         ;
     }
 

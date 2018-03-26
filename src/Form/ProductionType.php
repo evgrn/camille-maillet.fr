@@ -61,7 +61,7 @@ class ProductionType extends AbstractType
                     return $repository->getAllMasteredAndPublished();
                 }
             ))
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, array('label' => 'Valider'))
         ;
     }
 
