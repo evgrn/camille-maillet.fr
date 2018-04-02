@@ -27,14 +27,14 @@
             {{ form_label(form.tel, "Téléphone", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
             {{ form_errors(form.tel) }}
             <div class="col-sm-10">
-                {{ form_widget(form.tel, {'attr': {'class': 'form-control', 'rows': '10'}}) }}
+                {{ form_widget(form.tel, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
         <div class="form-group">
             {{ form_label(form.object, "Objet", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
             {{ form_errors(form.object) }}
             <div class="col-sm-10">
-                {{ form_widget(form.object, {'attr': {'class': 'form-control', 'rows': '10'}}) }}
+                {{ form_widget(form.object, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
         <div class="form-group">
@@ -42,7 +42,9 @@
             {{ form_errors(form.message) }}
             <div class="col-sm-10">
                 {{ form_widget(form.message, {'attr': {'class': 'form-control', 'rows': '10'}}) }}
+                <p id="empty-textarea"></p>
             </div>
+
         </div>
 
 

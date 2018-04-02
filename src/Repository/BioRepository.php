@@ -19,6 +19,10 @@ class BioRepository extends ServiceEntityRepository
         parent::__construct($registry, Bio::class);
     }
 
+    /**
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function getBio(){
         return $this->createQueryBuilder('b')
             ->where('b.id = 1')

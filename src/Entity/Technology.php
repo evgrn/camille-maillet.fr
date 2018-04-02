@@ -176,6 +176,12 @@ class Technology
         $this->productions = $productions;
     }
 
+    /**
+     * @param \App\Entity\Production $production
+     * @return $this
+     *
+     * Ajout de l'entité Production entrée en paramètre dans la propriété productions.
+     */
     public function addProduction(Production $production)
     {
         $this->productions[] = $production;
@@ -183,6 +189,11 @@ class Technology
         return $this;
     }
 
+    /**
+     * @param \App\Entity\Production $production
+     *
+     * Suppression de l'entité $production entrée en paramètre de la propriété $productions.
+     */
     public function removeProduction(Production $production)
     {
         $this->productions->removeElement($production);

@@ -5,9 +5,9 @@
             {% for career in formationCareer %}
             <li>
                 {% if career.structure %}<span class="structure">{{ career.structure }}: </span> {% endif %}{{ career.name }} <span class="date">({{ career.date|date('Y') }})</span>
-                    <p class="parcours-list-description">
-                {{ career.description | raw }}
-            </p>
+                    <div class="parcours-list-description">
+                         {{ career.description | raw }}
+                    </div>
             </li>
             {% endfor %}
         </ul>
@@ -18,9 +18,9 @@
             {% for career in corporateCareer %}
                 <li>
                     {% if career.structure %}<span class="structure">{{ career.structure }} : </span> {% endif %}{{ career.name }} <span class="date">({{ career.date|date('Y') }})</span>
-                    <p class="parcours-list-description">
+                    <div class="parcours-list-description">
                         {{ career.description | raw }}
-                    </p>
+                    </div>
                 </li>
             {% endfor %}
         </ul>

@@ -58,6 +58,11 @@ $(function(){
         mustsDisappear: '',
 
         /**
+         * Sélecteur de l'élément dans lequel apparaîtra le message d'erreur lié à TinyMCE.
+         */
+        tinyMCEErrorBox: '',
+
+        /**
          * Si la fenêtre est affichée, vaut true, sinon false.
          */
         isWindowActive: '',
@@ -78,6 +83,11 @@ $(function(){
         errorMessage: 'Message non envoyé, veuillez réessayer',
 
         /**
+         * Message affiché si l'éditeur TinyMCE est vide au submit du formulaire.
+         */
+        emptyTinyMCEMessage: 'Veuillez remplir le champ',
+
+        /**
          *
          * @param windowSelector
          * @param triggerSelector
@@ -89,8 +99,9 @@ $(function(){
          * @param backButton
          * @param mustsNotScroll
          * @param mustsDisappear
+         * @param tinyMCEErrorBox
          */
-        init: function(windowSelector, triggerSelector, formSelector, loaderSelector, messageBoxSelector, centerPage, menu, backButton, mustsNotScroll, mustsDisappear){
+        init: function(windowSelector, triggerSelector, formSelector, loaderSelector, messageBoxSelector, centerPage, menu, backButton, mustsNotScroll, mustsDisappear, tinyMCEErrorBox){
             this.windowSelector = windowSelector;
             this.triggerSelector = triggerSelector;
             this.formSelector = formSelector;
@@ -102,6 +113,7 @@ $(function(){
             this.centerPage = centerPage;
             this.mustNotScroll = mustsNotScroll;
             this.mustsDisappear= mustsDisappear;
+            this.tinyMCEErrorBox = tinyMCEErrorBox;
             this.listenClicks();
             this.form.listenSubmit();
         },
@@ -271,8 +283,9 @@ $(function(){
         form: {
 
             /**
-             * A la soumission du formulaire de contact, empêche la soumission directe,
-             * affiche le loader et envoie les données au contrôleur pour qu'ils soient stockés en BDD
+             * A la soumission du formulaire de contact, empêche la soumission directe.
+             * Si le champ TinyMCE n'est pas rempli, affiche un message d'erreur,
+             * sinon affiche le loader et envoie les données au contrôleur pour qu'ils soient stockés en BDD
              * et qu'une notification soit envoyée par mail à l'admnistrateur.
              * En cas de succès, cache le le loader et la page de contact, vérouille le formulaire et affiche le message de succès,
              * En cas d'échec, cache le loader et affiche le message d'erreur.
@@ -280,35 +293,47 @@ $(function(){
             listenSubmit: function(){
                 $(contactWindowManager.formSelector).on('submit', function(e) {
                     e.preventDefault();
-                    contactWindowManager.form.showLoader();
-                    var formSerialize = $(this).serialize();
 
-                    $.ajax({
-                        url: '',
-                        type: "post",
-                        async: true,
-                        data: formSerialize,
-                        dataType: 'json',
-                        success: function(data) {
-                            contactWindowManager.form.hideLoader();
-                            contactWindowManager.handleHiding();
-                            contactWindowManager.form.lock();
-                            contactWindowManager.showMessage('success');
-                        },
-                        error: function(){
-                            contactWindowManager.form.hideLoader();
-                            contactWindowManager.showMessage('error');
-                        }
-                    });
+                    if(contactWindowManager.form.tinyMCENotEmpty()){
+                        contactWindowManager.form.showLoader();
+                        var formSerialize = $(this).serialize();
+
+                        $.ajax({
+                            url: '',
+                            type: "post",
+                            async: true,
+                            data: formSerialize,
+                            dataType: 'json',
+                            success: function(data) {
+                                contactWindowManager.form.hideLoader();
+                                contactWindowManager.handleHiding();
+                                contactWindowManager.form.lock();
+                                contactWindowManager.showMessage('success');
+                            },
+                            error: function(){
+                                contactWindowManager.form.hideLoader();
+                                contactWindowManager.showMessage('error');
+                            }
+                        });
+                    }
+
                 });
+            },
+
+            tinyMCENotEmpty: function(){
+                if(tinymce.activeEditor.getContent() === ""){
+                    $(contactWindowManager.tinyMCEErrorBox).text(contactWindowManager.emptyTinyMCEMessage);
+                    return false;
+                }
+                return true;
             },
 
             /**
              * Si le formulaire a déjà été soumis, empêche un second accès à celui-ci.
              */
             lock: function(){
-                this.messageSent = true;
-                $(this.triggerSelector).removeClass('blink').addClass('locked');
+                contactWindowManager.messageSent = true;
+                $(contactWindowManager.triggerSelector).removeClass('blink').addClass('locked');
             },
 
             /**
@@ -329,6 +354,6 @@ $(function(){
 
     };
 
-    contactWindowManager.init('#left-page', '#show-left-page', 'form', '#sending-loader', '#message-notification', '#main-content', '#global-nav', '#back', 'body', 'footer');
+    contactWindowManager.init('#left-page', '#show-left-page', 'form', '#sending-loader', '#message-notification', '#main-content', '#global-nav', '#back', 'body', 'footer', '#empty-textarea');
 
 });

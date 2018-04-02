@@ -170,11 +170,13 @@ class ProductionController extends Controller
 
         // Récupération de l'entité
         $em = $this->getDoctrine()->getManager();
-        $productionPreview = clone $production;
+
 
         // Afin de ne pas avoir de problème avec les champ image, preview et thumbnail du formulaire, on clone l'objet $production.
         // Son clone $productionPreview servira à hydrater la partie aperçu
         // L'objet $production initial, qui servira à hydrater le formulaire, se voit remplacer ses propriétés $image, $thumbnail et $preview par des objets de type File attendus par le formulaire.
+        $productionPreview = clone $production;
+
         $originalThumbnail = $production->getThumbnail();
         $originalImage = $production->getImage();
         $originalPreview = $production->getPreview();

@@ -485,7 +485,6 @@ ul{
 
 #productions-nav li{
     text-align: center;
-    border-left: 1px-solid
 }
 
 .production-preview{
@@ -703,7 +702,7 @@ section#intro h1 strong{
 /*### PRODUCTIONS ###*/
 
 section#productions{
-    border-bottom: 1px solid whitesmioke;
+    border-bottom: 1px solid whitesmoke;
     margin: 0;
 
 }
@@ -1051,6 +1050,11 @@ section#production-single{
     padding: 0 !important;
 }
 
+section#production-single ul{
+    list-style: initial;
+}
+
+
 #production-single-container{
     margin-top: 40px;
 }
@@ -1270,6 +1274,12 @@ section#production-single{
         margin-top: 10px;
         color: black;
     }
+
+    #irl a{
+        color: dimgray;
+        font-style: italic;
+    }
+}
 
     /*### SIDE-PAGES ###*/
 

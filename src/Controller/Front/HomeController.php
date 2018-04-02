@@ -50,11 +50,10 @@ class HomeController extends Controller{
 
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $message->setDate(new \DateTime());
             // Le message est non-traité par défaut
             $message->setProcessed(false);
-
-
 
             // Envoi de la notification de message à l'adresse mail de l'administrateur
             $adminUserEmail = $em->getRepository('App:User')->find(0)->getEmail();

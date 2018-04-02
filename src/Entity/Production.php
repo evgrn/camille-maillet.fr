@@ -91,6 +91,11 @@ class Production
     private $published;
 
 
+    /**
+     * @return array
+     *
+     * Retourne l'ensemble des propriétés de l'entité sous forme de tableau
+     */
     public function getPropertyArray(){
         return array(
             'id' => $this->getId(),
@@ -107,6 +112,11 @@ class Production
         );
     }
 
+    /**
+     * @return string
+     *
+     * Retourne une chaîne de caractères comportant toutes les technologies associées.
+     */
     public function  getTechnologyList(){
         $technologies = '';
         $i = 0;
@@ -120,6 +130,11 @@ class Production
         return $technologies;
     }
 
+    /**
+     * @return mixed
+     *
+     * Retourne le nom de la catégorie de réalisation associée.
+     */
     public function getProductionCategoryName(){
         return $this->getProductionCategory()->getName();
     }
@@ -279,6 +294,13 @@ class Production
         return $this->id;
     }
 
+    /**
+     * @param \App\Entity\Technology $technology
+     * @return $this
+     *
+     * Ajoute l'entité Technology entrée en paramètre dans sa propriété $technologies
+     * Ajoute à l'entité Technology entrée en paramètre l'entité Production courante.
+     */
     public function addTechnology(Technology $technology)
     {
         $this->technologies[] = $technology;
@@ -288,6 +310,10 @@ class Production
         return $this;
     }
 
+    /**
+     * @param \App\Entity\Technology $technology
+     * Suppression de l'entité courante dans l'entité Technology entrée en paramètre et inversement.
+     */
     public function removeTechnology(Technology $technology)
     {
         $this->technologies->removeElement($technology);

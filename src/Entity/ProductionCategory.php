@@ -79,6 +79,9 @@ class ProductionCategory
 
     /**
      * @param Production $production
+     *
+     * Ajout de l'entité Production entrée en paramètre dans la propriété productions
+     * et définition de l'attribut $productionCategory de l'entité entrée en parmètre par l'entité courante.
      */
     public function addProduction(Production $production)
     {
@@ -89,6 +92,8 @@ class ProductionCategory
 
     /**
      * @param Production $application
+     *
+     * Suppression de l'entité Production entrée en paramètre.
      */
     public function removeProduction(Production $production)
     {

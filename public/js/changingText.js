@@ -38,7 +38,7 @@ $(function(){
          * retourne le premier sinon.
          * @returns string
          */
-        getNextWord: function () {
+        getNextWord: function(){
             if (this.currentWordIndex < this.wordList.length - 1) {
                 this.currentWordIndex++;
             }
@@ -52,30 +52,30 @@ $(function(){
          * Remplace le mot actuellement affiché par le suivant s'il n'est pas le dernier,
          * sinon par le premier.
          */
-        replaceWord: function () {
+        replaceWord: function(){
             var currentWord = changingText.getNextWord();
             $(this.selector).animate({opacity: 0}, 500, function () {
                 $(changingText.selector).text(currentWord);
             });
-            setTimeout(function () {
+            setTimeout(function(){
                 $(changingText.selector).animate({opacity: 1}, 1000)
             });
         },
 
-        showNextWord: function () {
+        showNextWord: function(){
             changingText.replaceWord();
         },
 
         /**
          * Change de mot toutes les 3 secondes.
          */
-        run: function () {
+        run: function(){
 
             var interval = window.setInterval(changingText.showNextWord, 3000);
         }
 
     };
 
-    changingText.init(['web', 'php', 'javascipt', 'html5', 'symfony4', 'jquery', 'css3']);
+    changingText.init(['web', 'symfony4', 'javascript', 'mvc', 'wordpress', 'php', 'html5', 'jquery', 'css3']);
 
 });

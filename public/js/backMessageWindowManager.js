@@ -70,6 +70,7 @@ $(function(){
             var tel = $(message).attr('tel');
             var object = $(message).attr('object');
             var content = $(message).attr('message');
+            var date = $(message).attr('date');
 
             // Hydratation de la fenêtre de lecture du message.
             $('.message-object').text(object);
@@ -77,6 +78,7 @@ $(function(){
             $('.contact-email span').text(email);
             $('.contact-tel span').text(tel);
             $('.message-content span').html(content);
+            $('.message-date span').html(date);
         },
     };
 
